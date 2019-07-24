@@ -88,8 +88,9 @@ public class Player_script : MonoBehaviour {
                     GameManager.instance.emoveX = 0;
                     GameManager.instance.emoveY = 0;
 
-
-
+                    GameManager.instance.Player_Heal_MP(10);
+                    GameManager.instance.Mp_Bar();
+                    
                     player.exist_room_no = 10;
 
                     GameManager.instance.enemies.Clear();
@@ -188,6 +189,7 @@ public class Player_script : MonoBehaviour {
         else if(GameManager.instance.Menu == false ) {
             if (Input.GetKey(KeyCode.Z))
             {
+
                 if(player.equipment_weapon != null)
                 {
                     if(player.equipment_weapon.MP_COST_W > player.player_mp)
@@ -780,7 +782,6 @@ public class Player_script : MonoBehaviour {
             }
         }
 
-
         GameManager.instance.damageenemy.Clear();
 
         GameManager.instance.PlayerMoving = false;
@@ -793,8 +794,6 @@ public class Player_script : MonoBehaviour {
 
     IEnumerator Smooth_Success_Develop()
     {
-        Debug.Log("A");
-
         myAnimator.SetInteger("AnimIndex", 5);
 
         yield return null;
@@ -927,6 +926,7 @@ public class Player_script : MonoBehaviour {
 
     private void line_attack_0(int attack_range, int attack_type, bool slanting_wall, bool attack_through, int attack_damage , Color grid_color)
     {
+
         for (int i = 1; i <= attack_range; i++)
         {
             if (vectorchange == false)

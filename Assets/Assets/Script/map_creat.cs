@@ -7,39 +7,147 @@ using UnityEngine.UI;
 
 public class map_creat : MonoBehaviour {
     //敵ステータス
-    public const int BAT1_HP = 8;
-    public const int BAT1_MP = 2;
-    public const int BAT1_ATTACK = 2;
-    public const int BAT1_DEFENSE = 0;
+    public const float BAT1_HP = 12;
+    public const float BAT1_MP = 2;
+    public const float BAT1_ATTACK = 11;
+    public const float BAT1_DEFENSE = 0;
     public const int BAT1_ATTACK_RANGE = 1;
     public const int BAT1_ATTACK_TYPE = 0;
     public const bool BAT1_SLANTING_WALL = true;
 
-    public const int GHOST1_HP = 2;
-    public const int GHOST1_MP = 2;
-    public const int GHOST1_ATTACK = 5;
-    public const int GHOST1_DEFENSE = 0;
+    public const float GHOST1_HP = 10;
+    public const float GHOST1_MP = 2;
+    public const float GHOST1_ATTACK = 17;
+    public const float GHOST1_DEFENSE = 1;
     public const int GHOST1_ATTACK_RANGE = 1;
     public const int GHOST1_ATTACK_TYPE = 0;
     public const bool GHOST1_SLANTING_WALL = false;
 
-    public const int RABBIT1_HP = 5;
-    public const int RABBIT1_MP = 2;
-    public const int RABBIT1_ATTACK = 3;
-    public const int RABBIT1_DEFENSE = 0;
+    public const float RABBIT1_HP = 5;
+    public const float RABBIT1_MP = 2;
+    public const float RABBIT1_ATTACK = 9;
+    public const float RABBIT1_DEFENSE = 0;
     public const int RABBIT1_ATTACK_RANGE = 2;
     public const int RABBIT1_ATTACK_TYPE = 0;
     public const bool RABBIT1_SLANTING_WALL = true;
 
 
-    public const int SLIME1_HP = 1;
-    public const int SLIME1_MP = 2;
-    public const int SLIME1_ATTACK = 3;
-    public const int SLIME1_DEFENSE = 0; //999
+    public const float SLIME1_HP = 1;
+    public const float SLIME1_MP = 2;
+    public const float SLIME1_ATTACK = 30;
+    public const float SLIME1_DEFENSE = 0; //999
     public const int SLIME1_ATTACK_RANGE = 1;
     public const int SLIME1_ATTACK_TYPE = 0;
     public const bool SLIME1_SLANTING_WALL = true;
 
+    public const float BAT2_HP = 31;
+    public const float BAT2_MP = 2;
+    public const float BAT2_ATTACK = 17;
+    public const float BAT2_DEFENSE = 0;
+    public const int BAT2_ATTACK_RANGE = 1;
+    public const int BAT2_ATTACK_TYPE = 0;
+    public const bool BAT2_SLANTING_WALL = true;
+
+    public const float GHOST2_HP = 25;
+    public const float GHOST2_MP = 2;
+    public const float GHOST2_ATTACK = 15;
+    public const float GHOST2_DEFENSE = 5;
+    public const int GHOST2_ATTACK_RANGE = 1;
+    public const int GHOST2_ATTACK_TYPE = 0;
+    public const bool GHOST2_SLANTING_WALL = false;
+
+    public const float RABBIT2_HP = 8;
+    public const float RABBIT2_MP = 2;
+    public const float RABBIT2_ATTACK = 12;
+    public const float RABBIT2_DEFENSE = 0;
+    public const int RABBIT2_ATTACK_RANGE = 2;
+    public const int RABBIT2_ATTACK_TYPE = 0;
+    public const bool RABBIT2_SLANTING_WALL = true;
+
+
+    public const float SLIME2_HP = 1;
+    public const float SLIME2_MP = 2;
+    public const float SLIME2_ATTACK = 45;
+    public const float SLIME2_DEFENSE = 0; //999
+    public const int SLIME2_ATTACK_RANGE = 1;
+    public const int SLIME2_ATTACK_TYPE = 0;
+    public const bool SLIME2_SLANTING_WALL = true;
+
+    public const float BAT3_HP = 60;
+    public const float BAT3_MP = 2;
+    public const float BAT3_ATTACK = 26;
+    public const float BAT3_DEFENSE = 0;
+    public const int BAT3_ATTACK_RANGE = 1;
+    public const int BAT3_ATTACK_TYPE = 0;
+    public const bool BAT3_SLANTING_WALL = true;
+
+    public const float GHOST3_HP = 34;
+    public const float GHOST3_MP = 2;
+    public const float GHOST3_ATTACK = 25;
+    public const float GHOST3_DEFENSE = 10;
+    public const int GHOST3_ATTACK_RANGE = 1;
+    public const int GHOST3_ATTACK_TYPE = 0;
+    public const bool GHOST3_SLANTING_WALL = false;
+
+    public const float RABBIT3_HP = 14;
+    public const float RABBIT3_MP = 2;
+    public const float RABBIT3_ATTACK = 23;
+    public const float RABBIT3_DEFENSE = 0;
+    public const int RABBIT3_ATTACK_RANGE = 2;
+    public const int RABBIT3_ATTACK_TYPE = 0;
+    public const bool RABBIT3_SLANTING_WALL = true;
+
+
+    public const float SLIME3_HP = 1;
+    public const float SLIME3_MP = 2;
+    public const float SLIME3_ATTACK = 62;
+    public const float SLIME3_DEFENSE = 0; //999
+    public const int SLIME3_ATTACK_RANGE = 1;
+    public const int SLIME3_ATTACK_TYPE = 0;
+    public const bool SLIME3_SLANTING_WALL = true;
+
+    public const float BAT4_HP = 78;
+    public const float BAT4_MP = 2;
+    public const float BAT4_ATTACK = 35;
+    public const float BAT4_DEFENSE = 0;
+    public const int BAT4_ATTACK_RANGE = 1;
+    public const int BAT4_ATTACK_TYPE = 0;
+    public const bool BAT4_SLANTING_WALL = true;
+
+    public const float GHOST4_HP = 40;
+    public const float GHOST4_MP = 2;
+    public const float GHOST4_ATTACK = 28;
+    public const float GHOST4_DEFENSE = 15;
+    public const int GHOST4_ATTACK_RANGE = 1;
+    public const int GHOST4_ATTACK_TYPE = 0;
+    public const bool GHOST4_SLANTING_WALL = false;
+
+    public const float RABBIT4_HP = 20;
+    public const float RABBIT4_MP = 2;
+    public const float RABBIT4_ATTACK = 26;
+    public const float RABBIT4_DEFENSE = 3;
+    public const int RABBIT4_ATTACK_RANGE = 2;
+    public const int RABBIT4_ATTACK_TYPE = 0;
+    public const bool RABBIT4_SLANTING_WALL = true;
+
+
+    public const float SLIME4_HP = 1;
+    public const float SLIME4_MP = 2;
+    public const float SLIME4_ATTACK = 82;
+    public const float SLIME4_DEFENSE = 0; //999
+    public const int SLIME4_ATTACK_RANGE = 1;
+    public const int SLIME4_ATTACK_TYPE = 0;
+    public const bool SLIME4_SLANTING_WALL = true;
+
+    public const float BOSS1_HP = 150;
+    public const float BOSS1_MP = 2;
+    public const float BOSS1_ATTACK = 62;
+    public const float BOSS1_DEFENSE = 25; //999
+    public const int BOSS1_ATTACK_RANGE = 1;
+    public const int BOSS1_ATTACK_TYPE = 0;
+    public const bool BOSS1_SLANTING_WALL = true;
+
+    //アイテム
     public const string NAME_I1 = "回復薬";
     public const int HEAL_POINT_I1 = 50;
     public const int DEVELOP_I1_MATERIAL_1 = 1;
@@ -135,7 +243,7 @@ public class map_creat : MonoBehaviour {
     public const int ATTACK_W5 = 30;
     public const int DEFENSE_W5 = 15;
     public const int ATTACK_RANGE_W5 = 3;
-    public const int ATTACK_TYPE_W5 = 2;
+    public const int ATTACK_TYPE_W5 = 1;
     public const bool ATTACK_THROUGH_W5 = true;
     public const bool SLANTING_WALL_W5 = true;
     public const int DEVELOP_W5_MATERIAL_1 = 1;
@@ -226,6 +334,9 @@ public class map_creat : MonoBehaviour {
     public static int player_position_x;
     public static int player_position_z;
 
+    public int boss_pos_x;
+    public int boss_pos_z;
+
     public map_creat map_creat_instance;
 
     void Start()
@@ -238,8 +349,17 @@ public class map_creat : MonoBehaviour {
     {
         FloorText = GameObject.Find("FloorLevel");
             GameManager.instance.floorlevel++;
-        
-        
+
+
+        //階数に応じて敵が強くなる
+        if(GameManager.instance.floorlevel % 10 == 1 && GameManager.instance.floorlevel <= 40)
+        {
+            GameManager.instance.floor_enemy_level_coefficient = 1f;
+        }
+
+        GameManager.instance.floor_enemy_level_coefficient *= GameManager.instance.floor_level_coefficient;
+
+
         GameManager.instance.roomlist.Clear();
         GameManager.instance.roomlist_0.Clear();
         GameManager.instance.roomlist_1.Clear();
@@ -1400,8 +1520,10 @@ public class map_creat : MonoBehaviour {
                 }
                 */
 
-                  map[x,y].obj = Instantiate(floor, new Vector3(x, -1, y), Quaternion.identity);
-
+                if (map[x, y].number != 5)
+                {
+                    map[x, y].obj = Instantiate(floor, new Vector3(x, -1, y), Quaternion.identity);
+                }
 
                 
             }
@@ -1420,34 +1542,34 @@ public class map_creat : MonoBehaviour {
         int itemnumber = Random.Range(5, 15);
         for(int i = 0; i < itemnumber; i++)
         {
-            int a = Random.Range(0, 30);
-            if(0 <= a && a < 2)
+            int a = Random.Range(0, 100);
+            if(a <= 15)
             {
                 InstantiateInRoom_map_item(Item1);
             }
-            else if(a == 2)
+            else if(a >= 16 && a <= 17)
             {
                 InstantiateInRoom_map_item(Item2);
             }
-            else if(a == 3)
+            else if(a >= 18 && a <= 19)
             {
                 InstantiateInRoom_map_item(Item3);
-            }else if(a == 4)
+            }else if(a >= 20 && a <= 69)
             {
                 InstantiateInRoom_map_item(Material1);
-            }else if(a == 5)
+            }else if(a >= 70 && a <= 89)
             {
                 InstantiateInRoom_map_item(Material2);
-            }else if(a == 6)
+            }else if(a >= 90 && a <= 97)
             {
                 InstantiateInRoom_map_item(Material3);
-            }else if(a >= 7 && a<= 15)
+            }else if(a == 98)
             {
                 InstantiateInRoom_map_item(Weapon1);
-            }else if(a >= 16 && a<= 23)
+            }else if(a == 99)
             {
                 InstantiateInRoom_map_item(Weapon2);
-            }else if(a >= 24 && a<= 30)
+            }else if(a == 100)
             {
                 InstantiateInRoom_map_item(Weapon3);
             }
@@ -1460,6 +1582,12 @@ public class map_creat : MonoBehaviour {
                 grid_color[x, z] = map[x, z].obj.transform.GetChild(0).GetComponent<Renderer>();
                 map[x, z].obj.transform.GetChild(0).gameObject.SetActive(false);
             }
+        }
+
+        //10階ごとにボス配置
+        if (GameManager.instance.floorlevel % 10 == 0)
+        {
+            InstantiateBossInRoom(Golem);
         }
 
 
@@ -1486,6 +1614,11 @@ public class map_creat : MonoBehaviour {
         {
             map[(int)pos.x , (int)pos.z] = new kaidan();
             map[(int)pos.x , (int)pos.z].number = 5;
+            map[(int)pos.x, (int)pos.z].obj = Instantiate(obj, new Vector3((int)pos.x, -0.5f, (int)pos.z), Quaternion.identity);
+
+            boss_pos_x = (int)pos.x;
+            boss_pos_z = (int)pos.z;
+
         }else if(obj.tag == "Item1")
         {
             map_item[(int)pos.x, (int)pos.z] = new item1(NAME_I1,HEAL_POINT_I1,DEVELOP_I1_MATERIAL_1,DEVELOP_I1_MATERIAL_2,DEVELOP_I1_MATERIAL_3,DEVELOP_NEED_MP_I1);
@@ -1578,6 +1711,7 @@ public class map_creat : MonoBehaviour {
         map_item[pos_x, pos_z].minimap_item.transform.parent = map_item[pos_x, pos_z].obj.transform;
         map_item[pos_x, pos_z].minimap_item.SetActive(false);
     }
+    
 
     //敵の種類を決定
     public void Random_Enemy_Instantiate(int amount)
@@ -1587,19 +1721,83 @@ public class map_creat : MonoBehaviour {
             int a = Random.Range(0, 10);
             if (0 <= a && a < 5)
             {
-                InstantiateEnemyInRoom(Bat1);
+                if(GameManager.instance.floorlevel > 30)
+                {
+                    InstantiateEnemyInRoom(Bat4);
+                }
+                else if(GameManager.instance.floorlevel > 20)
+                {
+                    InstantiateEnemyInRoom(Bat3);
+                }
+                else if (GameManager.instance.floorlevel > 10)
+                {
+                    InstantiateEnemyInRoom(Bat2);
+                }
+                else
+                {
+                    InstantiateEnemyInRoom(Bat1);
+                }
+                
             }
             else if (5 <= a && a < 7)
             {
-                InstantiateEnemyInRoom(Ghost1);
+                if (GameManager.instance.floorlevel > 30)
+                {
+                    InstantiateEnemyInRoom(Ghost4);
+                }
+                else if (GameManager.instance.floorlevel > 20)
+                {
+                    InstantiateEnemyInRoom(Ghost3);
+                }
+                else if (GameManager.instance.floorlevel > 10)
+                {
+                    InstantiateEnemyInRoom(Ghost2);
+                }
+                else
+                {
+                    InstantiateEnemyInRoom(Ghost1);
+                }
+                
             }
             else if (7 <= a && a < 9)
             {
-                InstantiateEnemyInRoom(Rabbit1);
+                if (GameManager.instance.floorlevel > 30)
+                {
+                    InstantiateEnemyInRoom(Rabbit4);
+                }
+                else if (GameManager.instance.floorlevel > 20)
+                {
+                    InstantiateEnemyInRoom(Rabbit3);
+                }
+                else if (GameManager.instance.floorlevel > 10)
+                {
+                    InstantiateEnemyInRoom(Rabbit2);
+                }
+                else
+                {
+                    InstantiateEnemyInRoom(Rabbit1);
+                }
+                
             }
             else
             {
-                InstantiateEnemyInRoom(Slime1);
+                if (GameManager.instance.floorlevel > 30)
+                {
+                    InstantiateEnemyInRoom(Slime4);
+                }
+                else if (GameManager.instance.floorlevel > 20)
+                {
+                    InstantiateEnemyInRoom(Slime3);
+                }
+                else if (GameManager.instance.floorlevel > 10)
+                {
+                    InstantiateEnemyInRoom(Slime2);
+                }
+                else
+                {
+                    InstantiateEnemyInRoom(Slime1);
+                }
+                
             }
         }
     }
@@ -1607,6 +1805,8 @@ public class map_creat : MonoBehaviour {
     //部屋にランダムに敵を生成
     private void InstantiateEnemyInRoom(GameObject obj)
     {
+        float random = Random.Range(0.8f, 1.2f);
+
         Vector3 pos;
         do
         {
@@ -1615,31 +1815,120 @@ public class map_creat : MonoBehaviour {
         
         if (obj.tag == "bat")
         {
-            //マップ管理のクラスと、敵のステータスを入れる
-            map_ex[(int)pos.x, (int)pos.z] = new enemy();
-            map_ex[(int)pos.x, (int)pos.z].state = new enemystate(BAT1_HP, BAT1_HP, BAT1_MP, BAT1_MP, BAT1_ATTACK, BAT1_ATTACK, BAT1_DEFENSE, BAT1_DEFENSE, BAT1_ATTACK_RANGE, BAT1_ATTACK_TYPE, BAT1_SLANTING_WALL);
-        }
+            if (GameManager.instance.floorlevel > 30)
+            {
+                map_ex[(int)pos.x, (int)pos.z] = new enemy();
+                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(BAT4_HP,BAT4_MP, BAT4_ATTACK, BAT4_DEFENSE, BAT4_ATTACK_RANGE, BAT4_ATTACK_TYPE, BAT4_SLANTING_WALL , random);
+
+            }
+            else if (GameManager.instance.floorlevel > 20)
+            {
+                map_ex[(int)pos.x, (int)pos.z] = new enemy();
+                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(BAT3_HP, BAT3_MP, BAT3_ATTACK, BAT3_DEFENSE, BAT3_ATTACK_RANGE, BAT1_ATTACK_TYPE, BAT3_SLANTING_WALL, random);
+
+            }
+            else if (GameManager.instance.floorlevel > 10)
+            {
+                map_ex[(int)pos.x, (int)pos.z] = new enemy();
+                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(BAT2_HP, BAT2_MP, BAT2_ATTACK, BAT2_DEFENSE, BAT2_ATTACK_RANGE, BAT2_ATTACK_TYPE, BAT2_SLANTING_WALL, random);
+            }
+            else
+            {//マップ管理のクラスと、敵のステータスを入れる
+                map_ex[(int)pos.x, (int)pos.z] = new enemy();
+                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(BAT1_HP, BAT1_MP, BAT1_ATTACK, BAT1_DEFENSE, BAT1_ATTACK_RANGE, BAT1_ATTACK_TYPE, BAT1_SLANTING_WALL, random);
+            }
+            
+            }
         else if(obj.tag == "slime")
         {
-            map_ex[(int)pos.x, (int)pos.z] = new enemy();
-            map_ex[(int)pos.x, (int)pos.z].state = new enemystate(GHOST1_HP, GHOST1_HP, GHOST1_MP, GHOST1_MP, GHOST1_ATTACK, GHOST1_ATTACK, GHOST1_DEFENSE, GHOST1_DEFENSE, GHOST1_ATTACK_RANGE, GHOST1_ATTACK_TYPE, GHOST1_SLANTING_WALL);
+            if (GameManager.instance.floorlevel > 30)
+            {
+                map_ex[(int)pos.x, (int)pos.z] = new enemy();
+                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(SLIME4_HP, SLIME4_MP, SLIME4_ATTACK, SLIME4_DEFENSE, SLIME4_ATTACK_RANGE, SLIME4_ATTACK_TYPE, SLIME4_SLANTING_WALL, random);
+            }
+            else if (GameManager.instance.floorlevel > 20)
+            {
+                map_ex[(int)pos.x, (int)pos.z] = new enemy();
+                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(SLIME3_HP, SLIME3_MP, SLIME3_ATTACK, SLIME3_DEFENSE, SLIME3_ATTACK_RANGE, SLIME3_ATTACK_TYPE, SLIME3_SLANTING_WALL, random);
+            }
+            else if (GameManager.instance.floorlevel > 10)
+            {
+                map_ex[(int)pos.x, (int)pos.z] = new enemy();
+                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(SLIME2_HP, SLIME2_MP, SLIME2_ATTACK, SLIME2_DEFENSE, SLIME2_ATTACK_RANGE, SLIME2_ATTACK_TYPE, SLIME2_SLANTING_WALL, random);
+            }
+            else
+            {//マップ管理のクラスと、敵のステータスを入れる
+                map_ex[(int)pos.x, (int)pos.z] = new enemy();
+                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(SLIME1_HP, SLIME1_MP, SLIME1_ATTACK, SLIME1_DEFENSE, SLIME1_ATTACK_RANGE, SLIME1_ATTACK_TYPE, SLIME1_SLANTING_WALL, random);
+            }
+            
         }
         else if(obj.tag == "rabbit")
         {
-            map_ex[(int)pos.x, (int)pos.z] = new enemy();
-            map_ex[(int)pos.x, (int)pos.z].state = new enemystate(RABBIT1_HP, RABBIT1_HP, RABBIT1_MP, RABBIT1_MP, RABBIT1_ATTACK, RABBIT1_ATTACK, RABBIT1_DEFENSE, RABBIT1_DEFENSE, RABBIT1_ATTACK_RANGE, RABBIT1_ATTACK_TYPE, RABBIT1_SLANTING_WALL);
+            if (GameManager.instance.floorlevel > 30)
+            {
+                map_ex[(int)pos.x, (int)pos.z] = new enemy();
+                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(RABBIT4_HP, RABBIT4_MP, RABBIT4_ATTACK, RABBIT4_DEFENSE, RABBIT4_ATTACK_RANGE, RABBIT4_ATTACK_TYPE, RABBIT4_SLANTING_WALL, random);
+            }
+            else if (GameManager.instance.floorlevel > 20)
+            {
+                map_ex[(int)pos.x, (int)pos.z] = new enemy();
+                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(RABBIT3_HP, RABBIT3_MP, RABBIT3_ATTACK, RABBIT3_DEFENSE, RABBIT3_ATTACK_RANGE, RABBIT3_ATTACK_TYPE, RABBIT3_SLANTING_WALL, random);
+            }
+            else if (GameManager.instance.floorlevel > 10)
+            {
+                map_ex[(int)pos.x, (int)pos.z] = new enemy();
+                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(RABBIT2_HP, RABBIT2_MP, RABBIT2_ATTACK, RABBIT2_DEFENSE, RABBIT2_ATTACK_RANGE, RABBIT2_ATTACK_TYPE, RABBIT2_SLANTING_WALL, random);
+            }
+            else
+            {//マップ管理のクラスと、敵のステータスを入れる
+                map_ex[(int)pos.x, (int)pos.z] = new enemy();
+                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(RABBIT1_HP, RABBIT1_MP, RABBIT1_ATTACK, RABBIT1_DEFENSE, RABBIT1_ATTACK_RANGE, RABBIT1_ATTACK_TYPE, RABBIT1_SLANTING_WALL, random);
+            }
+            
         }
         else if (obj.tag == "ghost")
         {
-            map_ex[(int)pos.x, (int)pos.z] = new enemy();
-            map_ex[(int)pos.x, (int)pos.z].state = new enemystate(SLIME1_HP, SLIME1_HP, SLIME1_MP, SLIME1_MP, SLIME1_ATTACK, SLIME1_ATTACK, SLIME1_DEFENSE, SLIME1_DEFENSE, SLIME1_ATTACK_RANGE, SLIME1_ATTACK_TYPE, SLIME1_SLANTING_WALL);
+            if (GameManager.instance.floorlevel > 30)
+            {
+                map_ex[(int)pos.x, (int)pos.z] = new enemy();
+                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(GHOST4_HP, GHOST4_MP, GHOST4_ATTACK, GHOST4_DEFENSE, GHOST4_ATTACK_RANGE, GHOST4_ATTACK_TYPE, GHOST4_SLANTING_WALL, random);
+            }
+            else if (GameManager.instance.floorlevel > 20)
+            {
+                map_ex[(int)pos.x, (int)pos.z] = new enemy();
+                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(GHOST3_HP, GHOST3_MP, GHOST3_ATTACK, GHOST3_DEFENSE, GHOST3_ATTACK_RANGE, GHOST3_ATTACK_TYPE, GHOST3_SLANTING_WALL, random);
+            }
+            else if (GameManager.instance.floorlevel > 10)
+            {
+                map_ex[(int)pos.x, (int)pos.z] = new enemy();
+                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(GHOST2_HP, GHOST2_MP, GHOST2_ATTACK, GHOST2_DEFENSE, GHOST2_ATTACK_RANGE, GHOST2_ATTACK_TYPE, GHOST2_SLANTING_WALL, random);
+            }
+            else
+            {//マップ管理のクラスと、敵のステータスを入れる
+                map_ex[(int)pos.x, (int)pos.z] = new enemy();
+                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(GHOST1_HP, GHOST1_MP, GHOST1_ATTACK, GHOST1_DEFENSE, GHOST1_ATTACK_RANGE, GHOST1_ATTACK_TYPE, GHOST1_SLANTING_WALL, random);
+            }
+            
         }
         GameObject obj2 = Instantiate(obj, new Vector3(pos.x, -0.5f, pos.z), Quaternion.identity);
         
         map_ex[(int)pos.x, (int)pos.z].obj = obj2;
             map_ex[(int)pos.x, (int)pos.z].enemy_script = obj2.GetComponent<Enemy_script>();
     }
-    
+
+    private void InstantiateBossInRoom(GameObject obj)
+    {
+        map_ex[boss_pos_x, boss_pos_z] = new enemy();
+        map_ex[boss_pos_x, boss_pos_z].state = new enemystate(BOSS1_HP, BOSS1_MP, BOSS1_ATTACK, BOSS1_DEFENSE, BOSS1_ATTACK_RANGE, BOSS1_ATTACK_TYPE, BOSS1_SLANTING_WALL, 1);
+
+        GameObject obj2 = Instantiate(obj, new Vector3(boss_pos_x, -0.5f, boss_pos_z), Quaternion.identity);
+
+        map_ex[boss_pos_x, boss_pos_z].obj = obj2;
+        map_ex[boss_pos_x, boss_pos_z].enemy_script = obj2.GetComponent<Enemy_script>();
+    }
+
+
 
     private void MapDebug(int a)
     {

@@ -6,8 +6,10 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
-    
 
+
+    public float floor_enemy_level_coefficient;
+    public float floor_level_coefficient;
     public int floorlevel;
     public static GameManager instance = null;
 
@@ -148,6 +150,8 @@ public class GameManager : MonoBehaviour {
         hp_slider = HP_SLIDER.GetComponent<Slider>();
         mp_slider = MP_SLIDER.GetComponent<Slider>();
         //マップ生成
+
+        floor_level_coefficient = 1.1f;
         mapscript.Mapcreat();
 
         instance.PlayerMoving = false;
@@ -185,6 +189,11 @@ public class GameManager : MonoBehaviour {
         AddListDevelop(weapon4);
         map_item weapon5 = new weapon5(map_creat.NAME_W5, map_creat.HP_W5, map_creat.ATTACK_W5, map_creat.DEFENSE_W5, map_creat.ATTACK_RANGE_W5, map_creat.ATTACK_TYPE_W5, map_creat.ATTACK_THROUGH_W5, map_creat.SLANTING_WALL_W5, map_creat.DEVELOP_W5_MATERIAL_1, map_creat.DEVELOP_W5_MATERIAL_2, map_creat.DEVELOP_W5_MATERIAL_3, map_creat.MP_COST_W5, map_creat.ENDURANCE_W5, map_creat.DEVELOP_NEED_MP_W5);
         AddListDevelop(weapon5);
+
+        possession_material_1 += 5;
+        possession_material_2 += 5;
+        possession_material_3 += 5;
+
 
         inverseMoveTime = 1f / moveTime;
     }
@@ -705,6 +714,7 @@ public class weapon : map_item
             }
             player.player_attack = player.player_origin_attack + ATTACK_W;
             player.player_defense = player.player_origin_defense + DEFENSE_W;
+            
 
             player.player_attack_range = ATTACK_RANGE_W;
             player.player_attack_type = ATTACK_TYPE_W;
@@ -873,6 +883,7 @@ public class weapon5 : weapon
         MP_COST_W = mp_cost;
         ENDURANCE_W = endurance;
         develop_need_MP = develop_need_mp;
+        
     }
 }
 public class clean : map_item
@@ -973,16 +984,16 @@ public class enemystate
     public int ATTACK_TYPE;
     public bool SLANTING_WALL;
     
-    public enemystate(int max_hp,int hp,int max_mp,int mp,int max_attack, int attack, int max_defense, int defense, int range_attack, int attack_type , bool slanting_wall)
+    public enemystate(float max_hp,float max_mp, float max_attack, float max_defense,int range_attack, int attack_type , bool slanting_wall ,float Random)
     {
-        MAX_HP = max_hp;
-        HP = hp;
-        MAX_MP = max_mp;
-        MP = mp;
-        MAX_ATTACK = max_attack;
-        ATTACK = attack;
-        MAX_DEFENSE = max_defense;
-        DEFENSE = defense;
+        MAX_HP = (int)(max_hp * GameManager.instance.floor_enemy_level_coefficient * Random);
+        HP = MAX_HP;
+        MAX_MP = (int)(max_mp * GameManager.instance.floor_enemy_level_coefficient * Random);
+        MP = MAX_MP;
+        MAX_ATTACK = (int)(max_attack * GameManager.instance.floor_enemy_level_coefficient * Random);
+        ATTACK = MAX_ATTACK;
+        MAX_DEFENSE = (int)(max_defense * GameManager.instance.floor_enemy_level_coefficient * Random);
+        DEFENSE = MAX_DEFENSE;
         RANGE_ATTACK = range_attack;
         ATTACK_TYPE = attack_type;
         SLANTING_WALL = slanting_wall;

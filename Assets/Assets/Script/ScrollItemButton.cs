@@ -72,8 +72,7 @@ public class ScrollItemButton : MonoBehaviour
         for (int i = 0; i < GameManager.instance.possessionitemlist.Count; i++)
         {
             scrollitembuttons[i] = ((GameObject)Instantiate(ButtonPrefab));
-
-            Debug.Log(scrollitembuttons[i]);
+            
             scrollitembuttons[i].transform.SetParent(itemcontent, false);
             scrollitembuttons[i].transform.GetComponentInChildren<Text>().text = GameManager.instance.possessionitemlist[i].name;
 
@@ -123,8 +122,7 @@ public class ScrollItemButton : MonoBehaviour
         for (int i = 0; i < GameManager.instance.possessionweaponlist.Count; i++)
         {
             scrollweaponbuttons[i] = ((GameObject)Instantiate(ButtonPrefab));
-
-            Debug.Log(scrollweaponbuttons[i]);
+            
             scrollweaponbuttons[i].transform.SetParent(weaponcontent, false);
             scrollweaponbuttons[i].transform.GetComponentInChildren<Text>().text = GameManager.instance.possessionweaponlist[i].name;
 
@@ -187,8 +185,7 @@ public class ScrollItemButton : MonoBehaviour
                 for (int i = 0; i < GameManager.instance.developtopiclist.Count; i++)
             {
                 scrolldevelopbuttons[i] = ((GameObject)Instantiate(ButtonPrefab));
-
-                Debug.Log(scrolldevelopbuttons[i]);
+                
                 scrolldevelopbuttons[i].transform.SetParent(developcontent, false);
                 scrolldevelopbuttons[i].transform.GetComponentInChildren<Text>().text = GameManager.instance.developtopiclist[i].name;
 

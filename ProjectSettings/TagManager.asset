@@ -3,7 +3,25 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Item3
+  - golem
+  - ghost
+  - bat
+  - material3
+  - Item2
+  - rabbit
+  - slime
+  - weapon1
+  - material2
+  - Item1
+  - kaidan
+  - material1
+  - weapon3
+  - weapon2
+  - Undefined
+  - weapon4
+  - weapon5
   layers:
   - Default
   - TransparentFX

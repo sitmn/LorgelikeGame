@@ -113,7 +113,6 @@ public class MenuController : MonoBehaviour {
     public void MenuButton() 
     {   if (GameManager.instance.Playerturn == true && GameManager.instance.PlayerMoving == false)
         {
-            Debug.Log("A");
             GameManager.instance.Menu = true;
 
             item_button_script.ListItemRegistration();
