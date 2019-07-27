@@ -325,6 +325,7 @@ GameObject:
   - component: {fileID: 4472854836309592}
   - component: {fileID: 95411547011375738}
   - component: {fileID: 114775260841920304}
+  - component: {fileID: 114399492115108000}
   m_Layer: 10
   m_Name: FreeGolem
   m_TagString: golem
@@ -757,6 +758,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114399492115108000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1917339033529604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fd5dce43e14ceb4a8069ff04bed799d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114775260841920304
 MonoBehaviour:
   m_ObjectHideFlags: 1

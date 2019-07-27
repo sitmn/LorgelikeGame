@@ -93,6 +93,22 @@ public class GameManager : MonoBehaviour {
     private int q = 0;
     public Text T;
 
+    public GameObject MenuScreen;
+
+    //スマホ用移動ボタン
+    public bool up_left_button;
+    public bool up_button;
+    public bool up_right_button;
+    public bool left_button;
+    public bool right_button;
+    public bool down_left_button;
+    public bool down_button;
+    public bool down_right_button;
+    public bool attack_button;
+    public bool vector_change_button = false;
+
+    private AudioSource heel;
+
     void Awake()
     {
         //シングルトン
@@ -149,10 +165,14 @@ public class GameManager : MonoBehaviour {
         MPText = MPTEXT.GetComponent<Text>();
         hp_slider = HP_SLIDER.GetComponent<Slider>();
         mp_slider = MP_SLIDER.GetComponent<Slider>();
+
+        heel = GetComponent<AudioSource>();
         //マップ生成
 
         floor_level_coefficient = 1.1f;
         mapscript.Mapcreat();
+
+        //player_animation_event = Player.GetComponent<Player_Animation_Event>();
 
         instance.PlayerMoving = false;
         instance.Playerturn = true;
@@ -173,7 +193,7 @@ public class GameManager : MonoBehaviour {
     {
         map_item item1 = new item1(map_creat.NAME_I1, map_creat.HEAL_POINT_I1, map_creat.DEVELOP_I1_MATERIAL_1, map_creat.DEVELOP_I1_MATERIAL_2, map_creat.DEVELOP_I1_MATERIAL_3, map_creat.DEVELOP_NEED_MP_I1);
         AddListDevelop(item1);
-        map_item item2 = new item2(map_creat.NAME_I2, map_creat.ATTACK_POINT, map_creat.ATTACK_RANGE, map_creat.ATTACK_TYPE, map_creat.DEVELOP_I2_MATERIAL_1, map_creat.DEVELOP_I2_MATERIAL_2, map_creat.DEVELOP_I2_MATERIAL_3, map_creat.DEVELOP_NEED_MP_I2);
+        map_item item2 = new item2(map_creat.NAME_I2, map_creat.ATTACK_POINT_I2, map_creat.ATTACK_RANGE, map_creat.ATTACK_TYPE, map_creat.DEVELOP_I2_MATERIAL_1, map_creat.DEVELOP_I2_MATERIAL_2, map_creat.DEVELOP_I2_MATERIAL_3, map_creat.DEVELOP_NEED_MP_I2);
         AddListDevelop(item2);
         map_item item3 = new item3(map_creat.NAME_I3, map_creat.DEVELOP_I3_MATERIAL_1, map_creat.DEVELOP_I3_MATERIAL_2, map_creat.DEVELOP_I3_MATERIAL_3, map_creat.DEVELOP_NEED_MP_I3);
         AddListDevelop(item3);
@@ -385,12 +405,21 @@ public class GameManager : MonoBehaviour {
 
     public void itemuse(int listnum)
     {
-        GameManager.instance.menuscript.BackButton();
-        GameManager.instance.menuscript.BackButton();
-        GameManager.instance.possessionitemlist.RemoveAt(listnum);
-        
+        if (GameManager.instance.possessionitemlist[listnum].name == "爆弾")
+        {
+            GameManager.instance.menuscript.BackButton();
+            GameManager.instance.Menu = false;
+            MenuScreen.SetActive(false);
+            GameManager.instance.possessionitemlist.RemoveAt(listnum);
+        }
+        else
+        {
+            GameManager.instance.menuscript.BackButton();
+            GameManager.instance.menuscript.BackButton();
+            GameManager.instance.possessionitemlist.RemoveAt(listnum);
 
-        GameManager.instance.Playerturn = false;
+            GameManager.instance.Playerturn = false;
+        }
     }
     public void weaponuse(int listnum)
     {
@@ -424,6 +453,9 @@ public class GameManager : MonoBehaviour {
         {
             player.player_hp = player.player_MAX_hp;
         }
+        Heel_Sound_Effect();
+        Hp_Bar();
+        HP_Text();
         GameManager.instance.AddMainText("ＨＰが" + healpoint + "回復した");
     }
     public void Player_Heal_MP(int healpoint)
@@ -433,6 +465,10 @@ public class GameManager : MonoBehaviour {
         {
             player.player_mp = player.player_MAX_mp;
         }
+        Heel_Sound_Effect();
+        
+        Mp_Bar();
+        MP_Text();
         GameManager.instance.AddMainText("ＭＰが" + healpoint + "回復した");
     }
     public void Weapon_Destroy()
@@ -453,6 +489,100 @@ public class GameManager : MonoBehaviour {
     public void Adddamageenemy(map_exist enemy)
     {
         damageenemy.Add(enemy);
+    }
+
+    public void Player_Attack_Coroutine_Manager(int attack_range, int attack_type, bool slanting_wall, bool attack_through, int attack, int attack_animation)
+    {
+        player_script.Player_Attack_Coroutine(attack_range, attack_type, slanting_wall, attack_through, attack, attack_animation);
+    }
+    public void Heel_Sound_Effect()
+    {
+        heel.PlayOneShot(heel.clip);
+    }
+
+    //スマホ用移動ボタン
+    public void Up_Left_Button_On()
+    {
+        up_left_button = true;
+    }
+    public void Up_Left_Button_Off()
+    {
+        up_left_button = false;
+    }
+    public void Up_Button_On()
+    {
+        up_button = true;
+    }
+    public void Up_Button_Off()
+    {
+        up_button = false;
+    }
+    public void Up_Right_Button_On()
+    {
+        up_right_button = true;
+    }
+    public void Up_Right_Button_Off()
+    {
+        up_right_button = false;
+    }
+    public void Left_Button_On()
+    {
+        left_button = true;
+    }
+    public void Left_Button_Off()
+    {
+        left_button = false;
+    }
+    public void Right_Button_On()
+    {
+        right_button = true;
+    }
+    public void Right_Button_Off()
+    {
+        right_button = false;
+    }
+    public void Down_Left_Button_On()
+    {
+        down_left_button = true;
+    }
+    public void Down_Left_Button_Off()
+    {
+        down_left_button = false;
+    }
+    public void Down_Button_On()
+    {
+        down_button = true;
+    }
+    public void Down_Button_Off()
+    {
+        down_button = false;
+    }
+    public void Down_Right_Button_On()
+    {
+        down_right_button = true;
+    }
+    public void Down_Right_Button_Off()
+    {
+        down_right_button = false;
+    }
+    public void Vector_Change_Button()
+    {
+        if (vector_change_button == false)
+        {
+            vector_change_button = true;
+        }
+        else if (vector_change_button == true)
+        {
+            vector_change_button = false;
+        }
+    }
+    public void Attack_Button_On()
+    {
+        attack_button = true;
+    }
+    public void Attack_Button_Off()
+    {
+        attack_button = false;
     }
 }
 
@@ -556,7 +686,7 @@ public class map_item
         else if (GameManager.instance.possessionitemlist[listnum].name == "爆弾")
         {
             GameManager.instance.AddMainText("爆弾を使用した");
-            GameManager.instance.Attack(1, 1, true, true, 10);
+            GameManager.instance.Player_Attack_Coroutine_Manager(1, 0, true, true, attack_point , 1);
             GameManager.instance.itemuse(listnum);
 
         }else if(GameManager.instance.possessionitemlist[listnum].name == "場所替え")
@@ -624,7 +754,7 @@ public class item2 : item
         develop_need_material3 = DEVELOP_MATERIAL_3;
         develop_need_MP = DEVELOP_NEED_MP;
 
-        item_description = "正面に１０ダメージを与える";
+        item_description = "正面に" + attack_point + "ダメージを与える";
     }
     
 }
@@ -948,6 +1078,7 @@ public class player : map_exist
     public static int exist_room_no;
 
     public static weapon equipment_weapon;
+    
 
     public player()
     {

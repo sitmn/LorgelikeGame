@@ -63,6 +63,17 @@ public class MenuController : MonoBehaviour {
     public Text Develop_Weapon_MP_Cost;
     public Text Develop_Weapon_Endurance;
 
+    public GameObject Item1;
+    public GameObject Item2;
+    public GameObject Item3;
+    public GameObject Item4;
+    public GameObject Weapon1;
+    public GameObject Weapon2;
+    public GameObject Weapon3;
+    public GameObject Weapon4;
+    public GameObject Weapon5;
+    public GameObject MiniMapItem;
+
     void awake()
     {
         menu_one = true;
@@ -110,8 +121,16 @@ public class MenuController : MonoBehaviour {
         
 	}
 
+    public void Player_Wait_Button()
+    {
+        if (GameManager.instance.Playerturn == true && GameManager.instance.PlayerMoving == false && weaponscreen == false && developscreen == false && itemscreen == false && GameManager.instance.vector_change_button == false)
+        {
+            GameManager.instance.Playerturn = false;
+        }
+    }
+
     public void MenuButton() 
-    {   if (GameManager.instance.Playerturn == true && GameManager.instance.PlayerMoving == false)
+    {   if (GameManager.instance.Playerturn == true && GameManager.instance.PlayerMoving == false && GameManager.instance.vector_change_button == false)
         {
             GameManager.instance.Menu = true;
 
@@ -182,29 +201,94 @@ public class MenuController : MonoBehaviour {
     public void PickUpButton()
     {   if (itemscreen == false && weaponscreen == false && developscreen == false)
         {
-                BackButton();
+            BackButton();
 
+            if (map_creat.map_item[(int)player_script.transform.position.x, (int)player_script.transform.position.z].exist == true)
+            {
                 player_script.PickUpItem();
+            }
+            else
+            {
+                GameManager.instance.AddMainText("しかし、何も無かった");
+            }
 
-                GameManager.instance.Playerturn = false;
+            GameManager.instance.Playerturn = false;
         }
     }
-
+    
     public void Item_Description(item item_use, int argument)
     {
         item_use_button.transform.GetComponent<Button>().onClick.RemoveAllListeners();
         item_use_button.transform.GetComponent<Button>().onClick.AddListener(() => item_use.use(argument));
+
+
+        item_put_button.transform.GetComponent<Button>().onClick.RemoveAllListeners();
+        item_put_button.transform.GetComponent<Button>().onClick.AddListener(() => Item_Put_Button(argument));
+
 
         ItemDescriptionScreen.SetActive(true);
 
         ItemDescription.text = item_use.item_description;
 
     }
+    public void Item_Put_Button(int argument)
+    {
+        if (map_creat.map_item[(int)Player.transform.position.x, (int)Player.transform.position.z].exist == true)
+        {
+            GameManager.instance.AddMainText("既に足元に何かあるため置くことができない");
+        }
+        else
+        {
+            GameObject Map_item;
+
+            if (GameManager.instance.possessionitemlist[argument].name == "回復薬")
+            {
+                Map_item = Item1;
+            }
+            else if (GameManager.instance.possessionitemlist[argument].name == "爆弾")
+            {
+                Map_item = Item2;
+            }
+            else if (GameManager.instance.possessionitemlist[argument].name == "場所替え")
+            {
+                Map_item = Item3;
+            }
+            else if (GameManager.instance.possessionitemlist[argument].name == "回復薬（特）")
+            {
+                Map_item = Item4;
+            }
+            else// ここには入らない
+            {
+                Map_item = Item1;
+            }
+            
+
+            int pos_x = (int)Player.transform.position.x;
+            int pos_z = (int)Player.transform.position.z;
+
+            map_creat.map_item[pos_x, pos_z] = GameManager.instance.possessionitemlist[argument];
+            map_creat.map_item[pos_x, pos_z].exist = true;
+            map_creat.map_item[pos_x, pos_z].obj = Instantiate(Map_item, new Vector3(pos_x, -0.5f,pos_z),Quaternion.identity);
+            map_creat.map_item[pos_x, pos_z].minimap_item =
+                Instantiate(MiniMapItem, new Vector3(pos_x + map_creat.minimapdistance, 1, pos_z + map_creat.minimapdistance), Quaternion.identity);
+            map_creat.map_item[pos_x, pos_z].minimap_item.transform.parent =
+                map_creat.map_item[pos_x, pos_z].obj.transform;
+
+            BackButton();
+            BackButton();
+            GameManager.instance.possessionitemlist.RemoveAt(argument);
+
+            GameManager.instance.AddMainText("足元に" + map_creat.map_item[pos_x, pos_z].name + "を置いた");
+        }
+    }
 
     public void Weapon_Description(weapon weapon_use, int argument)
     {
         weapon_use_button.transform.GetComponent<Button>().onClick.RemoveAllListeners();
         weapon_use_button.transform.GetComponent<Button>().onClick.AddListener(() => weapon_use.installing(argument));
+
+        weapon_put_button.transform.GetComponent<Button>().onClick.RemoveAllListeners();
+        weapon_put_button.transform.GetComponent<Button>().onClick.AddListener(() => Weapon_Put_Button(argument));
 
         WeaponDescriptionScreen.SetActive(true);
         WeaponDescription.text = weapon_use.weapon_description;
@@ -233,6 +317,64 @@ public class MenuController : MonoBehaviour {
         Weapon_MP_Cost.text = weapon_use.MP_COST_W.ToString();
         Weapon_Endurance.text = weapon_use.ENDURANCE_W.ToString();
 
+    }
+    public void Weapon_Put_Button(int argument)
+    {
+        if (map_creat.map_item[(int)Player.transform.position.x, (int)Player.transform.position.z].exist == true)
+        {
+            GameManager.instance.AddMainText("既に足元に何かあるため置くことができない");
+        }
+        else
+        {
+            GameObject Map_item;
+
+            if (GameManager.instance.possessionweaponlist[argument].name.Contains("アクアマリン") == true)
+            {
+                Map_item = Weapon1;
+            }
+            else if (GameManager.instance.possessionweaponlist[argument].name.Contains("アメシスト") == true)
+            {
+                Map_item = Weapon2;
+            }
+            else if (GameManager.instance.possessionweaponlist[argument].name.Contains("エメラルド") == true)
+            {
+                Map_item = Weapon3;
+            }
+            else if (GameManager.instance.possessionweaponlist[argument].name.Contains("ルビー") == true)
+            {
+                Map_item = Weapon4;
+            }
+            else if (GameManager.instance.possessionweaponlist[argument].name.Contains("クリスタル") == true)
+            {
+                Map_item = Weapon5;
+            }
+            else// ここには入らない
+            {
+                Map_item = Item1;
+            }
+
+            if (GameManager.instance.possessionweaponlist[argument].name.Contains("E:"))
+            {
+                player.equipment_weapon.installing(argument);
+            }
+
+            int pos_x = (int)Player.transform.position.x;
+            int pos_z = (int)Player.transform.position.z;
+
+            map_creat.map_item[pos_x, pos_z] = GameManager.instance.possessionweaponlist[argument];
+            map_creat.map_item[pos_x, pos_z].exist = true;
+            map_creat.map_item[pos_x, pos_z].obj = Instantiate(Map_item, new Vector3(pos_x, -0.5f, pos_z), Quaternion.identity);
+            map_creat.map_item[pos_x, pos_z].minimap_item =
+                Instantiate(MiniMapItem, new Vector3(pos_x + map_creat.minimapdistance, 1, pos_z + map_creat.minimapdistance), Quaternion.identity);
+            map_creat.map_item[pos_x, pos_z].minimap_item.transform.parent =
+                map_creat.map_item[pos_x, pos_z].obj.transform;
+
+            BackButton();
+            BackButton();
+            GameManager.instance.possessionweaponlist.RemoveAt(argument);
+
+            GameManager.instance.AddMainText("足元に" + map_creat.map_item[pos_x, pos_z].name + "を置いた");
+        }
     }
 
     public void Develop_Item_Description(map_item develop_do)
@@ -298,11 +440,14 @@ public class MenuController : MonoBehaviour {
             }
             else if (develop_item.name == "爆弾")
             {
-                new_item = new item2(map_creat.NAME_I2, map_creat.ATTACK_POINT, map_creat.ATTACK_RANGE, map_creat.ATTACK_TYPE, map_creat.DEVELOP_I2_MATERIAL_1, map_creat.DEVELOP_I2_MATERIAL_2, map_creat.DEVELOP_I2_MATERIAL_3, map_creat.DEVELOP_NEED_MP_I2);
-                develop_item.heal_point *= Develop_Random_State(develop_item.attack_point);
-                develop_item.heal_point *= Develop_Random_State(develop_item.attack_range);
-                develop_item.heal_point *= Develop_Random_State(develop_item.attack_type);
-                
+                new_item = new item2(map_creat.NAME_I2, map_creat.ATTACK_POINT_I2, map_creat.ATTACK_RANGE, map_creat.ATTACK_TYPE, map_creat.DEVELOP_I2_MATERIAL_1, map_creat.DEVELOP_I2_MATERIAL_2, map_creat.DEVELOP_I2_MATERIAL_3, map_creat.DEVELOP_NEED_MP_I2);
+
+                float float_attack_point = new_item.attack_point;
+                float_attack_point = float_attack_point + float_attack_point * (float)Develop_Random_State(new_item.attack_point) / 100f;
+                new_item.attack_point = (int)float_attack_point;
+
+                //テキストも変更
+                new_item.item_description = "正面に" + new_item.attack_point + "ダメージを与える";
             }
             else if (develop_item.name == "場所替え")
             {

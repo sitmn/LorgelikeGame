@@ -156,13 +156,13 @@ public class map_creat : MonoBehaviour {
     public const int DEVELOP_NEED_MP_I1 = 3;
 
     public const string NAME_I2 = "爆弾";
+    public const int ATTACK_POINT_I2 = 30;
     public const int DEVELOP_I2_MATERIAL_1 = 1;
     public const int DEVELOP_I2_MATERIAL_2 = 0;
     public const int DEVELOP_I2_MATERIAL_3 = 0;
     public const int DEVELOP_NEED_MP_I2 = 3;
 
     public const string NAME_I3 = "場所替え";
-    public const int ATTACK_POINT = 0;
     public const int ATTACK_TYPE = 0;
     public const int ATTACK_RANGE = 1;
     public const int DEVELOP_I3_MATERIAL_1 = 1;
@@ -304,7 +304,7 @@ public class map_creat : MonoBehaviour {
     public GameObject MiniMapKaidan;
     public GameObject MiniMapItem;
     public static int minimapdistance  = 100;
-
+    
     public Vector3 entrancevec;
 
 
@@ -337,6 +337,9 @@ public class map_creat : MonoBehaviour {
     public int boss_pos_x;
     public int boss_pos_z;
 
+    //マップ作る際と、プレイヤー操作中に分けるための変数
+    public bool mapcreat;
+
     public map_creat map_creat_instance;
 
     void Start()
@@ -347,6 +350,8 @@ public class map_creat : MonoBehaviour {
     // Use this for initialization
     public void Mapcreat()
     {
+        mapcreat = true;
+
         FloorText = GameObject.Find("FloorLevel");
             GameManager.instance.floorlevel++;
 
@@ -1583,13 +1588,13 @@ public class map_creat : MonoBehaviour {
                 map[x, z].obj.transform.GetChild(0).gameObject.SetActive(false);
             }
         }
-
+        /*
         //10階ごとにボス配置
         if (GameManager.instance.floorlevel % 10 == 0)
         {
             InstantiateBossInRoom(Golem);
         }
-
+        */
 
         //敵をランダムに配置
         enemynumber = Random.Range(5, 9);
@@ -1597,18 +1602,21 @@ public class map_creat : MonoBehaviour {
 
 
         FloorText.GetComponent<Text>().text = GameManager.instance.floorlevel +"階";
+
+        mapcreat = false;
     }
 
     
 
-    private void InstantiateInRoom_map_item(GameObject obj)
+    public void InstantiateInRoom_map_item(GameObject obj)
     {
         Vector3 pos;
-        do
-        {
-            pos = GameManager.instance.roomlist[Random.Range(0, GameManager.instance.roomlist.Count)];
 
-        } while (map_item[(int)pos.x, (int)pos.z].exist == true || map[(int)pos.x, (int)pos.z].number == 5 || map[(int)pos.x, (int)pos.z].number == 0);
+            do
+            {
+                pos = GameManager.instance.roomlist[Random.Range(0, GameManager.instance.roomlist.Count)];
+
+            } while (map_item[(int)pos.x, (int)pos.z].exist == true || map[(int)pos.x, (int)pos.z].number == 5 || map[(int)pos.x, (int)pos.z].number == 0);
 
         if (obj.tag == "kaidan")
         {
@@ -1625,7 +1633,7 @@ public class map_creat : MonoBehaviour {
         }
         else if (obj.tag == "Item2")
         {
-            map_item[(int)pos.x, (int)pos.z] = new item2(NAME_I2 , ATTACK_POINT , ATTACK_RANGE , ATTACK_TYPE , DEVELOP_I2_MATERIAL_1, DEVELOP_I2_MATERIAL_2, DEVELOP_I2_MATERIAL_3, DEVELOP_NEED_MP_I2);
+            map_item[(int)pos.x, (int)pos.z] = new item2(NAME_I2 , ATTACK_POINT_I2 , ATTACK_RANGE , ATTACK_TYPE , DEVELOP_I2_MATERIAL_1, DEVELOP_I2_MATERIAL_2, DEVELOP_I2_MATERIAL_3, DEVELOP_NEED_MP_I2);
         }
         else if (obj.tag == "Item3")
         {

@@ -11,9 +11,10 @@ public class Player_script : MonoBehaviour {
     private bool attack;
     private int attack_x, attack_y,x,z;
     public static int asset_rotate;
+
     
 
-    public bool notmove,vectorchange;
+    public bool notmove, vectorchange;
     
     public GameObject Player;
     public GameObject MenuScreen;
@@ -107,7 +108,7 @@ public class Player_script : MonoBehaviour {
         }
 
         //Cキーを押している間、vectorchangeを有効に
-        if (Input.GetKey(KeyCode.C) && GameManager.instance.Menu == false)
+        if ((Input.GetKey(KeyCode.C) || GameManager.instance.vector_change_button == true )&& GameManager.instance.Menu == false)
         {
             this.vectorchange = true;
 
@@ -187,7 +188,7 @@ public class Player_script : MonoBehaviour {
             Attack(player.player_attack_range, player.player_attack_type, true, true, 10, Color.yellow);
         }
         else if(GameManager.instance.Menu == false ) {
-            if (Input.GetKey(KeyCode.Z))
+            if (Input.GetKey(KeyCode.Z) || GameManager.instance.attack_button == true)
             {
 
                 if(player.equipment_weapon != null)
@@ -199,8 +200,7 @@ public class Player_script : MonoBehaviour {
                     else
                     {
                         GameManager.instance.space = false;
-
-                        myAnimator.SetInteger("AnimIndex", 107);
+                        
                         //攻撃
                         Player_Attack_Coroutine(player.player_attack_range, player.player_attack_type, player.player_slanting_wall, player.player_attack_through, player.player_attack, 0);
 
@@ -209,8 +209,7 @@ public class Player_script : MonoBehaviour {
                 else
                 {
                     GameManager.instance.space = false;
-
-                    myAnimator.SetInteger("AnimIndex", 107);
+                    
                     //攻撃
                     Player_Attack_Coroutine(player.player_attack_range, player.player_attack_type, player.player_slanting_wall, player.player_attack_through, player.player_attack, 0);
 
@@ -227,35 +226,35 @@ public class Player_script : MonoBehaviour {
 
     private void VectorChange()
     {
-        if (Input.GetKey(KeyCode.RightArrow) == true)
+        if (Input.GetKey(KeyCode.RightArrow) == true || GameManager.instance.right_button == true)
         {
             transform.eulerAngles = new Vector3(0, 0 + asset_rotate, 0);
         }
-        else if (Input.GetKey(KeyCode.DownArrow) == true)
+        else if (Input.GetKey(KeyCode.DownArrow) == true || GameManager.instance.down_button == true)
         {
             transform.eulerAngles = new Vector3(0, 90 + asset_rotate, 0);
         }
-        else if (Input.GetKey(KeyCode.LeftArrow) == true)
+        else if (Input.GetKey(KeyCode.LeftArrow) == true || GameManager.instance.left_button == true)
         {
             transform.eulerAngles = new Vector3(0, 180 + asset_rotate, 0);
         }
-        else if (Input.GetKey(KeyCode.UpArrow) == true)
+        else if (Input.GetKey(KeyCode.UpArrow) == true || GameManager.instance.up_button)
         {
             transform.eulerAngles = new Vector3(0, 270 + asset_rotate, 0);
         }
-        else if (Input.GetKey(KeyCode.E) == true)
+        else if (Input.GetKey(KeyCode.E) == true || GameManager.instance.down_right_button)
         {
             transform.eulerAngles = new Vector3(0, 45 + asset_rotate, 0);
         }
-        else if (Input.GetKey(KeyCode.W) == true)
+        else if (Input.GetKey(KeyCode.W) == true || GameManager.instance.down_left_button)
         {
             transform.eulerAngles = new Vector3(0, 135 + asset_rotate, 0);
         }
-        else if (Input.GetKey(KeyCode.Q) == true)
+        else if (Input.GetKey(KeyCode.Q) == true || GameManager.instance.up_left_button)
         {
             transform.eulerAngles = new Vector3(0, 225 + asset_rotate, 0);
         }
-        else if (Input.GetKey(KeyCode.R) == true)
+        else if (Input.GetKey(KeyCode.R) == true || GameManager.instance.up_right_button)
         {
             transform.eulerAngles = new Vector3(0, 315 + asset_rotate, 0);
         }
@@ -265,7 +264,7 @@ public class Player_script : MonoBehaviour {
     private void PlayerMove()
     {
         //方向キーの向きに回転、障害物を確認
-        if (Input.GetKey(KeyCode.UpArrow) == true)
+        if (Input.GetKey(KeyCode.UpArrow) == true || GameManager.instance.up_button == true)
         {
             this.moveY = 1;
             transform.eulerAngles = new Vector3(0, 270 + asset_rotate, 0);
@@ -297,7 +296,7 @@ public class Player_script : MonoBehaviour {
                 this.notmove = false;
             }
         }
-        else if (Input.GetKey(KeyCode.LeftArrow) == true)
+        else if (Input.GetKey(KeyCode.LeftArrow) == true || GameManager.instance.left_button == true)
         {
             this.moveX = -1;
             transform.eulerAngles = new Vector3(0, 180 + asset_rotate, 0);
@@ -328,7 +327,7 @@ public class Player_script : MonoBehaviour {
                 this.notmove = false;
             }
         }
-        else if (Input.GetKey(KeyCode.RightArrow) == true)
+        else if (Input.GetKey(KeyCode.RightArrow) == true || GameManager.instance.right_button == true)
         {
             this.moveX = 1;
             transform.eulerAngles = new Vector3(0, 0 + asset_rotate, 0);
@@ -359,7 +358,7 @@ public class Player_script : MonoBehaviour {
                 this.notmove = false;
             }
         }
-        else if (Input.GetKey(KeyCode.DownArrow) == true)
+        else if (Input.GetKey(KeyCode.DownArrow) == true || GameManager.instance.down_button == true)
         {
             this.moveY = -1;
             transform.eulerAngles = new Vector3(0, 90 + asset_rotate, 0);
@@ -390,7 +389,7 @@ public class Player_script : MonoBehaviour {
                 this.notmove = false;
             }
         }
-        else if (Input.GetKey(KeyCode.Q) == true)
+        else if (Input.GetKey(KeyCode.Q) == true || GameManager.instance.up_left_button == true)
         {
             this.moveX = -1;
             this.moveY = 1;
@@ -429,7 +428,7 @@ public class Player_script : MonoBehaviour {
                 this.notmove = false;
             }
         }
-        else if (Input.GetKey(KeyCode.W) == true)
+        else if (Input.GetKey(KeyCode.W) == true || GameManager.instance.down_left_button == true)
         {
             this.moveX = -1;
             this.moveY = -1;
@@ -468,7 +467,7 @@ public class Player_script : MonoBehaviour {
                 this.notmove = false;
             }
         }
-        else if (Input.GetKey(KeyCode.E) == true)
+        else if (Input.GetKey(KeyCode.E) == true || GameManager.instance.down_right_button == true)
         {
             this.moveX = 1;
             this.moveY = -1;
@@ -507,7 +506,7 @@ public class Player_script : MonoBehaviour {
                 this.notmove = false;
             }
         }
-        else if (Input.GetKey(KeyCode.R) == true)
+        else if (Input.GetKey(KeyCode.R) == true || GameManager.instance.up_right_button == true)
         {
             this.moveX = 1;
             this.moveY = 1;
@@ -560,14 +559,15 @@ public class Player_script : MonoBehaviour {
     public void PickUpItem()
     {
 
-        if(map_creat.map_item[(int)transform.position.x , (int)transform.position.z].exist == true){
-            
+        if (map_creat.map_item[(int)transform.position.x, (int)transform.position.z].exist == true)
+        {
+
             if (map_creat.map_item[(int)transform.position.x, (int)transform.position.z].number == 0)
             {
                 if (GameManager.instance.possessionitemlist.Count < GameManager.instance.MAX_ITEM)
                 {
                     GameManager.instance.AddMainText(map_creat.map_item[(int)transform.position.x, (int)transform.position.z].name + "を拾った");
-                    
+
                     GameManager.instance.AddListItem(map_creat.map_item[(int)transform.position.x, (int)transform.position.z]);
                     Destroy(map_creat.map_item[(int)transform.position.x, (int)transform.position.z].obj);
                     map_creat.map_item[(int)transform.position.x, (int)transform.position.z] = new clean();
@@ -577,7 +577,7 @@ public class Player_script : MonoBehaviour {
                     GameManager.instance.AddMainText("持ち物が一杯で拾えない");
                 }
             }
-            else if(map_creat.map_item[(int)transform.position.x, (int)transform.position.z].number == 1)
+            else if (map_creat.map_item[(int)transform.position.x, (int)transform.position.z].number == 1)
             {
                 GameManager.instance.AddMainText(map_creat.map_item[(int)transform.position.x, (int)transform.position.z].name + "を拾った");
 
@@ -600,7 +600,7 @@ public class Player_script : MonoBehaviour {
                     map_creat.map_item[(int)transform.position.x, (int)transform.position.z] = new clean();
                 }
             }
-            else if(map_creat.map_item[(int)transform.position.x, (int)transform.position.z].number == 2)
+            else if (map_creat.map_item[(int)transform.position.x, (int)transform.position.z].number == 2)
             {
                 if (GameManager.instance.possessionweaponlist.Count < GameManager.instance.MAX_WEAPON)
                 {
@@ -609,10 +609,6 @@ public class Player_script : MonoBehaviour {
                     GameManager.instance.AddListWeapon(map_creat.map_item[(int)transform.position.x, (int)transform.position.z]);
                     Destroy(map_creat.map_item[(int)transform.position.x, (int)transform.position.z].obj);
                     map_creat.map_item[(int)transform.position.x, (int)transform.position.z] = new clean();
-                }
-                else
-                {
-                    GameManager.instance.AddMainText("持ち物が一杯で拾えない");
                 }
             }
         }
@@ -710,13 +706,16 @@ public class Player_script : MonoBehaviour {
 
         }else if(Player_Animation == 1)
         {
+            myAnimator.SetInteger("AnimIndex", 12);
 
+            yield return null;
+            yield return new AnimationWait(myAnimator, 0);
         }
 
         myAnimator.SetInteger("AnimIndex", 0);
 
         //装備している場合、ＭＰを消費
-        if(player.equipment_weapon != null)
+        if(player.equipment_weapon != null && Player_Animation == 0)
         {
             player.player_mp -= player.equipment_weapon.MP_COST_W;
             GameManager.instance.Mp_Bar();
@@ -739,6 +738,8 @@ public class Player_script : MonoBehaviour {
             damage = previous_hp - GameManager.instance.damageenemy[i].state.HP;
 
             Animator enemyAnimator = GameManager.instance.damageenemy[i].obj.GetComponent<Animator>();
+
+            Debug.Log(GameManager.instance.PlayerMoving);
 
             if (damage <= 0) {
 
@@ -1195,6 +1196,9 @@ public class Player_script : MonoBehaviour {
     {
         StartCoroutine(SmoothAttack(attack_range, attack_type, slanting_wall, attack_through, attack, Color.white, attack_animation /*通常攻撃*/));
     }
+
+
+    
 
 }
 
