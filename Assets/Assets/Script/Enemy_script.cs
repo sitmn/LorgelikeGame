@@ -915,8 +915,39 @@ public class Enemy_script : MonoBehaviour
             else if (distance_x == -1 && distance_y == -1)
             {
                 transform.eulerAngles = new Vector3(0, 315 + Player_script.asset_rotate, 0);
+            }else if(distance_x == -2 && distance_y == 0)
+            {
+                transform.eulerAngles = new Vector3(0, 0 + Player_script.asset_rotate, 0);
             }
-            StartCoroutine(AttackAnimation());
+            else if (distance_x == 0 && distance_y == 2)
+            {
+                transform.eulerAngles = new Vector3(0, 90 + Player_script.asset_rotate, 0);
+            }
+            else if (distance_x == 2 && distance_y == 0)
+            {
+                transform.eulerAngles = new Vector3(0, 180 + Player_script.asset_rotate, 0);
+            }
+            else if (distance_x == 0 && distance_y == -2)
+            {
+                transform.eulerAngles = new Vector3(0, 270 + Player_script.asset_rotate, 0);
+            }
+            else if (distance_x == -2 && distance_y == 2)
+            {
+                transform.eulerAngles = new Vector3(0, 45 + Player_script.asset_rotate, 0);
+            }
+            else if (distance_x == 2 && distance_y == 2)
+            {
+                transform.eulerAngles = new Vector3(0, 135 + Player_script.asset_rotate, 0);
+            }
+            else if (distance_x == 2 && distance_y == -2)
+            {
+                transform.eulerAngles = new Vector3(0, 225 + Player_script.asset_rotate, 0);
+            }
+            else if (distance_x == -2 && distance_y == -2)
+            {
+                transform.eulerAngles = new Vector3(0, 315 + Player_script.asset_rotate, 0);
+            }
+                StartCoroutine(AttackAnimation());
             
         }
     }
@@ -1179,6 +1210,9 @@ public class Enemy_script : MonoBehaviour
             }else if (player_die == true)
             {
                 playerAnimator.SetInteger("AnimIndex", 4);
+                yield return null;
+                yield return new AnimationWait(playerAnimator, 0);
+                
                 yield break;
             }
         }

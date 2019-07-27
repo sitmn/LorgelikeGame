@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour {
     private Player_script player_script;
     private map_creat mapscript;
     private MenuController menuscript;
+    public GameObject GameOverScreen;
 
 
     //public GameObject Enemy;
@@ -198,8 +199,8 @@ public class GameManager : MonoBehaviour {
         AddListDevelop(item1);
         map_item item2 = new item2(map_creat.NAME_I2, map_creat.ATTACK_POINT_I2, map_creat.ATTACK_RANGE, map_creat.ATTACK_TYPE, map_creat.DEVELOP_I2_MATERIAL_1, map_creat.DEVELOP_I2_MATERIAL_2, map_creat.DEVELOP_I2_MATERIAL_3, map_creat.DEVELOP_NEED_MP_I2);
         AddListDevelop(item2);
-        map_item item3 = new item3(map_creat.NAME_I3, map_creat.DEVELOP_I3_MATERIAL_1, map_creat.DEVELOP_I3_MATERIAL_2, map_creat.DEVELOP_I3_MATERIAL_3, map_creat.DEVELOP_NEED_MP_I3);
-        AddListDevelop(item3);
+        //map_item item3 = new item3(map_creat.NAME_I3, map_creat.DEVELOP_I3_MATERIAL_1, map_creat.DEVELOP_I3_MATERIAL_2, map_creat.DEVELOP_I3_MATERIAL_3, map_creat.DEVELOP_NEED_MP_I3);
+        //AddListDevelop(item3);
         map_item item4 = new item4(map_creat.NAME_I4, map_creat.HEAL_POINT_I4, map_creat.DEVELOP_I4_MATERIAL_1, map_creat.DEVELOP_I4_MATERIAL_2, map_creat.DEVELOP_I4_MATERIAL_3, map_creat.DEVELOP_NEED_MP_I4);
         AddListDevelop(item4);
         map_item weapon1 = new weapon1(map_creat.NAME_W1, map_creat.HP_W1, map_creat.ATTACK_W1, map_creat.DEFENSE_W1, map_creat.ATTACK_RANGE_W1, map_creat.ATTACK_TYPE_W1, map_creat.ATTACK_THROUGH_W1, map_creat.SLANTING_WALL_W1, map_creat.DEVELOP_W1_MATERIAL_1, map_creat.DEVELOP_W1_MATERIAL_2, map_creat.DEVELOP_W1_MATERIAL_3, map_creat.MP_COST_W1, map_creat.ENDURANCE_W1, map_creat.DEVELOP_NEED_MP_W1);
@@ -618,6 +619,17 @@ public class GameManager : MonoBehaviour {
     {
         attack_button = false;
     }
+    public void Game_Over()
+    {
+        GameOverScreen.SetActive(true);
+    }
+
+    public void Title_Button()
+    {
+        player.player_hp = 100;
+        SceneManager.MoveGameObjectToScene(gameObject, SceneManager.GetActiveScene());
+        SceneManager.LoadScene("Title");
+    }
 }
 
 public class map_state
@@ -929,6 +941,8 @@ public class weapon : map_item
         GameManager.instance.Hp_Bar();
         GameManager.instance.HP_Text();
     }
+
+    
 }
 public class weapon1 : weapon
 {

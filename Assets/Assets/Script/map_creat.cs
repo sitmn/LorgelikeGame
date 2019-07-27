@@ -91,7 +91,7 @@ public class map_creat : MonoBehaviour {
     public const string GHOST3_NAME = "ゴースト（レベル３）";
     public const float GHOST3_HP = 34;
     public const float GHOST3_MP = 2;
-    public const float GHOST3_ATTACK = 25;
+    public const float GHOST3_ATTACK = 35;
     public const float GHOST3_DEFENSE = 10;
     public const int GHOST3_ATTACK_RANGE = 1;
     public const int GHOST3_ATTACK_TYPE = 0;
@@ -100,7 +100,7 @@ public class map_creat : MonoBehaviour {
     public const string RABBIT3_NAME = "ラビット（レベル３）";
     public const float RABBIT3_HP = 14;
     public const float RABBIT3_MP = 2;
-    public const float RABBIT3_ATTACK = 23;
+    public const float RABBIT3_ATTACK = 28;
     public const float RABBIT3_DEFENSE = 0;
     public const int RABBIT3_ATTACK_RANGE = 2;
     public const int RABBIT3_ATTACK_TYPE = 0;
@@ -116,18 +116,18 @@ public class map_creat : MonoBehaviour {
     public const bool SLIME3_SLANTING_WALL = true;
 
     public const string BAT4_NAME = "コウモリ（レベル４）";
-    public const float BAT4_HP = 78;
+    public const float BAT4_HP = 92;
     public const float BAT4_MP = 2;
-    public const float BAT4_ATTACK = 35;
+    public const float BAT4_ATTACK = 45;
     public const float BAT4_DEFENSE = 0;
     public const int BAT4_ATTACK_RANGE = 1;
     public const int BAT4_ATTACK_TYPE = 0;
     public const bool BAT4_SLANTING_WALL = true;
 
     public const string GHOST4_NAME = "ゴースト（レベル４）";
-    public const float GHOST4_HP = 40;
+    public const float GHOST4_HP = 52;
     public const float GHOST4_MP = 2;
-    public const float GHOST4_ATTACK = 28;
+    public const float GHOST4_ATTACK = 36;
     public const float GHOST4_DEFENSE = 15;
     public const int GHOST4_ATTACK_RANGE = 1;
     public const int GHOST4_ATTACK_TYPE = 0;
@@ -1557,7 +1557,7 @@ public class map_creat : MonoBehaviour {
         }
 
         //アイテムを部屋に配置
-        int itemnumber = Random.Range(5, 15);
+        int itemnumber = Random.Range(3, 10);
         for(int i = 0; i < itemnumber; i++)
         {
             int a = Random.Range(0, 100);
@@ -1565,14 +1565,14 @@ public class map_creat : MonoBehaviour {
             {
                 InstantiateInRoom_map_item(Item1);
             }
-            else if(a >= 16 && a <= 17)
+            else if(a >= 16 && a <= 19)
             {
                 InstantiateInRoom_map_item(Item2);
             }
-            else if(a >= 18 && a <= 19)
+            /*else if(a >= 18 && a <= 19)
             {
                 InstantiateInRoom_map_item(Item3);
-            }else if(a >= 20 && a <= 69)
+            }*/else if(a >= 20 && a <= 69)
             {
                 InstantiateInRoom_map_item(Material1);
             }else if(a >= 70 && a <= 89)
@@ -1610,7 +1610,7 @@ public class map_creat : MonoBehaviour {
         */
 
         //敵をランダムに配置
-        enemynumber = Random.Range(5, 9);
+        enemynumber = Random.Range(3, 8);
         Random_Enemy_Instantiate(enemynumber);
 
 
@@ -1648,10 +1648,10 @@ public class map_creat : MonoBehaviour {
         {
             map_item[(int)pos.x, (int)pos.z] = new item2(NAME_I2 , ATTACK_POINT_I2 , ATTACK_RANGE , ATTACK_TYPE , DEVELOP_I2_MATERIAL_1, DEVELOP_I2_MATERIAL_2, DEVELOP_I2_MATERIAL_3, DEVELOP_NEED_MP_I2);
         }
-        else if (obj.tag == "Item3")
+        /*else if (obj.tag == "Item3")
         {
             map_item[(int)pos.x, (int)pos.z] = new item3(NAME_I3 , DEVELOP_I3_MATERIAL_1, DEVELOP_I3_MATERIAL_2, DEVELOP_I3_MATERIAL_3, DEVELOP_NEED_MP_I3);
-        }else if(obj.tag == "material1")
+        }*/else if(obj.tag == "material1")
         {
             map_item[(int)pos.x, (int)pos.z] = new material1(NAME_M1);
         }

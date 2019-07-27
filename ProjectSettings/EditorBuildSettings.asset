@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Assets/Scenes/Title.unity
+    guid: 9d00734ee746ec842b0812092bd56323
+  - enabled: 1
+    path: Assets/Assets/Scenes/Dangyon.unity
+    guid: 7791c79f26051fc43bf54d5f89f4d2de
   m_configObjects: {}

@@ -600,7 +600,11 @@ public class Player_script : MonoBehaviour {
 
     public int playerdamage(int hp, int attack)
     {
-        int damage = attack;
+        int damage = attack - player.player_defense;
+        if(damage >= 0)
+        {
+            damage = 0;
+        }
         player.player_hp -= damage;
 
         GameManager.instance.AddMainText("クエリは" + damage + "のダメージを受けた。");
@@ -618,6 +622,7 @@ public class Player_script : MonoBehaviour {
         if (player.player_hp <= 0)
         {
             player_die = true;
+            GameManager.instance.Game_Over();
         }
         else
         {
