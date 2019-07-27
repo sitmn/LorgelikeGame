@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour {
     public bool Pose;
     public bool one;
     public bool space;
+    public bool kaidan_screen;
+    public bool kaidan;
 
     public int emoveY;
     public int emoveX;
@@ -43,6 +45,7 @@ public class GameManager : MonoBehaviour {
     //public GameObject Enemy;
     private GameObject Player;
     public GameObject Menuobj;
+    public GameObject Kaidan_Screen;
 
     public List<map_exist> damageenemy;
     public List<Enemy_script> enemies;
@@ -456,7 +459,7 @@ public class GameManager : MonoBehaviour {
         Heel_Sound_Effect();
         Hp_Bar();
         HP_Text();
-        GameManager.instance.AddMainText("ＨＰが" + healpoint + "回復した");
+        GameManager.instance.AddMainText("クエリのＨＰが" + healpoint + "回復した。");
     }
     public void Player_Heal_MP(int healpoint)
     {
@@ -469,8 +472,39 @@ public class GameManager : MonoBehaviour {
         
         Mp_Bar();
         MP_Text();
-        GameManager.instance.AddMainText("ＭＰが" + healpoint + "回復した");
+        GameManager.instance.AddMainText("クエリのＭＰが" + healpoint + "回復した。");
     }
+    public void Kaidan_Get_Off_Yes()
+    {
+        //シーン移動時、instanceのGamaManagerは残り続けるから、Awake,Startは読み込まない、なのでここでデータを変える
+        GameManager.instance.Pose = true;
+        GameManager.instance.Playerturn = true;
+        GameManager.instance.one = true;
+        MenuController.menu_one = true;
+
+        GameManager.instance.emoveX = 0;
+        GameManager.instance.emoveY = 0;
+
+        GameManager.instance.Player_Heal_MP(10);
+        GameManager.instance.Mp_Bar();
+
+        player.exist_room_no = 10;
+
+        GameManager.instance.enemies.Clear();
+
+        kaidan = false;
+        kaidan_screen = false;
+        Kaidan_Screen.SetActive(false);
+
+
+        SceneManager.LoadScene("Dangyon");
+    }
+    public void Kaidan_Get_Off_No()
+    {
+        kaidan_screen = false;
+        Kaidan_Screen.SetActive(false);
+    }
+
     public void Weapon_Destroy()
     {
         int destroy_weapon;
@@ -675,7 +709,7 @@ public class map_item
     public void use(int listnum) {
         if(GameManager.instance.possessionitemlist[listnum].name == "回復薬")
         {
-            GameManager.instance.AddMainText("回復薬を使用した");
+            GameManager.instance.AddMainText("クエリは回復薬を使用した。");
 
             GameManager.instance.Player_Heal_HP(heal_point);
 
@@ -691,12 +725,12 @@ public class map_item
 
         }else if(GameManager.instance.possessionitemlist[listnum].name == "場所替え")
         {
-            GameManager.instance.AddMainText("場所替えを使用した");
+            GameManager.instance.AddMainText("クエリは場所替えを使用した。");
             GameManager.instance.itemuse(listnum);
 
         }else if(GameManager.instance.possessionitemlist[listnum].name == "回復薬（特）")
         {
-            GameManager.instance.AddMainText("回復薬（特）を使用した");
+            GameManager.instance.AddMainText("クエリは回復薬（特）を使用した。");
 
             GameManager.instance.Player_Heal_HP(heal_point);
 
@@ -728,7 +762,7 @@ public class item1 : item
         develop_need_material3 = DEVELOP_MATERIAL_3;
         develop_need_MP = DEVELOP_NEED_MP;
 
-        item_description = "ＨＰを３０回復する";
+        item_description = "青みがかった液体。人体に影響があるどころか、体力を" + heal_point + "回復する。ちょっと苦い。";
     }
 
     
@@ -754,7 +788,7 @@ public class item2 : item
         develop_need_material3 = DEVELOP_MATERIAL_3;
         develop_need_MP = DEVELOP_NEED_MP;
 
-        item_description = "正面に" + attack_point + "ダメージを与える";
+        item_description = "見るからに危険そうな見た目をした爆発物。どうやって着火しているのかは不明。正面に" + attack_point + "ダメージを与える。爆風で自身が食らうことはない、とっても不思議。";
     }
     
 }
@@ -772,7 +806,14 @@ public class item3 : item
 
         item_description = "ＨＰを３０回復する";
     }
-    
+    public void changeuse(int listnum)
+    {
+        //〇アイテム効果
+
+        GameManager.instance.AddMainText("場所替えを使用した");
+        GameManager.instance.itemuse(listnum);
+    }
+
 }
 
 public class item4 : item
@@ -788,15 +829,9 @@ public class item4 : item
         develop_need_material3 = DEVELOP_MATERIAL_3;
         develop_need_MP = DEVELOP_NEED_MP;
 
-        item_description = "ＨＰを１００回復する";
+        item_description = "回復薬と同じように怪しい色をしている液体。回復薬と比べて回復量がおよそ２倍のお得なアイテム。体力を" + heal_point + "回復する。こっちはちょっと甘くておいしい。";
     }
-    public void changeuse(int listnum)
-    {
-        //〇アイテム効果
-
-        GameManager.instance.AddMainText("場所替えを使用した");
-        GameManager.instance.itemuse(listnum);
-    }
+    
 }
 
 public class material1 : map_item
@@ -860,7 +895,7 @@ public class weapon : map_item
                     GameManager.instance.possessionweaponlist[i].name = GameManager.instance.possessionweaponlist[i].name.Replace("E:", "");
                 }
             }
-            GameManager.instance.AddMainText(GameManager.instance.possessionweaponlist[listnum].name + "を装備した");
+            GameManager.instance.AddMainText("クエリは" + GameManager.instance.possessionweaponlist[listnum].name + "を装備した。");
 
             GameManager.instance.possessionweaponlist[listnum].name = GameManager.instance.possessionweaponlist[listnum].name.Insert(0, "E:");
 
@@ -882,7 +917,7 @@ public class weapon : map_item
 
             if (player.equipment_weapon.ENDURANCE_W > 0)
             {
-                GameManager.instance.AddMainText(GameManager.instance.possessionweaponlist[listnum].name + "を外した");
+                GameManager.instance.AddMainText("クエリは" + GameManager.instance.possessionweaponlist[listnum].name + "を外した。");
             }
 
             player.equipment_weapon = null;
@@ -1101,8 +1136,9 @@ public class clear : map_exist
     }
 }
 
-public class enemystate
+public class enemystate:map_exist
 {
+    public string name;
     public int MAX_HP;
     public int HP;
     public int MAX_MP;
@@ -1115,8 +1151,9 @@ public class enemystate
     public int ATTACK_TYPE;
     public bool SLANTING_WALL;
     
-    public enemystate(float max_hp,float max_mp, float max_attack, float max_defense,int range_attack, int attack_type , bool slanting_wall ,float Random)
+    public enemystate(string NAME ,float max_hp,float max_mp, float max_attack, float max_defense,int range_attack, int attack_type , bool slanting_wall ,float Random)
     {
+        name = NAME;
         MAX_HP = (int)(max_hp * GameManager.instance.floor_enemy_level_coefficient * Random);
         HP = MAX_HP;
         MAX_MP = (int)(max_mp * GameManager.instance.floor_enemy_level_coefficient * Random);

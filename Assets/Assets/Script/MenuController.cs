@@ -123,14 +123,14 @@ public class MenuController : MonoBehaviour {
 
     public void Player_Wait_Button()
     {
-        if (GameManager.instance.Playerturn == true && GameManager.instance.PlayerMoving == false && weaponscreen == false && developscreen == false && itemscreen == false && GameManager.instance.vector_change_button == false)
+        if (GameManager.instance.Playerturn == true && GameManager.instance.PlayerMoving == false && weaponscreen == false && developscreen == false && itemscreen == false && GameManager.instance.vector_change_button == false && GameManager.instance.kaidan_screen == false)
         {
             GameManager.instance.Playerturn = false;
         }
     }
 
     public void MenuButton() 
-    {   if (GameManager.instance.Playerturn == true && GameManager.instance.PlayerMoving == false && GameManager.instance.vector_change_button == false)
+    {   if (GameManager.instance.Playerturn == true && GameManager.instance.PlayerMoving == false && GameManager.instance.vector_change_button == false && GameManager.instance.kaidan_screen == false)
         {
             GameManager.instance.Menu = true;
 
@@ -209,7 +209,7 @@ public class MenuController : MonoBehaviour {
             }
             else
             {
-                GameManager.instance.AddMainText("しかし、何も無かった");
+                GameManager.instance.AddMainText("しかし、足元には何も無かった。");
             }
 
             GameManager.instance.Playerturn = false;
@@ -235,7 +235,7 @@ public class MenuController : MonoBehaviour {
     {
         if (map_creat.map_item[(int)Player.transform.position.x, (int)Player.transform.position.z].exist == true)
         {
-            GameManager.instance.AddMainText("既に足元に何かあるため置くことができない");
+            GameManager.instance.AddMainText("既に足元に何かあるため置くことができない。");
         }
         else
         {
@@ -278,7 +278,7 @@ public class MenuController : MonoBehaviour {
             BackButton();
             GameManager.instance.possessionitemlist.RemoveAt(argument);
 
-            GameManager.instance.AddMainText("足元に" + map_creat.map_item[pos_x, pos_z].name + "を置いた");
+            GameManager.instance.AddMainText("クエリは足元に" + map_creat.map_item[pos_x, pos_z].name + "を置いた。");
         }
     }
 
@@ -322,7 +322,7 @@ public class MenuController : MonoBehaviour {
     {
         if (map_creat.map_item[(int)Player.transform.position.x, (int)Player.transform.position.z].exist == true)
         {
-            GameManager.instance.AddMainText("既に足元に何かあるため置くことができない");
+            GameManager.instance.AddMainText("既に足元に何かあるため置くことができない。");
         }
         else
         {
@@ -373,7 +373,7 @@ public class MenuController : MonoBehaviour {
             BackButton();
             GameManager.instance.possessionweaponlist.RemoveAt(argument);
 
-            GameManager.instance.AddMainText("足元に" + map_creat.map_item[pos_x, pos_z].name + "を置いた");
+            GameManager.instance.AddMainText("クエリは足元に" + map_creat.map_item[pos_x, pos_z].name + "を置いた。");
         }
     }
 
@@ -411,13 +411,13 @@ public class MenuController : MonoBehaviour {
         if (((develop_item.develop_need_material1 > GameManager.instance.possession_material_1) || (develop_item.develop_need_material2 > GameManager.instance.possession_material_2) || (develop_item.develop_need_material3 > GameManager.instance.possession_material_3)))
         {
 
-            GameManager.instance.AddMainText("素材が足りない");
+            GameManager.instance.AddMainText("素材が足りない。");
         }else if (develop_item.develop_need_MP > player.player_mp)
         {
-            GameManager.instance.AddMainText("ＭＰが足りない");
+            GameManager.instance.AddMainText("ＭＰが足りない。");
         }else if(GameManager.instance.possessionitemlist.Count > GameManager.instance.MAX_ITEM)
         {
-            GameManager.instance.AddMainText("持ち物が一杯で合成できない");
+            GameManager.instance.AddMainText("持ち物が一杯で合成できない。");
         }
         else
         {
@@ -435,7 +435,7 @@ public class MenuController : MonoBehaviour {
                 new_item.heal_point = (int)float_heal_point;
 
                 //テキストも変更
-                new_item.item_description = "体力を" + new_item.heal_point + "回復する。";
+                new_item.item_description = "青みがかった液体。人体に影響があるどころか、体力を" + new_item.heal_point + "回復する。ちょっと苦い。";
                 
             }
             else if (develop_item.name == "爆弾")
@@ -447,7 +447,7 @@ public class MenuController : MonoBehaviour {
                 new_item.attack_point = (int)float_attack_point;
 
                 //テキストも変更
-                new_item.item_description = "正面に" + new_item.attack_point + "ダメージを与える";
+                new_item.item_description = "見るからに危険そうな見た目をした爆発物。どうやって着火しているのかは不明。正面に" + new_item.attack_point + "ダメージを与える。爆風で自身が食らうことはない、とっても不思議。";
             }
             else if (develop_item.name == "場所替え")
             {
@@ -464,7 +464,7 @@ public class MenuController : MonoBehaviour {
                 new_item.heal_point = (int)float_heal_point;
 
                 //テキストも変更
-                new_item.item_description = "体力を" + new_item.heal_point + "回復する。";
+                new_item.item_description = "回復薬と同じように怪しい色をしている液体。回復薬と比べて回復量がおよそ２倍のお得なアイテム。体力を" + new_item.heal_point + "回復する。こっちはちょっと甘くておいしい。";
 
             }
             else //ここには入らない
@@ -474,7 +474,7 @@ public class MenuController : MonoBehaviour {
 
             player_script.Success_Develop();
 
-            GameManager.instance.AddMainText(develop_item.name + "を合成した");
+            GameManager.instance.AddMainText("クエリは" + develop_item.name + "を合成した。");
 
             player.player_mp -= develop_item.develop_need_MP;
 
@@ -538,14 +538,14 @@ public class MenuController : MonoBehaviour {
         
         if (((develop_item.develop_need_material1 > GameManager.instance.possession_material_1) || (develop_item.develop_need_material2 > GameManager.instance.possession_material_2) || (develop_item.develop_need_material3 > GameManager.instance.possession_material_3)))
         {
-            GameManager.instance.AddMainText("素材が足りない");
+            GameManager.instance.AddMainText("素材が足りない。");
         }else if (develop_item.develop_need_MP > player.player_mp)
         {
-            GameManager.instance.AddMainText("ＭＰが足りない");
+            GameManager.instance.AddMainText("ＭＰが足りない。");
         }
         else if (GameManager.instance.possessionweaponlist.Count > GameManager.instance.MAX_WEAPON)
         {
-            GameManager.instance.AddMainText("持ち物が一杯で合成できない");
+            GameManager.instance.AddMainText("持ち物が一杯で合成できない。");
         }
         else
         {
@@ -596,7 +596,7 @@ public class MenuController : MonoBehaviour {
 
             player_script.Success_Develop();
 
-            GameManager.instance.AddMainText(develop_item.name +"を合成した");
+            GameManager.instance.AddMainText("クエリは" + develop_item.name +"を合成した。");
 
             player.player_mp -= develop_item.develop_need_MP;
 

@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Player_script : MonoBehaviour {
-
-    private bool kaidan;
+    
     private int moveX;
     private int moveY;
     private bool attack;
@@ -15,6 +14,7 @@ public class Player_script : MonoBehaviour {
     
 
     public bool notmove, vectorchange;
+    
     
     public GameObject Player;
     public GameObject MenuScreen;
@@ -35,7 +35,7 @@ public class Player_script : MonoBehaviour {
     {
         asset_rotate = 90;
 
-        this.kaidan = false;
+        GameManager.instance.kaidan = false;
         this.notmove = false;
 
         HPBar = HPBAR.GetComponent<HpBar>();
@@ -67,7 +67,7 @@ public class Player_script : MonoBehaviour {
     public void Update()
     {
         //プレイヤーターンでないときまたはポーズ時は動かない
-        if (GameManager.instance.Playerturn == false||GameManager.instance.Menu == true || GameManager.instance.Pose == true || GameManager.instance.PlayerMoving == true)
+        if (GameManager.instance.Playerturn == false||GameManager.instance.Menu == true || GameManager.instance.Pose == true || GameManager.instance.PlayerMoving == true || GameManager.instance.kaidan_screen == true)
         {
             return;
         }
@@ -76,27 +76,11 @@ public class Player_script : MonoBehaviour {
         {
             //階段
 
-                if (kaidan == false)
+                if (GameManager.instance.kaidan == false)
                 {
-                    kaidan = true;
-
-                    //シーン移動時、instanceのGamaManagerは残り続けるから、Awake,Startは読み込まない、なのでここでデータを変える
-                    GameManager.instance.Pose = true;
-                    GameManager.instance.Playerturn = true;
-                    GameManager.instance.one = true;
-                    MenuController.menu_one = true;
-
-                    GameManager.instance.emoveX = 0;
-                    GameManager.instance.emoveY = 0;
-
-                    GameManager.instance.Player_Heal_MP(10);
-                    GameManager.instance.Mp_Bar();
-                    
-                    player.exist_room_no = 10;
-
-                    GameManager.instance.enemies.Clear();
-
-                    SceneManager.LoadScene("Dangyon");
+                    GameManager.instance.kaidan = true;
+                    GameManager.instance.kaidan_screen = true;
+                    GameManager.instance.Kaidan_Screen.SetActive(true);
                 }
                 
         }
@@ -195,7 +179,7 @@ public class Player_script : MonoBehaviour {
                 {
                     if(player.equipment_weapon.MP_COST_W > player.player_mp)
                     {
-                        GameManager.instance.AddMainText("ＭＰが足りない");
+                        GameManager.instance.AddMainText("ＭＰが足りない。");
                     }
                     else
                     {
@@ -574,12 +558,12 @@ public class Player_script : MonoBehaviour {
                 }
                 else
                 {
-                    GameManager.instance.AddMainText("持ち物が一杯で拾えない");
+                    GameManager.instance.AddMainText("持ち物が一杯で拾えない。");
                 }
             }
             else if (map_creat.map_item[(int)transform.position.x, (int)transform.position.z].number == 1)
             {
-                GameManager.instance.AddMainText(map_creat.map_item[(int)transform.position.x, (int)transform.position.z].name + "を拾った");
+                GameManager.instance.AddMainText("クエリは" + map_creat.map_item[(int)transform.position.x, (int)transform.position.z].name + "を拾った。");
 
                 if (map_creat.map_item[(int)transform.position.x, (int)transform.position.z].name == "魔力の結晶（汎）")
                 {
@@ -604,7 +588,7 @@ public class Player_script : MonoBehaviour {
             {
                 if (GameManager.instance.possessionweaponlist.Count < GameManager.instance.MAX_WEAPON)
                 {
-                    GameManager.instance.AddMainText(map_creat.map_item[(int)transform.position.x, (int)transform.position.z].name + "を拾った");
+                    GameManager.instance.AddMainText("クエリは" + map_creat.map_item[(int)transform.position.x, (int)transform.position.z].name + "を拾った。");
 
                     GameManager.instance.AddListWeapon(map_creat.map_item[(int)transform.position.x, (int)transform.position.z]);
                     Destroy(map_creat.map_item[(int)transform.position.x, (int)transform.position.z].obj);
@@ -619,7 +603,7 @@ public class Player_script : MonoBehaviour {
         int damage = attack;
         player.player_hp -= damage;
 
-        GameManager.instance.AddMainText(damage + "のダメージを受けた");
+        GameManager.instance.AddMainText("クエリは" + damage + "のダメージを受けた。");
 
         GameManager.instance.Hp_Bar();
         GameManager.instance.HP_Text();
@@ -686,7 +670,10 @@ public class Player_script : MonoBehaviour {
         {
             Debug.Log(gameObject);
         }
-        
+        Debug.Log(map_creat.map[(int)transform.position.x, (int)transform.position.z].number);
+
+        GameManager.instance.kaidan = false;
+
     }
         
     
@@ -733,7 +720,7 @@ public class Player_script : MonoBehaviour {
             previous_hp = GameManager.instance.damageenemy[i].state.HP;
 
             GameManager.instance.damageenemy[i].state.HP = GameManager.instance.damageenemy[i].enemy_script.
-            enemydamage(GameManager.instance.damageenemy[i].state.HP, attack_damage, GameManager.instance.damageenemy[i].state.DEFENSE);
+            enemydamage(GameManager.instance.damageenemy[i].state.HP, attack_damage, GameManager.instance.damageenemy[i].state.DEFENSE , GameManager.instance.damageenemy[i].state.name);
 
             damage = previous_hp - GameManager.instance.damageenemy[i].state.HP;
 
@@ -759,7 +746,7 @@ public class Player_script : MonoBehaviour {
                     yield return null;
                     yield return new AnimationWait(enemyAnimator, 0);
                     yield return null;
-                    GameManager.instance.damageenemy[i].enemy_script.enemydie();
+                    GameManager.instance.damageenemy[i].enemy_script.enemydie(GameManager.instance.damageenemy[i].state.name);
                 }
 
                 enemyAnimator.SetInteger("AnimIndex", 0);
@@ -779,7 +766,7 @@ public class Player_script : MonoBehaviour {
             {
                 GameManager.instance.Weapon_Destroy();
 
-                GameManager.instance.AddMainText("装備が壊れてしまった");
+                GameManager.instance.AddMainText("装備が壊れてしまった。");
             }
         }
 
@@ -1196,7 +1183,6 @@ public class Player_script : MonoBehaviour {
     {
         StartCoroutine(SmoothAttack(attack_range, attack_type, slanting_wall, attack_through, attack, Color.white, attack_animation /*通常攻撃*/));
     }
-
 
     
 

@@ -1090,19 +1090,19 @@ public class Enemy_script : MonoBehaviour
     }
 
 
-    public int enemydamage(int hp, int attack , int defense)
+    public int enemydamage(int hp, int attack , int defense , string name)
     {
         int damage = attack - defense;
         hp -= damage;
 
-        GameManager.instance.AddMainText(damage + "のダメージを与えた");
+        GameManager.instance.AddMainText("クエリは" + name + "に" + damage + "のダメージを与えた。");
         
         return hp;
     }
 
-    public void enemydie()
+    public void enemydie(string name)
     {
-            GameManager.instance.AddMainText("倒れた");
+            GameManager.instance.AddMainText(name + "は倒れた。");
             map_creat.map_ex[(int)transform.position.x, (int)transform.position.z] = new clear();
 
 
