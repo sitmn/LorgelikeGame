@@ -7,6 +7,12 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
+    //自動回復用
+    public int hp_heel_time_count = 0;
+    public int mp_heel_time_count = 0;
+    public int hp_heel_need_time = 5;
+    public int mp_heel_need_time = 10;
+
 
     public float floor_enemy_level_coefficient;
     public float floor_level_coefficient;
@@ -93,8 +99,7 @@ public class GameManager : MonoBehaviour {
     
     public int MAX_ITEM = 20;
     public int MAX_WEAPON = 20;
-
-    private int q = 0;
+    
     public Text T;
 
     public GameObject MenuScreen;
@@ -240,6 +245,25 @@ public class GameManager : MonoBehaviour {
             Player = GameObject.Find("Player");
             player_script = Player.GetComponent<Player_script>();
         }
+
+
+        hp_heel_time_count++;
+        mp_heel_time_count++;
+        if(hp_heel_time_count >= hp_heel_need_time)
+        {
+            hp_heel_time_count = 0;
+            player.player_hp++;
+            Hp_Bar();
+            HP_Text();
+        }
+        if(mp_heel_time_count >= mp_heel_need_time)
+        {
+            mp_heel_time_count = 0;
+            player.player_mp++;
+            Mp_Bar();
+            HP_Text();
+        }
+
 
         if (coroutine == false)
         {
@@ -689,7 +713,6 @@ public class map_item
     public GameObject minimap_item;
     
     public string item_description;
-    public string develop_description;
 
     //item1
     public int heal_point;
@@ -966,6 +989,8 @@ public class weapon1 : weapon
         MP_COST_W = mp_cost;
         ENDURANCE_W = endurance;
         develop_need_MP = develop_need_mp;
+
+        item_description = "水色に輝く宝石。魔力を宿しており、装備するとステータスが上がる。";
     }   
 }
 public class weapon2 : weapon
@@ -990,6 +1015,8 @@ public class weapon2 : weapon
         MP_COST_W = mp_cost;
         ENDURANCE_W = endurance;
         develop_need_MP = develop_need_mp;
+
+        item_description = "紫色に輝く宝石。魔力を宿しており、装備するとステータスが上がる。";
     }
 }
 public class weapon3 : weapon
@@ -1014,6 +1041,8 @@ public class weapon3 : weapon
         MP_COST_W = mp_cost;
         ENDURANCE_W = endurance;
         develop_need_MP = develop_need_mp;
+
+        item_description = "緑色に輝く宝石。魔力を宿しており、装備するとステータスが上がる。";
     }
 }
 public class weapon4 : weapon
@@ -1038,6 +1067,8 @@ public class weapon4 : weapon
         MP_COST_W = mp_cost;
         ENDURANCE_W = endurance;
         develop_need_MP = develop_need_mp;
+
+        item_description = "真紅に輝く宝石。魔力を宿しており、装備するとステータスが上がる。";
     }
 }
 public class weapon5 : weapon
@@ -1062,7 +1093,8 @@ public class weapon5 : weapon
         MP_COST_W = mp_cost;
         ENDURANCE_W = endurance;
         develop_need_MP = develop_need_mp;
-        
+
+        item_description = "透明に澄んだ水晶。魔力を宿しており、装備するとステータスが上がる。";
     }
 }
 public class clean : map_item

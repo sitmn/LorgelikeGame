@@ -7,7 +7,7 @@ public class MenuController : MonoBehaviour {
 
     public static bool menu_one;
 
-    private bool itemscreen,weaponscreen,developscreen;
+    public bool itemscreen,weaponscreen,developscreen;
 
     public GameObject MenuScreen;
     public GameObject ItemScreen;
@@ -197,9 +197,9 @@ public class MenuController : MonoBehaviour {
             GameManager.instance.PlayerMoving = false;
         }
     }
-
     public void PickUpButton()
-    {   if (itemscreen == false && weaponscreen == false && developscreen == false)
+    {
+        if (itemscreen == false && weaponscreen == false && developscreen == false)
         {
             BackButton();
 
@@ -215,7 +215,8 @@ public class MenuController : MonoBehaviour {
             GameManager.instance.Playerturn = false;
         }
     }
-    
+
+
     public void Item_Description(item item_use, int argument)
     {
         item_use_button.transform.GetComponent<Button>().onClick.RemoveAllListeners();
@@ -269,6 +270,7 @@ public class MenuController : MonoBehaviour {
             map_creat.map_item[pos_x, pos_z] = GameManager.instance.possessionitemlist[argument];
             map_creat.map_item[pos_x, pos_z].exist = true;
             map_creat.map_item[pos_x, pos_z].obj = Instantiate(Map_item, new Vector3(pos_x, -0.5f,pos_z),Quaternion.identity);
+            map_creat.map_item[pos_x, pos_z].obj.transform.parent = map_creat.Map.transform;
             map_creat.map_item[pos_x, pos_z].minimap_item =
                 Instantiate(MiniMapItem, new Vector3(pos_x + map_creat.minimapdistance, 1, pos_z + map_creat.minimapdistance), Quaternion.identity);
             map_creat.map_item[pos_x, pos_z].minimap_item.transform.parent =
@@ -317,6 +319,7 @@ public class MenuController : MonoBehaviour {
         Weapon_MP_Cost.text = weapon_use.MP_COST_W.ToString();
         Weapon_Endurance.text = weapon_use.ENDURANCE_W.ToString();
 
+        WeaponDescription.text = weapon_use.item_description;
     }
     public void Weapon_Put_Button(int argument)
     {
@@ -364,6 +367,7 @@ public class MenuController : MonoBehaviour {
             map_creat.map_item[pos_x, pos_z] = GameManager.instance.possessionweaponlist[argument];
             map_creat.map_item[pos_x, pos_z].exist = true;
             map_creat.map_item[pos_x, pos_z].obj = Instantiate(Map_item, new Vector3(pos_x, -0.5f, pos_z), Quaternion.identity);
+            map_creat.map_item[pos_x, pos_z].obj.transform.parent = map_creat.Map.transform;
             map_creat.map_item[pos_x, pos_z].minimap_item =
                 Instantiate(MiniMapItem, new Vector3(pos_x + map_creat.minimapdistance, 1, pos_z + map_creat.minimapdistance), Quaternion.identity);
             map_creat.map_item[pos_x, pos_z].minimap_item.transform.parent =
@@ -389,7 +393,7 @@ public class MenuController : MonoBehaviour {
 
         DevelopDescriptionScreen.SetActive(true);
 
-        DevelopDescription.text = develop_do.develop_description;
+        DevelopDescription.text = develop_do.item_description;
 
         Develop_Weapon_HP_Text.text = "-";
         Develop_Weapon_Attack_Text.text = "-";
@@ -504,7 +508,7 @@ public class MenuController : MonoBehaviour {
 
         DevelopDescriptionScreen.SetActive(true);
 
-        DevelopDescription.text = develop_do.develop_description;
+        DevelopDescription.text = develop_do.item_description;
 
         Develop_Weapon_HP_Text.text = develop_weapon.HP_W.ToString();
         Develop_Weapon_Attack_Text.text = develop_weapon.ATTACK_W.ToString();

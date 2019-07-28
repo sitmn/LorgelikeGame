@@ -18,6 +18,7 @@ public class Player_script : MonoBehaviour {
     
     public GameObject Player;
     public GameObject MenuScreen;
+    private MenuController menu_controller_script;
 
     public GameObject HPBAR;
 
@@ -33,6 +34,8 @@ public class Player_script : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        menu_controller_script = MenuScreen.GetComponent<MenuController>();
+
         asset_rotate = 90;
 
         GameManager.instance.kaidan = false;
@@ -601,7 +604,7 @@ public class Player_script : MonoBehaviour {
     public int playerdamage(int hp, int attack)
     {
         int damage = attack - player.player_defense;
-        if(damage >= 0)
+        if(damage <= 0)
         {
             damage = 0;
         }
@@ -730,8 +733,7 @@ public class Player_script : MonoBehaviour {
             damage = previous_hp - GameManager.instance.damageenemy[i].state.HP;
 
             Animator enemyAnimator = GameManager.instance.damageenemy[i].obj.GetComponent<Animator>();
-
-            Debug.Log(GameManager.instance.PlayerMoving);
+            
 
             if (damage <= 0) {
 
@@ -1188,8 +1190,8 @@ public class Player_script : MonoBehaviour {
     {
         StartCoroutine(SmoothAttack(attack_range, attack_type, slanting_wall, attack_through, attack, Color.white, attack_animation /*通常攻撃*/));
     }
-
     
+
 
 }
 
@@ -1215,5 +1217,5 @@ public class AnimationWait : CustomYieldInstruction
                 (currentAnimatorState.normalizedTime < 1);
         }
     }
-
+    
 }

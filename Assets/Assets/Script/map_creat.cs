@@ -6,6 +6,10 @@ using UnityEngine.AI;
 using UnityEngine.UI;
 
 public class map_creat : MonoBehaviour {
+
+    public static GameObject Map;
+    public GameObject map_object;
+
     //敵ステータス
     public const string BAT1_NAME = "コウモリ（レベル１）";
     public const float BAT1_HP = 12;
@@ -170,8 +174,8 @@ public class map_creat : MonoBehaviour {
 
     public const string NAME_I2 = "爆弾";
     public const int ATTACK_POINT_I2 = 30;
-    public const int DEVELOP_I2_MATERIAL_1 = 1;
-    public const int DEVELOP_I2_MATERIAL_2 = 0;
+    public const int DEVELOP_I2_MATERIAL_1 = 0;
+    public const int DEVELOP_I2_MATERIAL_2 = 1;
     public const int DEVELOP_I2_MATERIAL_3 = 0;
     public const int DEVELOP_NEED_MP_I2 = 3;
 
@@ -185,53 +189,53 @@ public class map_creat : MonoBehaviour {
 
     public const string NAME_I4 = "回復薬（特）";
     public const int HEAL_POINT_I4 = 100;
-    public const int DEVELOP_I4_MATERIAL_1 = 1;
+    public const int DEVELOP_I4_MATERIAL_1 = 0;
     public const int DEVELOP_I4_MATERIAL_2 = 0;
-    public const int DEVELOP_I4_MATERIAL_3 = 0;
+    public const int DEVELOP_I4_MATERIAL_3 = 1;
     public const int DEVELOP_NEED_MP_I4 = 3;
 
     //武器ステータス
     public const string NAME_W1 = "アクアマリン";
     public const int HP_W1 = 100;
-    public const int ATTACK_W1 = 5;
+    public const int ATTACK_W1 = 12;
     public const int DEFENSE_W1 = 3;
     public const int ATTACK_RANGE_W1 = 2;
     public const int ATTACK_TYPE_W1 = 0;
     public const bool ATTACK_THROUGH_W1 = false;
     public const bool SLANTING_WALL_W1 = false;
-    public const int DEVELOP_W1_MATERIAL_1 = 1;
-    public const int DEVELOP_W1_MATERIAL_2 = 1;
-    public const int DEVELOP_W1_MATERIAL_3 = 1;
+    public const int DEVELOP_W1_MATERIAL_1 = 3;
+    public const int DEVELOP_W1_MATERIAL_2 = 3;
+    public const int DEVELOP_W1_MATERIAL_3 = 0;
     public const int MP_COST_W1 = 1;
-    public const int ENDURANCE_W1 = 1;
+    public const int ENDURANCE_W1 = 15;
     public const int DEVELOP_NEED_MP_W1 = 1;
 
     public const string NAME_W2 = "アメシスト";
     public const int HP_W2 = 20;
-    public const int ATTACK_W2 = 2;
+    public const int ATTACK_W2 = 8;
     public const int DEFENSE_W2 = 1;
     public const int ATTACK_RANGE_W2 = 4;
     public const int ATTACK_TYPE_W2 = 1;
     public const bool ATTACK_THROUGH_W2 = false;
     public const bool SLANTING_WALL_W2 = true;
-    public const int DEVELOP_W2_MATERIAL_1 = 3;
-    public const int DEVELOP_W2_MATERIAL_2 = 3;
-    public const int DEVELOP_W2_MATERIAL_3 = 1;
+    public const int DEVELOP_W2_MATERIAL_1 = 5;
+    public const int DEVELOP_W2_MATERIAL_2 = 2;
+    public const int DEVELOP_W2_MATERIAL_3 = 0;
     public const int MP_COST_W2 = 4;
-    public const int ENDURANCE_W2 = 5;
+    public const int ENDURANCE_W2 = 12;
     public const int DEVELOP_NEED_MP_W2 = 8;
 
     public const string NAME_W3 = "エメラルド";
     public const int HP_W3 = 50;
-    public const int ATTACK_W3 = 17;
+    public const int ATTACK_W3 = 22;
     public const int DEFENSE_W3 = 5;
     public const int ATTACK_RANGE_W3 = 2;
     public const int ATTACK_TYPE_W3 = 0;
     public const bool ATTACK_THROUGH_W3 = true;
     public const bool SLANTING_WALL_W3 = true;
-    public const int DEVELOP_W3_MATERIAL_1 = 6;
-    public const int DEVELOP_W3_MATERIAL_2 = 6;
-    public const int DEVELOP_W3_MATERIAL_3 = 3;
+    public const int DEVELOP_W3_MATERIAL_1 = 5;
+    public const int DEVELOP_W3_MATERIAL_2 = 3;
+    public const int DEVELOP_W3_MATERIAL_3 = 1;
     public const int MP_COST_W3 = 5;
     public const int ENDURANCE_W3 = 6;
     public const int DEVELOP_NEED_MP_W3 = 10;
@@ -244,9 +248,9 @@ public class map_creat : MonoBehaviour {
     public const int ATTACK_TYPE_W4 = 0;
     public const bool ATTACK_THROUGH_W4 = false;
     public const bool SLANTING_WALL_W4 = false;
-    public const int DEVELOP_W4_MATERIAL_1 = 7;
-    public const int DEVELOP_W4_MATERIAL_2 = 7;
-    public const int DEVELOP_W4_MATERIAL_3 = 2;
+    public const int DEVELOP_W4_MATERIAL_1 = 1;
+    public const int DEVELOP_W4_MATERIAL_2 = 4;
+    public const int DEVELOP_W4_MATERIAL_3 = 1;
     public const int MP_COST_W4 = 3;
     public const int ENDURANCE_W4 = 7;
     public const int DEVELOP_NEED_MP_W4 = 15;
@@ -259,12 +263,12 @@ public class map_creat : MonoBehaviour {
     public const int ATTACK_TYPE_W5 = 1;
     public const bool ATTACK_THROUGH_W5 = true;
     public const bool SLANTING_WALL_W5 = true;
-    public const int DEVELOP_W5_MATERIAL_1 = 1;
-    public const int DEVELOP_W5_MATERIAL_2 = 0;
-    public const int DEVELOP_W5_MATERIAL_3 = 0;
+    public const int DEVELOP_W5_MATERIAL_1 = 7;
+    public const int DEVELOP_W5_MATERIAL_2 = 7;
+    public const int DEVELOP_W5_MATERIAL_3 = 3;
     public const int MP_COST_W5 = 1;
-    public const int ENDURANCE_W5 = 100;
-    public const int DEVELOP_NEED_MP_W5 = 1;
+    public const int ENDURANCE_W5 = 3;
+    public const int DEVELOP_NEED_MP_W5 = 15;
 
     public const string NAME_M1 = "魔力の結晶（汎）";
 
@@ -363,6 +367,8 @@ public class map_creat : MonoBehaviour {
     // Use this for initialization
     public void Mapcreat()
     {
+        Map = Instantiate(map_object, new Vector3(0, 0, 0), Quaternion.identity);
+
         mapcreat = true;
 
         FloorText = GameObject.Find("FloorLevel");
@@ -1506,8 +1512,10 @@ public class map_creat : MonoBehaviour {
                 if (map[x, y].number == 0)
                 {
                     map[x,y].obj = Instantiate(wallObject, new Vector3(x, 0, y), Quaternion.identity);
+                    map[x, y].obj.transform.parent = Map.transform;
 
                     mini_map[x,y] = Instantiate(MiniMapWall, new Vector3(x + minimapdistance, 0, y + minimapdistance), Quaternion.identity);
+                    mini_map[x,y].transform.parent = Map.transform;
                     mini_map[x, y].SetActive(false);
                 }
 
@@ -1516,6 +1524,7 @@ public class map_creat : MonoBehaviour {
                     if (map[x, y].number != 5)
                     {
                         mini_map[x, y] = Instantiate(MiniMapFloor, new Vector3(x + minimapdistance, 0, y + minimapdistance), Quaternion.identity);
+                        mini_map[x, y].transform.parent = Map.transform;
                     }
                     mini_map[x, y].SetActive(false);
                 }
@@ -1523,6 +1532,7 @@ public class map_creat : MonoBehaviour {
                 if (map[x, y].number == 99)
                 {
                     map[x,y].obj = Instantiate(wallObject3, new Vector3(x, 0, y), Quaternion.identity);
+                    map[x, y].obj.transform.parent = Map.transform;
                 }/*壁以外色付け用
                 if (map[x, y] == 2)
                 {
@@ -1541,6 +1551,7 @@ public class map_creat : MonoBehaviour {
                 if (map[x, y].number != 5)
                 {
                     map[x, y].obj = Instantiate(floor, new Vector3(x, -1, y), Quaternion.identity);
+                    map[x, y].obj.transform.parent = Map.transform;
                 }
 
                 
@@ -1552,7 +1563,8 @@ public class map_creat : MonoBehaviour {
             for (int y = -25; y < MAX_X + 25; y++)
             {
                 //ミニマップの何もない場所
-                Instantiate(MiniMapClear, new Vector3(x + minimapdistance, -1, y + minimapdistance), Quaternion.identity);
+                GameObject clean = Instantiate(MiniMapClear, new Vector3(x + minimapdistance, -1, y + minimapdistance), Quaternion.identity);
+                clean.transform.parent = Map.transform;
             }
         }
 
@@ -1636,6 +1648,7 @@ public class map_creat : MonoBehaviour {
             map[(int)pos.x , (int)pos.z] = new kaidan();
             map[(int)pos.x , (int)pos.z].number = 5;
             map[(int)pos.x, (int)pos.z].obj = Instantiate(obj, new Vector3((int)pos.x, -0.5f, (int)pos.z), Quaternion.identity);
+            map[(int)pos.x, (int)pos.z].obj.transform.parent = Map.transform;
 
             boss_pos_x = (int)pos.x;
             boss_pos_z = (int)pos.z;
@@ -1686,6 +1699,7 @@ public class map_creat : MonoBehaviour {
         else if(obj.tag == "kaidan")
         {
             mini_map[(int)pos.x , (int)pos.z] = Instantiate(MiniMapKaidan, new Vector3(pos.x + map_creat.minimapdistance, 0, pos.z + map_creat.minimapdistance) , Quaternion.identity);
+            mini_map[(int)pos.x, (int)pos.z].transform.parent = Map.transform;
         }
     }
     /*private void InstantiateInRoom_map_weapon(GameObject obj)
@@ -1728,6 +1742,7 @@ public class map_creat : MonoBehaviour {
     {
         //アイテムを生成し、そのアイテムの子オブジェクトにミニマップ用のオブジェクトを追加
         map_item[pos_x, pos_z].obj = Map_item;
+        map_item[pos_x, pos_z].obj.transform.parent = Map.transform;
         map_item[pos_x, pos_z].minimap_item = Instantiate(MiniMapItem, new Vector3(pos_x + map_creat.minimapdistance, 1, pos_z + map_creat.minimapdistance), Quaternion.identity);
         map_item[pos_x, pos_z].minimap_item.transform.parent = map_item[pos_x, pos_z].obj.transform;
         map_item[pos_x, pos_z].minimap_item.SetActive(false);
@@ -1935,6 +1950,7 @@ public class map_creat : MonoBehaviour {
         GameObject obj2 = Instantiate(obj, new Vector3(pos.x, -0.5f, pos.z), Quaternion.identity);
         
         map_ex[(int)pos.x, (int)pos.z].obj = obj2;
+        map_ex[(int)pos.x, (int)pos.z].obj.transform.parent = Map.transform;
             map_ex[(int)pos.x, (int)pos.z].enemy_script = obj2.GetComponent<Enemy_script>();
     }
 
@@ -1946,6 +1962,7 @@ public class map_creat : MonoBehaviour {
         GameObject obj2 = Instantiate(obj, new Vector3(boss_pos_x, -0.5f, boss_pos_z), Quaternion.identity);
 
         map_ex[boss_pos_x, boss_pos_z].obj = obj2;
+        map_ex[boss_pos_x, boss_pos_z].obj.transform.parent = Map.transform;
         map_ex[boss_pos_x, boss_pos_z].enemy_script = obj2.GetComponent<Enemy_script>();
     }
 
@@ -1953,7 +1970,6 @@ public class map_creat : MonoBehaviour {
 
     private void MapDebug(int a)
     {
-        Debug.Log(a);
         for(int i = 0; i < GameManager.instance.entrancelist_0.Count; i++)
         {
             Debug.Log(GameManager.instance.entrancelist_0[i]+"A");

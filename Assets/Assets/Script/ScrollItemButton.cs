@@ -248,7 +248,7 @@ public class ScrollItemButton : MonoBehaviour
                     scrolldevelopbuttons[i].transform.GetComponent<Button>().onClick.AddListener(() => MenuController_script.Develop_Weapon_Description(weapon5)); //weapon3.installing(argument));
                 }
 
-                DevelopText = GameManager.instance.developtopiclist[i].develop_description;
+                DevelopText = GameManager.instance.developtopiclist[i].item_description;
 
 
                 }
