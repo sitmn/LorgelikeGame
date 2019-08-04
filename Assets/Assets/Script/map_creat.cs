@@ -12,27 +12,27 @@ public class map_creat : MonoBehaviour {
 
     //敵ステータス
     public const string BAT1_NAME = "コウモリ（レベル１）";
-    public const float BAT1_HP = 12;
+    public const float BAT1_HP = 8;
     public const float BAT1_MP = 2;
-    public const float BAT1_ATTACK = 11;
+    public const float BAT1_ATTACK = 7;
     public const float BAT1_DEFENSE = 0;
     public const int BAT1_ATTACK_RANGE = 1;
     public const int BAT1_ATTACK_TYPE = 0;
     public const bool BAT1_SLANTING_WALL = true;
 
     public const string GHOST1_NAME = "ゴースト（レベル１）";
-    public const float GHOST1_HP = 10;
+    public const float GHOST1_HP = 5;
     public const float GHOST1_MP = 2;
-    public const float GHOST1_ATTACK = 17;
+    public const float GHOST1_ATTACK = 9;
     public const float GHOST1_DEFENSE = 1;
     public const int GHOST1_ATTACK_RANGE = 1;
     public const int GHOST1_ATTACK_TYPE = 0;
     public const bool GHOST1_SLANTING_WALL = false;
 
     public const string RABBIT1_NAME = "ラビット（レベル１）";
-    public const float RABBIT1_HP = 5;
+    public const float RABBIT1_HP = 4;
     public const float RABBIT1_MP = 2;
-    public const float RABBIT1_ATTACK = 9;
+    public const float RABBIT1_ATTACK = 5;
     public const float RABBIT1_DEFENSE = 0;
     public const int RABBIT1_ATTACK_RANGE = 2;
     public const int RABBIT1_ATTACK_TYPE = 0;
@@ -41,14 +41,14 @@ public class map_creat : MonoBehaviour {
     public const string SLIME1_NAME = "スライム（レベル１）";
     public const float SLIME1_HP = 1;
     public const float SLIME1_MP = 2;
-    public const float SLIME1_ATTACK = 30;
+    public const float SLIME1_ATTACK = 14;
     public const float SLIME1_DEFENSE = 0; //999
     public const int SLIME1_ATTACK_RANGE = 1;
     public const int SLIME1_ATTACK_TYPE = 0;
     public const bool SLIME1_SLANTING_WALL = true;
 
     public const string BAT2_NAME = "コウモリ（レベル２）";
-    public const float BAT2_HP = 31;
+    public const float BAT2_HP = 21;
     public const float BAT2_MP = 2;
     public const float BAT2_ATTACK = 17;
     public const float BAT2_DEFENSE = 0;
@@ -57,18 +57,18 @@ public class map_creat : MonoBehaviour {
     public const bool BAT2_SLANTING_WALL = true;
 
     public const string GHOST2_NAME = "ゴースト（レベル２）";
-    public const float GHOST2_HP = 25;
+    public const float GHOST2_HP = 19;
     public const float GHOST2_MP = 2;
     public const float GHOST2_ATTACK = 15;
-    public const float GHOST2_DEFENSE = 5;
+    public const float GHOST2_DEFENSE = 4;
     public const int GHOST2_ATTACK_RANGE = 1;
     public const int GHOST2_ATTACK_TYPE = 0;
     public const bool GHOST2_SLANTING_WALL = false;
 
     public const string RABBIT2_NAME = "ラビット（レベル２）";
-    public const float RABBIT2_HP = 8;
+    public const float RABBIT2_HP = 15;
     public const float RABBIT2_MP = 2;
-    public const float RABBIT2_ATTACK = 12;
+    public const float RABBIT2_ATTACK = 10;
     public const float RABBIT2_DEFENSE = 0;
     public const int RABBIT2_ATTACK_RANGE = 2;
     public const int RABBIT2_ATTACK_TYPE = 0;
@@ -77,16 +77,16 @@ public class map_creat : MonoBehaviour {
     public const string SLIME2_NAME = "スライム（レベル２）";
     public const float SLIME2_HP = 1;
     public const float SLIME2_MP = 2;
-    public const float SLIME2_ATTACK = 45;
+    public const float SLIME2_ATTACK = 32;
     public const float SLIME2_DEFENSE = 0; //999
     public const int SLIME2_ATTACK_RANGE = 1;
     public const int SLIME2_ATTACK_TYPE = 0;
     public const bool SLIME2_SLANTING_WALL = true;
 
     public const string BAT3_NAME = "コウモリ（レベル３）";
-    public const float BAT3_HP = 60;
+    public const float BAT3_HP = 55;
     public const float BAT3_MP = 2;
-    public const float BAT3_ATTACK = 26;
+    public const float BAT3_ATTACK = 36;
     public const float BAT3_DEFENSE = 0;
     public const int BAT3_ATTACK_RANGE = 1;
     public const int BAT3_ATTACK_TYPE = 0;
@@ -95,16 +95,16 @@ public class map_creat : MonoBehaviour {
     public const string GHOST3_NAME = "ゴースト（レベル３）";
     public const float GHOST3_HP = 34;
     public const float GHOST3_MP = 2;
-    public const float GHOST3_ATTACK = 35;
-    public const float GHOST3_DEFENSE = 10;
+    public const float GHOST3_ATTACK = 28;
+    public const float GHOST3_DEFENSE = 6;
     public const int GHOST3_ATTACK_RANGE = 1;
     public const int GHOST3_ATTACK_TYPE = 0;
     public const bool GHOST3_SLANTING_WALL = false;
 
     public const string RABBIT3_NAME = "ラビット（レベル３）";
-    public const float RABBIT3_HP = 14;
+    public const float RABBIT3_HP = 28;
     public const float RABBIT3_MP = 2;
-    public const float RABBIT3_ATTACK = 28;
+    public const float RABBIT3_ATTACK = 20;
     public const float RABBIT3_DEFENSE = 0;
     public const int RABBIT3_ATTACK_RANGE = 2;
     public const int RABBIT3_ATTACK_TYPE = 0;
@@ -113,34 +113,34 @@ public class map_creat : MonoBehaviour {
     public const string SLIME3_NAME = "スライム（レベル３）";
     public const float SLIME3_HP = 1;
     public const float SLIME3_MP = 2;
-    public const float SLIME3_ATTACK = 62;
+    public const float SLIME3_ATTACK = 52;
     public const float SLIME3_DEFENSE = 0; //999
     public const int SLIME3_ATTACK_RANGE = 1;
     public const int SLIME3_ATTACK_TYPE = 0;
     public const bool SLIME3_SLANTING_WALL = true;
 
     public const string BAT4_NAME = "コウモリ（レベル４）";
-    public const float BAT4_HP = 92;
+    public const float BAT4_HP = 93;
     public const float BAT4_MP = 2;
-    public const float BAT4_ATTACK = 45;
+    public const float BAT4_ATTACK = 59;
     public const float BAT4_DEFENSE = 0;
     public const int BAT4_ATTACK_RANGE = 1;
     public const int BAT4_ATTACK_TYPE = 0;
     public const bool BAT4_SLANTING_WALL = true;
 
     public const string GHOST4_NAME = "ゴースト（レベル４）";
-    public const float GHOST4_HP = 52;
+    public const float GHOST4_HP = 72;
     public const float GHOST4_MP = 2;
-    public const float GHOST4_ATTACK = 36;
-    public const float GHOST4_DEFENSE = 15;
+    public const float GHOST4_ATTACK = 64;
+    public const float GHOST4_DEFENSE = 10;
     public const int GHOST4_ATTACK_RANGE = 1;
     public const int GHOST4_ATTACK_TYPE = 0;
     public const bool GHOST4_SLANTING_WALL = false;
 
     public const string RABBIT4_NAME = "ラビット（レベル４）";
-    public const float RABBIT4_HP = 20;
+    public const float RABBIT4_HP = 52;
     public const float RABBIT4_MP = 2;
-    public const float RABBIT4_ATTACK = 26;
+    public const float RABBIT4_ATTACK = 35;
     public const float RABBIT4_DEFENSE = 3;
     public const int RABBIT4_ATTACK_RANGE = 2;
     public const int RABBIT4_ATTACK_TYPE = 0;
@@ -196,9 +196,9 @@ public class map_creat : MonoBehaviour {
 
     //武器ステータス
     public const string NAME_W1 = "アクアマリン";
-    public const int HP_W1 = 100;
-    public const int ATTACK_W1 = 12;
-    public const int DEFENSE_W1 = 3;
+    public const int HP_W1 = 120;
+    public const int ATTACK_W1 = 21;
+    public const int DEFENSE_W1 = 5;
     public const int ATTACK_RANGE_W1 = 2;
     public const int ATTACK_TYPE_W1 = 0;
     public const bool ATTACK_THROUGH_W1 = false;
@@ -207,13 +207,13 @@ public class map_creat : MonoBehaviour {
     public const int DEVELOP_W1_MATERIAL_2 = 3;
     public const int DEVELOP_W1_MATERIAL_3 = 0;
     public const int MP_COST_W1 = 1;
-    public const int ENDURANCE_W1 = 15;
+    public const int ENDURANCE_W1 = 23;
     public const int DEVELOP_NEED_MP_W1 = 1;
 
     public const string NAME_W2 = "アメシスト";
-    public const int HP_W2 = 20;
-    public const int ATTACK_W2 = 8;
-    public const int DEFENSE_W2 = 1;
+    public const int HP_W2 = 40;
+    public const int ATTACK_W2 = 16;
+    public const int DEFENSE_W2 = 7;
     public const int ATTACK_RANGE_W2 = 4;
     public const int ATTACK_TYPE_W2 = 1;
     public const bool ATTACK_THROUGH_W2 = false;
@@ -222,13 +222,13 @@ public class map_creat : MonoBehaviour {
     public const int DEVELOP_W2_MATERIAL_2 = 2;
     public const int DEVELOP_W2_MATERIAL_3 = 0;
     public const int MP_COST_W2 = 4;
-    public const int ENDURANCE_W2 = 12;
+    public const int ENDURANCE_W2 = 20;
     public const int DEVELOP_NEED_MP_W2 = 8;
 
     public const string NAME_W3 = "エメラルド";
-    public const int HP_W3 = 50;
-    public const int ATTACK_W3 = 22;
-    public const int DEFENSE_W3 = 5;
+    public const int HP_W3 = 90;
+    public const int ATTACK_W3 = 34;
+    public const int DEFENSE_W3 = 16;
     public const int ATTACK_RANGE_W3 = 2;
     public const int ATTACK_TYPE_W3 = 0;
     public const bool ATTACK_THROUGH_W3 = true;
@@ -237,13 +237,13 @@ public class map_creat : MonoBehaviour {
     public const int DEVELOP_W3_MATERIAL_2 = 3;
     public const int DEVELOP_W3_MATERIAL_3 = 1;
     public const int MP_COST_W3 = 5;
-    public const int ENDURANCE_W3 = 6;
+    public const int ENDURANCE_W3 = 13;
     public const int DEVELOP_NEED_MP_W3 = 10;
 
     public const string NAME_W4 = "ルビー";
-    public const int HP_W4 = 0;
-    public const int ATTACK_W4 = 50;
-    public const int DEFENSE_W4 = 0;
+    public const int HP_W4 = 30;
+    public const int ATTACK_W4 = 70;
+    public const int DEFENSE_W4 = 8;
     public const int ATTACK_RANGE_W4 = 1;
     public const int ATTACK_TYPE_W4 = 0;
     public const bool ATTACK_THROUGH_W4 = false;
@@ -252,13 +252,13 @@ public class map_creat : MonoBehaviour {
     public const int DEVELOP_W4_MATERIAL_2 = 4;
     public const int DEVELOP_W4_MATERIAL_3 = 1;
     public const int MP_COST_W4 = 3;
-    public const int ENDURANCE_W4 = 7;
+    public const int ENDURANCE_W4 = 18;
     public const int DEVELOP_NEED_MP_W4 = 15;
 
     public const string NAME_W5 = "クリスタル";
-    public const int HP_W5 = 100;
-    public const int ATTACK_W5 = 30;
-    public const int DEFENSE_W5 = 15;
+    public const int HP_W5 = 150;
+    public const int ATTACK_W5 = 57;
+    public const int DEFENSE_W5 = 27;
     public const int ATTACK_RANGE_W5 = 3;
     public const int ATTACK_TYPE_W5 = 1;
     public const bool ATTACK_THROUGH_W5 = true;
@@ -267,7 +267,7 @@ public class map_creat : MonoBehaviour {
     public const int DEVELOP_W5_MATERIAL_2 = 7;
     public const int DEVELOP_W5_MATERIAL_3 = 3;
     public const int MP_COST_W5 = 1;
-    public const int ENDURANCE_W5 = 3;
+    public const int ENDURANCE_W5 = 5;
     public const int DEVELOP_NEED_MP_W5 = 15;
 
     public const string NAME_M1 = "魔力の結晶（汎）";
@@ -342,6 +342,7 @@ public class map_creat : MonoBehaviour {
 
 
     public static map_state[,] map;
+    public static map_camera_object[,] map_camera_obj;
     public static map_exist[,] map_ex;
     public static map_item[,] map_item;
 
@@ -408,6 +409,8 @@ public class map_creat : MonoBehaviour {
         map = new map_state[MAX_X + 4, MAX_Y + 4];
         room_x = new int[3, 2, 3];
         room_y = new int[3, 2, 3];
+
+        map_camera_obj = new map_camera_object[MAX_X + 4, MAX_Y + 4];
 
         map_ex = new map_exist[MAX_X + 4, MAX_Y + 4];
 
@@ -1513,6 +1516,7 @@ public class map_creat : MonoBehaviour {
                 {
                     map[x,y].obj = Instantiate(wallObject, new Vector3(x, 0, y), Quaternion.identity);
                     map[x, y].obj.transform.parent = Map.transform;
+                   // map_camera_obj[x, y].wall = map[x, y].obj;
 
                     mini_map[x,y] = Instantiate(MiniMapWall, new Vector3(x + minimapdistance, 0, y + minimapdistance), Quaternion.identity);
                     mini_map[x,y].transform.parent = Map.transform;
@@ -1552,6 +1556,7 @@ public class map_creat : MonoBehaviour {
                 {
                     map[x, y].obj = Instantiate(floor, new Vector3(x, -1, y), Quaternion.identity);
                     map[x, y].obj.transform.parent = Map.transform;
+                    //map_camera_obj[x, y].floor = map[x, y].obj;
                 }
 
                 
@@ -1627,6 +1632,29 @@ public class map_creat : MonoBehaviour {
 
 
         FloorText.GetComponent<Text>().text = GameManager.instance.floorlevel +"階";
+
+
+        //マップのオブジェクトを全消し（プレイヤー移動後に回りだけ表示させる）
+        for (int x = 0; x < 44; x++)
+        {
+            /*for (int z = 0; z < 44; z++)
+            {if (map_camera_obj[x, z].floor == true)
+                {
+                    if (map_camera_obj[x, z].floor.activeSelf == true)
+                    {
+                        map_camera_obj[x, z].floor.SetActive(false);
+                    }
+                }
+                if (map_camera_obj[x, z].wall == true)
+                {
+                    if (map_camera_obj[x, z].wall.activeSelf == true)
+                    {
+                        map_camera_obj[x, z].wall.SetActive(false);
+                    }
+                }
+            }*/
+        }
+        
 
         mapcreat = false;
     }
@@ -1968,7 +1996,7 @@ public class map_creat : MonoBehaviour {
 
 
 
-    private void MapDebug(int a)
+    /*private void MapDebug(int a)
     {
         for(int i = 0; i < GameManager.instance.entrancelist_0.Count; i++)
         {
@@ -2015,7 +2043,7 @@ public class map_creat : MonoBehaviour {
             Debug.Log(GameManager.instance.entrancelist_8[i] + "I");
             map[(int)GameManager.instance.entrancelist_8[i].x, (int)GameManager.instance.entrancelist_8[i].z] = new test();
         }
-    }
+    }*/
 
     
 }

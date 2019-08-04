@@ -123,14 +123,14 @@ public class MenuController : MonoBehaviour {
 
     public void Player_Wait_Button()
     {
-        if (GameManager.instance.Playerturn == true && GameManager.instance.PlayerMoving == false && weaponscreen == false && developscreen == false && itemscreen == false && GameManager.instance.vector_change_button == false && GameManager.instance.kaidan_screen == false)
+        if (GameManager.instance.Playerturn == true && GameManager.instance.PlayerMoving == false && weaponscreen == false && developscreen == false && itemscreen == false && GameManager.instance.vector_change_button == false && GameManager.instance.kaidan_screen == false && GameManager.instance.Pose == false)
         {
             GameManager.instance.Playerturn = false;
         }
     }
 
     public void MenuButton() 
-    {   if (GameManager.instance.Playerturn == true && GameManager.instance.PlayerMoving == false && GameManager.instance.vector_change_button == false && GameManager.instance.kaidan_screen == false)
+    {   if (GameManager.instance.Playerturn == true && GameManager.instance.PlayerMoving == false && GameManager.instance.vector_change_button == false && GameManager.instance.kaidan_screen == false && GameManager.instance.Pose == false)
         {
             GameManager.instance.Menu = true;
 

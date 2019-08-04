@@ -82,9 +82,10 @@ public class MiniMap : MonoBehaviour {
 
         Open_Mini_Map((int)Player.transform.position.x, (int)Player.transform.position.z);
 
-
-        map_creat.MiniMapPlayer.transform.localPosition = new Vector3(Player.transform.position.x + map_creat.minimapdistance , 1 , Player.transform.position.z + map_creat.minimapdistance);
-        
+        if (map_creat.MiniMapPlayer != null)
+        {
+            map_creat.MiniMapPlayer.transform.localPosition = new Vector3(Player.transform.position.x + map_creat.minimapdistance, 1, Player.transform.position.z + map_creat.minimapdistance);
+        }
 	}
 
     private void Open_Mini_Map(int x , int z)

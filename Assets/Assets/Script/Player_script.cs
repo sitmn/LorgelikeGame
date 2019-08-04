@@ -27,7 +27,7 @@ public class Player_script : MonoBehaviour {
     private Animator myAnimator;
 
     private HpBar HPBar;
-
+    
 
     //private HPText_script HPText;
     
@@ -52,16 +52,20 @@ public class Player_script : MonoBehaviour {
         //プレイヤーをマップ内に移動
         do
         {
-          x = Random.Range(1, map_creat.MAX_X + 3);
-          z = Random.Range(1, map_creat.MAX_Y + 3);
-        } while (map_creat.map[x, z].number != 1 || map_creat.map_ex[x,z].number == 6);
+            x = Random.Range(1, map_creat.MAX_X + 3);
+            z = Random.Range(1, map_creat.MAX_Y + 3);
+        } while (map_creat.map[x, z].number != 1 || map_creat.map_ex[x, z].number == 6);
 
         map_creat.map_ex[x, z] = new player();
         map_creat.map_ex[x, z].obj = Player;
         map_creat.map_ex[x, z].player_script = Player.GetComponent<Player_script>();
         map_creat.MiniMapPlayer = Instantiate(MiniMapPlayerObject, new Vector3(x + map_creat.minimapdistance, 1, z + map_creat.minimapdistance), Quaternion.identity);
         player.exist_room_no = map_creat.map[x, z].room_No;
-        transform.position = new Vector3( x, -0.5f, z);
+        transform.position = new Vector3(x, -0.5f, z);
+
+        
+        //プレイヤー周りを表示
+        //GameManager.instance.Start_On_Object();
 
         myAnimator = GetComponent<Animator>();
     }
@@ -676,9 +680,8 @@ public class Player_script : MonoBehaviour {
 
         if (map_creat.map_ex[(int)transform.position.x, (int)transform.position.z].number != 5)
         {
-            Debug.Log(gameObject);
+            //Debug.Log(gameObject);
         }
-        Debug.Log(map_creat.map[(int)transform.position.x, (int)transform.position.z].number);
 
         GameManager.instance.kaidan = false;
 
@@ -693,7 +696,7 @@ public class Player_script : MonoBehaviour {
         //攻撃方法によってアニメーション変更
         if (Player_Animation == 0)
         {
-
+            GameManager.instance.AddMainText("クエリの攻撃。");
             myAnimator.SetInteger("AnimIndex", 2);
 
             yield return null;
@@ -722,43 +725,54 @@ public class Player_script : MonoBehaviour {
 
         for(int i = 0; i < GameManager.instance.damageenemy.Count; i++)
         {
+            int avoid = Random.Range(0, 10);
+
             int damage;
             int previous_hp;
 
-            previous_hp = GameManager.instance.damageenemy[i].state.HP;
-
-            GameManager.instance.damageenemy[i].state.HP = GameManager.instance.damageenemy[i].enemy_script.
-            enemydamage(GameManager.instance.damageenemy[i].state.HP, attack_damage, GameManager.instance.damageenemy[i].state.DEFENSE , GameManager.instance.damageenemy[i].state.name);
-
-            damage = previous_hp - GameManager.instance.damageenemy[i].state.HP;
-
-            Animator enemyAnimator = GameManager.instance.damageenemy[i].obj.GetComponent<Animator>();
-            
-
-            if (damage <= 0) {
-
-            }else if(damage > 0)
+            if (avoid >= 3)
             {
-                if (GameManager.instance.damageenemy[i].state.HP > 0)
+
+                previous_hp = GameManager.instance.damageenemy[i].state.HP;
+
+                GameManager.instance.damageenemy[i].state.HP = GameManager.instance.damageenemy[i].enemy_script.
+                enemydamage(GameManager.instance.damageenemy[i].state.HP, attack_damage, GameManager.instance.damageenemy[i].state.DEFENSE, GameManager.instance.damageenemy[i].state.name);
+
+                damage = previous_hp - GameManager.instance.damageenemy[i].state.HP;
+
+                Animator enemyAnimator = GameManager.instance.damageenemy[i].obj.GetComponent<Animator>();
+
+
+                if (damage <= 0)
                 {
-                    enemyAnimator.SetInteger("AnimIndex", 3);
 
-                    yield return null;
-                    yield return new AnimationWait(enemyAnimator, 0);
                 }
-                else if(GameManager.instance.damageenemy[i].state.HP <= 0)
+                else if (damage > 0)
                 {
-                    enemyAnimator.SetInteger("AnimIndex", 4);
+                    if (GameManager.instance.damageenemy[i].state.HP > 0)
+                    {
+                        enemyAnimator.SetInteger("AnimIndex", 3);
 
-                    yield return null;
-                    yield return new AnimationWait(enemyAnimator, 0);
-                    yield return null;
-                    GameManager.instance.damageenemy[i].enemy_script.enemydie(GameManager.instance.damageenemy[i].state.name);
+                        yield return null;
+                        yield return new AnimationWait(enemyAnimator, 0);
+                    }
+                    else if (GameManager.instance.damageenemy[i].state.HP <= 0)
+                    {
+                        enemyAnimator.SetInteger("AnimIndex", 4);
+
+                        yield return null;
+                        yield return new AnimationWait(enemyAnimator, 0);
+                        yield return null;
+                        GameManager.instance.damageenemy[i].enemy_script.enemydie(GameManager.instance.damageenemy[i].state.name);
+                    }
+
+                    enemyAnimator.SetInteger("AnimIndex", 0);
                 }
-
-                enemyAnimator.SetInteger("AnimIndex", 0);
             }
-            
+            else
+            {
+                GameManager.instance.AddMainText(GameManager.instance.damageenemy[i].state.name + "は攻撃をかわした。");
+            }
         }
 
 

@@ -1175,7 +1175,7 @@ public class Enemy_script : MonoBehaviour
         
         if(map_creat.map_ex[(int)transform.position.x,(int)transform.position.z].number != 6)
         {
-            Debug.Log(gameObject);
+            //Debug.Log(gameObject);
         }
 
     }
@@ -1187,6 +1187,8 @@ public class Enemy_script : MonoBehaviour
 
         yield return new WaitForSeconds(0.1f);
 
+        GameManager.instance.AddMainText(map_creat.map_ex[(int)transform.position.x, (int)transform.position.z].state.name + "の攻撃。");
+
         myAnimator.SetInteger("AnimIndex",2);
 
         //アニメーション
@@ -1196,33 +1198,44 @@ public class Enemy_script : MonoBehaviour
 
         myAnimator.SetInteger("AnimIndex", 0);
 
-        //プレイヤーダメージ
-        int player_damage = player_script.playerdamage(player.player_hp, map_creat.map_ex[(int)transform.position.x, (int)transform.position.z].state.ATTACK);
-        bool player_die = player_script.playerdie();
-        
-        if(player_damage <= 0) {
-
-        }else if(player_damage > 0)
+        int avoid = Random.Range(0, 100);
+        if (avoid >= 35)
         {
-            if (player_die == false)
+
+            //プレイヤーダメージ
+            int player_damage = player_script.playerdamage(player.player_hp, map_creat.map_ex[(int)transform.position.x, (int)transform.position.z].state.ATTACK);
+            bool player_die = player_script.playerdie();
+
+            if (player_damage <= 0)
             {
-                playerAnimator.SetInteger("AnimIndex", 3);
-            }else if (player_die == true)
-            {
-                playerAnimator.SetInteger("AnimIndex", 4);
-                yield return null;
-                yield return new AnimationWait(playerAnimator, 0);
-                
-                yield break;
+
             }
+            else if (player_damage > 0)
+            {
+                if (player_die == false)
+                {
+                    playerAnimator.SetInteger("AnimIndex", 3);
+                }
+                else if (player_die == true)
+                {
+                    playerAnimator.SetInteger("AnimIndex", 4);
+                    yield return null;
+                    yield return new AnimationWait(playerAnimator, 0);
+
+                    yield break;
+                }
+            }
+
+            yield return null;
+            yield return new AnimationWait(playerAnimator, 0);
+
+
+            playerAnimator.SetInteger("AnimIndex", 0);
         }
-
-        yield return null;
-        yield return new AnimationWait(playerAnimator, 0);
-        
-
-        playerAnimator.SetInteger("AnimIndex", 0);
-
+        else
+        {
+            GameManager.instance.AddMainText("クエリは攻撃をかわした。");
+        }
         this.smoothmove = false;
 
         GameManager.instance.enemyattack = false;

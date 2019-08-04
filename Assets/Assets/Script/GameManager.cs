@@ -104,6 +104,8 @@ public class GameManager : MonoBehaviour {
 
     public GameObject MenuScreen;
 
+    public bool map_active;
+
     //スマホ用移動ボタン
     public bool up_left_button;
     public bool up_button;
@@ -117,6 +119,9 @@ public class GameManager : MonoBehaviour {
     public bool vector_change_button = false;
 
     private AudioSource heel;
+
+    private int x, z;
+    public GameObject MiniMapPlayerObject;
 
     void Awake()
     {
@@ -237,6 +242,7 @@ public class GameManager : MonoBehaviour {
             return;
         }
 
+
         if(one == true)
         {
             //Awake、Startの代わり
@@ -245,14 +251,17 @@ public class GameManager : MonoBehaviour {
             Player = GameObject.Find("Player");
             player_script = Player.GetComponent<Player_script>();
         }
-
-
+        
         hp_heel_time_count++;
         mp_heel_time_count++;
         if(hp_heel_time_count >= hp_heel_need_time)
         {
             hp_heel_time_count = 0;
             player.player_hp++;
+            if(player.player_hp > player.player_MAX_hp)
+            {
+                player.player_hp = player.player_MAX_hp;
+            }
             Hp_Bar();
             HP_Text();
         }
@@ -260,6 +269,10 @@ public class GameManager : MonoBehaviour {
         {
             mp_heel_time_count = 0;
             player.player_mp++;
+            if (player.player_mp > player.player_MAX_mp)
+            {
+                player.player_mp = player.player_MAX_mp;
+            }
             Mp_Bar();
             HP_Text();
         }
@@ -499,6 +512,9 @@ public class GameManager : MonoBehaviour {
         MP_Text();
         GameManager.instance.AddMainText("クエリのＭＰが" + healpoint + "回復した。");
     }
+    
+
+
     public void Kaidan_Get_Off_Yes()
     {
         //シーン移動時、instanceのGamaManagerは残り続けるから、Awake,Startは読み込まない、なのでここでデータを変える
@@ -521,8 +537,29 @@ public class GameManager : MonoBehaviour {
         kaidan_screen = false;
         Kaidan_Screen.SetActive(false);
 
+        map_exist Player_date = map_creat.map_ex[(int)Player.transform.position.x, (int)Player.transform.position.z];
 
-        SceneManager.LoadScene("Dangyon");
+        Destroy(map_creat.Map);
+        Destroy(map_creat.MiniMapPlayer);
+        mapscript.Mapcreat();
+
+
+        do
+        {
+            x = Random.Range(1, map_creat.MAX_X + 3);
+            z = Random.Range(1, map_creat.MAX_Y + 3);
+        } while (map_creat.map[x, z].number != 1 || map_creat.map_ex[x, z].number == 6);
+
+        Player.transform.position = new Vector3(x, -0.5f, z);
+        map_creat.map_ex[x, z] = Player_date;
+        map_creat.map_ex[x, z].obj = Player;
+        map_creat.map_ex[x, z].player_script = Player.GetComponent<Player_script>();
+        map_creat.MiniMapPlayer = Instantiate(MiniMapPlayerObject, new Vector3(x + map_creat.minimapdistance, 1, z + map_creat.minimapdistance), Quaternion.identity);
+        player.exist_room_no = map_creat.map[x, z].room_No;
+
+        //SceneManager.LoadScene("Dangyon");
+
+        GameManager.instance.Pose = false;
     }
     public void Kaidan_Get_Off_No()
     {
@@ -558,6 +595,7 @@ public class GameManager : MonoBehaviour {
     {
         heel.PlayOneShot(heel.clip);
     }
+    
 
     //スマホ用移動ボタン
     public void Up_Left_Button_On()
@@ -702,6 +740,11 @@ public class kaidan : map_state
     {
         number = 5;
     }
+}
+public class map_camera_object
+{
+    public GameObject wall;
+    public GameObject floor;
 }
 
 public class map_item
