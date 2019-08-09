@@ -11501,7 +11501,7 @@ MonoBehaviour:
     type: 3}
   MiniMapFloor: {fileID: 1959629098050844, guid: 0870b69ae5815d440924b8a365e68b2c,
     type: 3}
-  MiniMapClear: {fileID: 1294156044957362, guid: bd662cf1b46e32b42a5038d8aafcc8db,
+  MiniMapClear: {fileID: 6625041897064092487, guid: aad933d39467a704c9d2ded1c910d688,
     type: 3}
   MiniMapKaidan: {fileID: 1963525442992976, guid: 4bf1a670858ff2d48b06bf62e19fabda,
     type: 3}

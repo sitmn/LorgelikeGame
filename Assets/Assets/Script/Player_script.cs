@@ -63,9 +63,8 @@ public class Player_script : MonoBehaviour {
         player.exist_room_no = map_creat.map[x, z].room_No;
         transform.position = new Vector3(x, -0.5f, z);
 
-        
-        //プレイヤー周りを表示
-        //GameManager.instance.Start_On_Object();
+        //プレイヤー周りのマップを表示
+        GameManager.instance.Map_Open_6_All();
 
         myAnimator = GetComponent<Animator>();
     }
@@ -103,21 +102,21 @@ public class Player_script : MonoBehaviour {
         {
             this.vectorchange = true;
 
-            if (map_creat.map[x, z].obj.transform.GetChild(0).gameObject.activeSelf == false)
+            if (map_creat.map[x, z].obj_floor.transform.GetChild(0).gameObject.activeSelf == false)
             {
 
                 //マス目を表示
-                for (int x = 0; x < 44; x++)
+                for (int x = 0; x < map_creat.MAX_X + 4; x++)
                 {
-                    for (int z = 0; z < 44; z++)
+                    for (int z = 0; z < map_creat.MAX_Y + 4; z++)
                     {
-                        map_creat.map[x, z].obj.transform.GetChild(0).gameObject.SetActive(true);
+                        map_creat.map[x, z].obj_floor.transform.GetChild(0).gameObject.SetActive(true);
                     }
                 }
 
-                for(int x = 0; x< 44; x++)
+                for(int x = 0; x< map_creat.MAX_X + 4; x++)
                 {
-                    for(int z = 0; z < 44; z++)
+                    for(int z = 0; z < map_creat.MAX_Y + 4; z++)
                     {
                         GameManager.instance.Grid_Color_White(x, z);
                     }
@@ -135,15 +134,15 @@ public class Player_script : MonoBehaviour {
         {
             this.vectorchange = false;
 
-            if (map_creat.map[x, z].obj.transform.GetChild(0).gameObject.activeSelf == true)
+            if (map_creat.map[x, z].obj_floor.transform.GetChild(0).gameObject.activeSelf == true)
             {
 
                 //マス目表示を消す
-                for (int x = 0; x < 44; x++)
+                for (int x = 0; x < map_creat.MAX_X + 4; x++)
                 {
-                    for (int z = 0; z < 44; z++)
+                    for (int z = 0; z < map_creat.MAX_Y + 4; z++)
                     {
-                        map_creat.map[x, z].obj.transform.GetChild(0).gameObject.SetActive(false);
+                        map_creat.map[x, z].obj_floor.transform.GetChild(0).gameObject.SetActive(false);
                     }
                 }
             }

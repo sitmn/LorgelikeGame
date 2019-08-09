@@ -199,6 +199,9 @@ public class GameManager : MonoBehaviour {
         one = true;
         enemy_probability = 2;
 
+        Player = GameObject.Find("Player");
+        player_script = Player.GetComponent<Player_script>();
+
         instance.Pose = false;
     }
 
@@ -242,16 +245,18 @@ public class GameManager : MonoBehaviour {
             return;
         }
 
+        Map_All_Active_False();
+        Map_Open_6_All();
 
-        if(one == true)
+        /*if(one == true)
         {
             //Awake、Startの代わり
             
             one = false;
             Player = GameObject.Find("Player");
             player_script = Player.GetComponent<Player_script>();
-        }
-        
+        }*/
+
         hp_heel_time_count++;
         mp_heel_time_count++;
         if(hp_heel_time_count >= hp_heel_need_time)
@@ -557,6 +562,7 @@ public class GameManager : MonoBehaviour {
         map_creat.MiniMapPlayer = Instantiate(MiniMapPlayerObject, new Vector3(x + map_creat.minimapdistance, 1, z + map_creat.minimapdistance), Quaternion.identity);
         player.exist_room_no = map_creat.map[x, z].room_No;
 
+        Map_Open_6_All();
         //SceneManager.LoadScene("Dangyon");
 
         GameManager.instance.Pose = false;
@@ -595,7 +601,60 @@ public class GameManager : MonoBehaviour {
     {
         heel.PlayOneShot(heel.clip);
     }
-    
+
+    public void Map_All_Active_False()
+    {
+        for(int x = 0; x < map_creat.MAX_X + 4; x++)
+        {
+            for(int z = 0;z < map_creat.MAX_Y + 4;z++)
+            {
+                if (map_creat.map[x, z].obj_wall != null)
+                {
+                    map_creat.map[x, z].obj_wall.SetActive(false);
+                }
+                if (map_creat.map[x, z].obj_floor != null)
+                {
+                    map_creat.map[x, z].obj_floor.SetActive(false);
+                }
+            }
+        }
+    }
+    public void Map_Open_6_All()
+    {
+        for(int ix = (int)Player.transform.position.x - 6; ix <= (int)Player.transform.position.x + 6; ix++)
+        {
+            for(int iz = (int)Player.transform.position.z - 6;iz <= (int)Player.transform.position.z + 6; iz++)
+            {
+                if (map_creat.map[ix, iz].obj_wall != null)
+                {
+                    map_creat.map[ix, iz].obj_wall.SetActive(true);
+                }
+                if (map_creat.map[ix, iz].obj_floor != null)
+                {
+                    map_creat.map[ix, iz].obj_floor.SetActive(true);
+                }
+            }
+        }
+    }
+    public void Map_Player_Move_Obj(int pos_x , int pos_z)
+    {
+        for (int ix = pos_x - 6; ix <= pos_x + 6; ix++)
+        {
+            for (int iz = pos_z - 6; iz <= pos_z + 6; iz++)
+            {
+
+                if (map_creat.map[ix, iz].obj_wall != null && map_creat.map[ix, iz].obj_wall.activeSelf == false)
+                {
+                    map_creat.map[ix, iz].obj_wall.SetActive(true);
+                }
+                if (map_creat.map[ix, iz].obj_floor != null && map_creat.map[ix, iz].obj_floor.activeSelf == false)
+                {
+                    map_creat.map[ix, iz].obj_floor.SetActive(true);
+                }
+            }
+        }
+        
+    }
 
     //スマホ用移動ボタン
     public void Up_Left_Button_On()
@@ -699,7 +758,8 @@ public class map_state
     public int number;
     public int room_No;
     public Vector3 entrance_pos;
-    public GameObject obj;
+    public GameObject obj_floor;
+    public GameObject obj_wall;
 }
 
 
@@ -749,6 +809,7 @@ public class map_camera_object
 
 public class map_item
 {
+    public GameObject Player;
     public string name;
     public int number;
     public bool exist;
@@ -1254,5 +1315,87 @@ public class enemystate:map_exist
         RANGE_ATTACK = range_attack;
         ATTACK_TYPE = attack_type;
         SLANTING_WALL = slanting_wall;
+    }
+}
+
+public class Cannon:map_item
+{
+    public string cannon_description;
+
+    public void set_cannon(int listnum)
+    {
+        int set_x = 0;
+        int set_z = 0;
+        //intに変換した際数字が切り捨てられるのを防止
+        int angle = ((int)(Player.transform.eulerAngles.y + 0.5));
+
+        //プレイヤーの正面に設置
+        if ((angle / 45) % 8 == 2 /*0*/)
+        {
+            set_x = 1;
+            set_z = 0;
+        }
+        else if ((angle / 45) % 8 == 4 /*2*/)
+        {
+            set_x = 0;
+            set_z = -1;
+            
+        }
+        else if ((angle / 45) % 8 == 6 /*4*/)
+        {
+            set_x = -1;
+            set_z = 0;
+        }
+        else if ((angle / 45) % 8 == 0 /*6*/)
+        {
+            set_x = 0;
+            set_z = 1;
+        }
+        else if ((angle / 45) % 8 == 3 /*1*/)
+        {
+            set_x = 1;
+            set_z = -1;
+        }
+        else if ((angle / 45) % 8 == 5 /*3*/)
+        {
+            set_x = -1;
+            set_z = -1;
+        }
+        else if ((angle / 45) % 8 == 7 /*5*/)
+        {
+            set_x = -1;
+            set_z = 1;
+        }
+        else if ((angle / 45) % 8 == 1 /*7*/)
+        {
+            set_x = 1;
+            set_z = 1;
+        }
+
+        //設置先は置ける場所か？敵がいない、アイテムが置いてない、階段じゃない、壁じゃない
+        if(map_creat.map_item[(int)Player.transform.position.x + set_x , (int)Player.transform.position.z + set_z] == null && map_creat.map_ex[(int)Player.transform.position.x + set_x, (int)Player.transform.position.z + set_z].number == 10 && map_creat.map[(int)Player.transform.position.x + set_x, (int)Player.transform.position.z + set_z].number != 0 && map_creat.map[(int)Player.transform.position.x + set_x, (int)Player.transform.position.z + set_z].number != 5)
+        {
+            GameObject Map_item;
+
+            int pos_x = (int)Player.transform.position.x;
+            int pos_z = (int)Player.transform.position.z;
+
+            map_creat.map_item[pos_x, pos_z] = GameManager.instance.possessionitemlist[listnum];
+            map_creat.map_item[pos_x, pos_z].exist = true;
+            //map_creat.map_item[pos_x, pos_z].obj = Instantiate(Map_item, new Vector3(pos_x, -0.5f, pos_z), Quaternion.identity);
+            map_creat.map_item[pos_x, pos_z].obj.transform.parent = map_creat.Map.transform;
+            //map_creat.map_item[pos_x, pos_z].minimap_item =
+             //   Instantiate(MiniMapItem, new Vector3(pos_x + map_creat.minimapdistance, 1, pos_z + map_creat.minimapdistance), Quaternion.identity);
+            map_creat.map_item[pos_x, pos_z].minimap_item.transform.parent =
+                map_creat.map_item[pos_x, pos_z].obj.transform;
+
+            //BackButton();
+            //BackButton();
+            GameManager.instance.possessionitemlist.RemoveAt(listnum);
+        }
+        else
+        {
+            GameManager.instance.AddMainText("置けそうにない。");
+        }
     }
 }

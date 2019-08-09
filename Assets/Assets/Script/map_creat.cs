@@ -325,8 +325,8 @@ public class map_creat : MonoBehaviour {
     public Vector3 entrancevec;
 
 
-    public static int MAX_X = 40;
-    public static int MAX_Y = 40;
+    public static int MAX_X = 50;
+    public static int MAX_Y = 50;
 
     public int[] Xline;
     public int[] Yline;
@@ -431,32 +431,32 @@ public class map_creat : MonoBehaviour {
         }//map全て壁にする、map_ex全て空欄に
 
 
-        Xline[0] = Random.Range(5, MAX_X - 29);
-        Xline[1] = Random.Range(Xline[0] + 6, Xline[0] + MAX_X - 29);
+        Xline[0] = Random.Range(10, 16);
+        Xline[1] = Random.Range(Xline[0] + 6, Xline[0] + 11);
 
-        Yline[0] = Random.Range(5, MAX_Y - 29);
-        Yline[1] = Random.Range(Yline[0] + 6, Yline[0] + MAX_Y - 29);
+        Yline[0] = Random.Range(10, 16);
+        Yline[1] = Random.Range(Yline[0] + 6, Yline[0] + 11);
         //部屋を分割
 
 
 
         for (i3 = 0; i3 < 3; i3++)
         {
-            room_x[0, 0, i3] = Random.Range(1, Xline[0] - 3);
+            room_x[0, 0, i3] = Random.Range(6, Xline[0] - 3);
             room_x[0, 1, i3] = Random.Range(room_x[0, 0, i3] + 2, Xline[0] - 1);
             room_x[1, 0, i3] = Random.Range(Xline[0] + 2, Xline[1] - 3);
             room_x[1, 1, i3] = Random.Range(room_x[1, 0, i3] + 2, Xline[1] - 1);
-            room_x[2, 0, i3] = Random.Range(Xline[1] + 2, MAX_X - 3);
-            room_x[2, 1, i3] = Random.Range(room_x[2, 0, i3] + 2, MAX_X - 1);
+            room_x[2, 0, i3] = Random.Range(Xline[1] + 2, MAX_X - 4);
+            room_x[2, 1, i3] = Random.Range(room_x[2, 0, i3] + 2, MAX_X - 4);
         }
         for (i3 = 0; i3 < 3; i3++)
         {
-            room_y[0, 0, i3] = Random.Range(1, Yline[0] - 3);
+            room_y[0, 0, i3] = Random.Range(6, Yline[0] - 3);
             room_y[0, 1, i3] = Random.Range(room_y[0, 0, i3] + 2, Yline[0] - 1);
             room_y[1, 0, i3] = Random.Range(Yline[0] + 2, Yline[1] - 3);
             room_y[1, 1, i3] = Random.Range(room_y[1, 0, i3] + 2, Yline[1] - 1);
-            room_y[2, 0, i3] = Random.Range(Yline[1] + 2, MAX_Y - 3);
-            room_y[2, 1, i3] = Random.Range(room_y[2, 0, i3] + 2, MAX_Y - 1);
+            room_y[2, 0, i3] = Random.Range(Yline[1] + 2, MAX_Y - 4);
+            room_y[2, 1, i3] = Random.Range(room_y[2, 0, i3] + 2, MAX_Y - 4);
         }
 
         i2 = 0;
@@ -1514,8 +1514,8 @@ public class map_creat : MonoBehaviour {
             {
                 if (map[x, y].number == 0)
                 {
-                    map[x,y].obj = Instantiate(wallObject, new Vector3(x, 0, y), Quaternion.identity);
-                    map[x, y].obj.transform.parent = Map.transform;
+                    map[x,y].obj_wall = Instantiate(wallObject, new Vector3(x, 0, y), Quaternion.identity);
+                    map[x, y].obj_wall.transform.parent = Map.transform;
                    // map_camera_obj[x, y].wall = map[x, y].obj;
 
                     mini_map[x,y] = Instantiate(MiniMapWall, new Vector3(x + minimapdistance, 0, y + minimapdistance), Quaternion.identity);
@@ -1535,8 +1535,8 @@ public class map_creat : MonoBehaviour {
                 
                 if (map[x, y].number == 99)
                 {
-                    map[x,y].obj = Instantiate(wallObject3, new Vector3(x, 0, y), Quaternion.identity);
-                    map[x, y].obj.transform.parent = Map.transform;
+                    map[x,y].obj_wall = Instantiate(wallObject3, new Vector3(x, 0, y), Quaternion.identity);
+                    map[x, y].obj_wall.transform.parent = Map.transform;
                 }/*壁以外色付け用
                 if (map[x, y] == 2)
                 {
@@ -1554,8 +1554,8 @@ public class map_creat : MonoBehaviour {
 
                 if (map[x, y].number != 5)
                 {
-                    map[x, y].obj = Instantiate(floor, new Vector3(x, -1, y), Quaternion.identity);
-                    map[x, y].obj.transform.parent = Map.transform;
+                    map[x, y].obj_floor = Instantiate(floor, new Vector3(x, -1, y), Quaternion.identity);
+                    map[x, y].obj_floor.transform.parent = Map.transform;
                     //map_camera_obj[x, y].floor = map[x, y].obj;
                 }
 
@@ -1563,7 +1563,9 @@ public class map_creat : MonoBehaviour {
             }
         }
 
-        for (int x = -25; x < MAX_X + 25; x++)
+
+        Instantiate(MiniMapClear, new Vector3(125, -1, 125), Quaternion.identity);
+        /*for (int x = -25; x < MAX_X + 25; x++)
         {
             for (int y = -25; y < MAX_X + 25; y++)
             {
@@ -1571,7 +1573,7 @@ public class map_creat : MonoBehaviour {
                 GameObject clean = Instantiate(MiniMapClear, new Vector3(x + minimapdistance, -1, y + minimapdistance), Quaternion.identity);
                 clean.transform.parent = Map.transform;
             }
-        }
+        }*/
 
         //アイテムを部屋に配置
         int itemnumber = Random.Range(3, 10);
@@ -1611,11 +1613,11 @@ public class map_creat : MonoBehaviour {
         }
 
         //グリッドを隠す
-        for (int x = 0; x < 44; x++){
-            for(int z = 0; z < 44; z++)
+        for (int x = 0; x < MAX_X + 4; x++){
+            for(int z = 0; z < MAX_Y + 4; z++)
             {
-                grid_color[x, z] = map[x, z].obj.transform.GetChild(0).GetComponent<Renderer>();
-                map[x, z].obj.transform.GetChild(0).gameObject.SetActive(false);
+                grid_color[x, z] = map[x, z].obj_floor.transform.GetChild(0).GetComponent<Renderer>();
+                map[x, z].obj_floor.transform.GetChild(0).gameObject.SetActive(false);
             }
         }
         /*
@@ -1654,7 +1656,7 @@ public class map_creat : MonoBehaviour {
                 }
             }*/
         }
-        
+        GameManager.instance.Map_All_Active_False();
 
         mapcreat = false;
     }
@@ -1675,8 +1677,8 @@ public class map_creat : MonoBehaviour {
         {
             map[(int)pos.x , (int)pos.z] = new kaidan();
             map[(int)pos.x , (int)pos.z].number = 5;
-            map[(int)pos.x, (int)pos.z].obj = Instantiate(obj, new Vector3((int)pos.x, -0.5f, (int)pos.z), Quaternion.identity);
-            map[(int)pos.x, (int)pos.z].obj.transform.parent = Map.transform;
+            map[(int)pos.x, (int)pos.z].obj_floor = Instantiate(obj, new Vector3((int)pos.x, -0.5f, (int)pos.z), Quaternion.identity);
+            map[(int)pos.x, (int)pos.z].obj_floor.transform.parent = Map.transform;
 
             boss_pos_x = (int)pos.x;
             boss_pos_z = (int)pos.z;
