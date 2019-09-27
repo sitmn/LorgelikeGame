@@ -73,6 +73,7 @@ public class Enemy_script : MonoBehaviour
         {
             yield return null;
         }
+        
 
         FindPlayer();
         enemypos = transform.position;
@@ -175,7 +176,7 @@ public class Enemy_script : MonoBehaviour
     private void RoomMove()
     {
         int randam_entrance;
-        if (destination == new Vector3(0, 0, 0))//目的地（入口）がない場合、目的地を設定
+        if (destination.x == 0 && destination.z == 0)//目的地（入口）がない場合、目的地を設定
         {
             if (map_creat.map[(int)transform.position.x, (int)transform.position.z].room_No == 0)
             {
@@ -189,7 +190,7 @@ public class Enemy_script : MonoBehaviour
                 {
                     randam_entrance = Random.Range(0, GameManager.instance.entrancelist_0.Count);
                     destination = GameManager.instance.entrancelist_0[randam_entrance];
-                    while (destination == enemypos)
+                    while (destination.x == enemypos.x && destination.z == enemypos.z)
                     {
                         randam_entrance = Random.Range(0, GameManager.instance.entrancelist_0.Count);
                         destination = GameManager.instance.entrancelist_0[randam_entrance];
@@ -207,7 +208,7 @@ public class Enemy_script : MonoBehaviour
                 {
                     randam_entrance = Random.Range(0, GameManager.instance.entrancelist_1.Count);
                     destination = GameManager.instance.entrancelist_1[randam_entrance];
-                    while (destination == enemypos)
+                    while (destination.x == enemypos.x && destination.z == enemypos.z)
                     {
                         randam_entrance = Random.Range(0, GameManager.instance.entrancelist_1.Count);
                         destination = GameManager.instance.entrancelist_1[randam_entrance];
@@ -224,7 +225,7 @@ public class Enemy_script : MonoBehaviour
                 {
                     randam_entrance = Random.Range(0, GameManager.instance.entrancelist_2.Count);
                     destination = GameManager.instance.entrancelist_2[randam_entrance];
-                    while (destination == enemypos)
+                    while (destination.x == enemypos.x && destination.z == enemypos.z)
                     {
                         randam_entrance = Random.Range(0, GameManager.instance.entrancelist_2.Count);
                         destination = GameManager.instance.entrancelist_2[randam_entrance];
@@ -241,7 +242,7 @@ public class Enemy_script : MonoBehaviour
                 {
                     randam_entrance = Random.Range(0, GameManager.instance.entrancelist_3.Count);
                     destination = GameManager.instance.entrancelist_3[randam_entrance];
-                    while (destination == enemypos)
+                    while (destination.x == enemypos.x && destination.z == enemypos.z)
                     {
                         randam_entrance = Random.Range(0, GameManager.instance.entrancelist_3.Count);
                         destination = GameManager.instance.entrancelist_3[randam_entrance];
@@ -258,7 +259,7 @@ public class Enemy_script : MonoBehaviour
                 {
                     randam_entrance = Random.Range(0, GameManager.instance.entrancelist_4.Count);
                     destination = GameManager.instance.entrancelist_4[randam_entrance];
-                    while (destination == enemypos)
+                    while (destination.x == enemypos.x && destination.z == enemypos.z)
                     {
                         randam_entrance = Random.Range(0, GameManager.instance.entrancelist_4.Count);
                         destination = GameManager.instance.entrancelist_4[randam_entrance];
@@ -275,7 +276,7 @@ public class Enemy_script : MonoBehaviour
                 {
                     randam_entrance = Random.Range(0, GameManager.instance.entrancelist_5.Count);
                     destination = GameManager.instance.entrancelist_5[randam_entrance];
-                    while (destination == enemypos)
+                    while (destination.x == enemypos.x && destination.z == enemypos.z)
                     {
                         randam_entrance = Random.Range(0, GameManager.instance.entrancelist_5.Count);
                         destination = GameManager.instance.entrancelist_5[randam_entrance];
@@ -292,7 +293,7 @@ public class Enemy_script : MonoBehaviour
                 {
                     randam_entrance = Random.Range(0, GameManager.instance.entrancelist_6.Count);
                     destination = GameManager.instance.entrancelist_6[randam_entrance];
-                    while (destination == enemypos)
+                    while (destination.x == enemypos.x && destination.z == enemypos.z)
                     {
                         randam_entrance = Random.Range(0, GameManager.instance.entrancelist_6.Count);
                         destination = GameManager.instance.entrancelist_6[randam_entrance];
@@ -309,7 +310,7 @@ public class Enemy_script : MonoBehaviour
                 {
                     randam_entrance = Random.Range(0, GameManager.instance.entrancelist_7.Count);
                     destination = GameManager.instance.entrancelist_7[randam_entrance];
-                    while (destination == enemypos)
+                    while (destination.x == enemypos.x && destination.z == enemypos.z)
                     {
                         randam_entrance = Random.Range(0, GameManager.instance.entrancelist_7.Count);
                         destination = GameManager.instance.entrancelist_7[randam_entrance];
@@ -327,7 +328,7 @@ public class Enemy_script : MonoBehaviour
                 {
                     randam_entrance = Random.Range(0, GameManager.instance.entrancelist_8.Count);
                     destination = GameManager.instance.entrancelist_8[randam_entrance];
-                    while (destination == enemypos)
+                    while (destination.x == enemypos.x && destination.z == enemypos.z)
                     {
                         randam_entrance = Random.Range(0, GameManager.instance.entrancelist_8.Count);
                         destination = GameManager.instance.entrancelist_8[randam_entrance];
@@ -337,19 +338,23 @@ public class Enemy_script : MonoBehaviour
         }
         
         
-        if (destination == transform.position)//目的地に着いたとき、部屋から出る
+        if (destination.x == transform.position.x && destination.z == transform.position.z)//目的地に着いたとき、部屋から出る
         {
             int r = Random.Range(0, 11);
             if (r <= 5)
             {//左回り
                 transform.eulerAngles = new Vector3(0, 270 + Player_script.asset_rotate , 0);
                 
-                while ((((int)(transform.eulerAngles.y + 0.5) / 90) % 4 == 1 /*0*/ && map_creat.map[(int)transform.position.x + 1, (int)transform.position.z].number != 10 /*(map_creat.map[(int)transform.position.x + 1, (int)transform.position.z].number == 1 || map_creat.map[(int)transform.position.x + 1, (int)transform.position.z].number == 0 || map_creat.map[(int)transform.position.x + 1, (int)transform.position.z].number == 3)*/) ||
-                    (((int)(transform.eulerAngles.y + 0.5) / 90) % 4 == 2 /*1*/ && map_creat.map[(int)transform.position.x, (int)transform.position.z - 1].number != 10 /*(map_creat.map[(int)transform.position.x, (int)transform.position.z - 1].number == 1 || map_creat.map[(int)transform.position.x, (int)transform.position.z - 1].number == 0 || map_creat.map[(int)transform.position.x, (int)transform.position.z - 1].number == 3)*/) ||
-                    (((int)(transform.eulerAngles.y + 0.5) / 90) % 4 == 3 /*2*/ && map_creat.map[(int)transform.position.x - 1, (int)transform.position.z].number != 10 /*(map_creat.map[(int)transform.position.x - 1, (int)transform.position.z].number == 1 || map_creat.map[(int)transform.position.x - 1, (int)transform.position.z].number == 0 || map_creat.map[(int)transform.position.x - 1, (int)transform.position.z].number == 3)*/) ||
-                    (((int)(transform.eulerAngles.y + 0.5) / 90) % 4 == 0 /*3*/ && map_creat.map[(int)transform.position.x, (int)transform.position.z + 1].number != 10 /*(map_creat.map[(int)transform.position.x, (int)transform.position.z + 1].number == 1 || map_creat.map[(int)transform.position.x, (int)transform.position.z + 1].number == 0 || map_creat.map[(int)transform.position.x, (int)transform.position.z + 1].number == 3)*/))
+                while ((((int)(transform.eulerAngles.y + 0.5) / 45) % 8 == 0 /*0*/ && map_creat.map[(int)transform.position.x, (int)transform.position.z + 1].number != 10 /*(map_creat.map[(int)transform.position.x + 1, (int)transform.position.z].number == 1 || map_creat.map[(int)transform.position.x + 1, (int)transform.position.z].number == 0 || map_creat.map[(int)transform.position.x + 1, (int)transform.position.z].number == 3)*/) ||
+                    ((int)(transform.eulerAngles.y + 0.5) / 45) % 8 == 1 ||
+                    (((int)(transform.eulerAngles.y + 0.5) / 45) % 8 == 2 /*1*/ && map_creat.map[(int)transform.position.x + 1, (int)transform.position.z].number != 10 /*(map_creat.map[(int)transform.position.x, (int)transform.position.z - 1].number == 1 || map_creat.map[(int)transform.position.x, (int)transform.position.z - 1].number == 0 || map_creat.map[(int)transform.position.x, (int)transform.position.z - 1].number == 3)*/) ||
+                    ((int)(transform.eulerAngles.y + 0.5) / 45) % 8 == 3 ||
+                    (((int)(transform.eulerAngles.y + 0.5) / 45) % 8 == 4 /*2*/ && map_creat.map[(int)transform.position.x, (int)transform.position.z - 1].number != 10 /*(map_creat.map[(int)transform.position.x - 1, (int)transform.position.z].number == 1 || map_creat.map[(int)transform.position.x - 1, (int)transform.position.z].number == 0 || map_creat.map[(int)transform.position.x - 1, (int)transform.position.z].number == 3)*/) ||
+                    ((int)(transform.eulerAngles.y + 0.5) / 45) % 8 == 5 ||
+                    (((int)(transform.eulerAngles.y + 0.5) / 45) % 8 == 6 /*3*/ && map_creat.map[(int)transform.position.x - 1, (int)transform.position.z].number != 10 /*(map_creat.map[(int)transform.position.x, (int)transform.position.z + 1].number == 1 || map_creat.map[(int)transform.position.x, (int)transform.position.z + 1].number == 0 || map_creat.map[(int)transform.position.x, (int)transform.position.z + 1].number == 3)*/) ||
+                    ((int)(transform.eulerAngles.y + 0.5) / 45) % 8 == 7)
                 {
-                    transform.Rotate(new Vector3(0, 90, 0));
+                    transform.Rotate(new Vector3(0, 45, 0));
                 }
                 ForwardMove();
                 
@@ -357,14 +362,19 @@ public class Enemy_script : MonoBehaviour
             else if (r >= 6)
             {//右回り
                 transform.eulerAngles = new Vector3(0, 90 + Player_script.asset_rotate, 0);
-                
-                while ((((int)(transform.eulerAngles.y + 0.5) / 90) % 4 == 1 /*0*/ && map_creat.map[(int)transform.position.x + 1, (int)transform.position.z].number != 10 /*(map_creat.map[(int)transform.position.x + 1, (int)transform.position.z].number == 1 || map_creat.map[(int)transform.position.x + 1, (int)transform.position.z].number == 0 || map_creat.map[(int)transform.position.x + 1, (int)transform.position.z].number == 3)*/) ||
-                    (((int)(transform.eulerAngles.y + 0.5) / 90) % 4 == 2 /*1*/ && map_creat.map[(int)transform.position.x, (int)transform.position.z - 1].number != 10 /*(map_creat.map[(int)transform.position.x, (int)transform.position.z - 1].number == 1 || map_creat.map[(int)transform.position.x, (int)transform.position.z - 1].number == 0 || map_creat.map[(int)transform.position.x, (int)transform.position.z - 1].number == 3)*/) ||
-                    (((int)(transform.eulerAngles.y + 0.5) / 90) % 4 == 3 /*2*/ && map_creat.map[(int)transform.position.x - 1, (int)transform.position.z].number != 10 /*(map_creat.map[(int)transform.position.x - 1, (int)transform.position.z].number == 1 || map_creat.map[(int)transform.position.x - 1, (int)transform.position.z].number == 0 || map_creat.map[(int)transform.position.x - 1, (int)transform.position.z].number == 3)*/) ||
-                    (((int)(transform.eulerAngles.y + 0.5) / 90) % 4 == 0 /*3*/ && map_creat.map[(int)transform.position.x, (int)transform.position.z + 1].number != 10 /*(map_creat.map[(int)transform.position.x, (int)transform.position.z + 1].number == 1 || map_creat.map[(int)transform.position.x, (int)transform.position.z + 1].number == 0 || map_creat.map[(int)transform.position.x, (int)transform.position.z + 1].number == 3)*/))
+
+                while ((((int)(transform.eulerAngles.y + 0.5) / 45) % 8 == 0 /*0*/ && map_creat.map[(int)transform.position.x, (int)transform.position.z + 1].number != 10 /*(map_creat.map[(int)transform.position.x + 1, (int)transform.position.z].number == 1 || map_creat.map[(int)transform.position.x + 1, (int)transform.position.z].number == 0 || map_creat.map[(int)transform.position.x + 1, (int)transform.position.z].number == 3)*/) ||
+                    ((int)(transform.eulerAngles.y + 0.5) / 45) % 8 == 1 ||
+                    (((int)(transform.eulerAngles.y + 0.5) / 45) % 8 == 2 /*1*/ && map_creat.map[(int)transform.position.x + 1, (int)transform.position.z].number != 10 /*(map_creat.map[(int)transform.position.x, (int)transform.position.z - 1].number == 1 || map_creat.map[(int)transform.position.x, (int)transform.position.z - 1].number == 0 || map_creat.map[(int)transform.position.x, (int)transform.position.z - 1].number == 3)*/) ||
+                    ((int)(transform.eulerAngles.y + 0.5) / 45) % 8 == 3 ||
+                    (((int)(transform.eulerAngles.y + 0.5) / 45) % 8 == 4 /*2*/ && map_creat.map[(int)transform.position.x, (int)transform.position.z - 1].number != 10 /*(map_creat.map[(int)transform.position.x - 1, (int)transform.position.z].number == 1 || map_creat.map[(int)transform.position.x - 1, (int)transform.position.z].number == 0 || map_creat.map[(int)transform.position.x - 1, (int)transform.position.z].number == 3)*/) ||
+                    ((int)(transform.eulerAngles.y + 0.5) / 45) % 8 == 5 ||
+                    (((int)(transform.eulerAngles.y + 0.5) / 45) % 8 == 6 /*3*/ && map_creat.map[(int)transform.position.x - 1, (int)transform.position.z].number != 10 /*(map_creat.map[(int)transform.position.x, (int)transform.position.z + 1].number == 1 || map_creat.map[(int)transform.position.x, (int)transform.position.z + 1].number == 0 || map_creat.map[(int)transform.position.x, (int)transform.position.z + 1].number == 3)*/) ||
+                    ((int)(transform.eulerAngles.y + 0.5) / 45) % 8 == 7)
                 {
-                    transform.Rotate(new Vector3(0, 270, 0));
-                }
+                    transform.Rotate(new Vector3(0, 315, 0));
+                }//〇
+                Debug.Log((int)(transform.eulerAngles.y + 0.5) / 45);
                 ForwardMove();
             }//移動先にプレイヤーと敵がいないならば移動
             if (map_creat.map_ex[(int)transform.position.x + emoveX, (int)transform.position.z + emoveY].number == 5 || map_creat.map_ex[(int)transform.position.x + emoveX, (int)transform.position.z + emoveY].number == 6 || map_creat.map[(int)transform.position.x + emoveX, (int)transform.position.z + emoveY].number == 0)
@@ -420,7 +430,7 @@ public class Enemy_script : MonoBehaviour
                 }
             }
         }
-        else if (transform.position != destination)//目的地でない場合、目的地に向かう
+        else if (destination.x != transform.position.x || destination.z != transform.position.z)//目的地でない場合、目的地に向かう
         {
             int entrancedistance_x = (int)(transform.position.x - destination.x);
             int entrancedistance_y = (int)(transform.position.z - destination.z);
@@ -1030,6 +1040,8 @@ public class Enemy_script : MonoBehaviour
                 }
             }
         }
+        
+
     }
 
     
@@ -1118,6 +1130,7 @@ public class Enemy_script : MonoBehaviour
             this.emoveY = 1;
             enemypos += new Vector3(emoveX, 0, emoveY);
         }
+        
     }
 
 
@@ -1199,7 +1212,7 @@ public class Enemy_script : MonoBehaviour
         myAnimator.SetInteger("AnimIndex", 0);
 
         int avoid = Random.Range(0, 100);
-        if (avoid >= 35)
+        if (avoid >= GameManager.instance.Avoid_probability)
         {
 
             //プレイヤーダメージ

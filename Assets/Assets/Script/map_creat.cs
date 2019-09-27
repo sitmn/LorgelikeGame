@@ -7,6 +7,9 @@ using UnityEngine.UI;
 
 public class map_creat : MonoBehaviour {
 
+    public GameObject TestObject;
+
+
     public static GameObject Map;
     public GameObject map_object;
 
@@ -174,24 +177,26 @@ public class map_creat : MonoBehaviour {
 
     public const string NAME_I2 = "爆弾";
     public const int ATTACK_POINT_I2 = 30;
+    public const int ATTACK_TYPE = 0;
+    public const int ATTACK_RANGE = 1;
     public const int DEVELOP_I2_MATERIAL_1 = 0;
     public const int DEVELOP_I2_MATERIAL_2 = 1;
     public const int DEVELOP_I2_MATERIAL_3 = 0;
     public const int DEVELOP_NEED_MP_I2 = 3;
 
-    public const string NAME_I3 = "場所替え";
+    /*public const string NAME_I3 = "場所替え";
     public const int ATTACK_TYPE = 0;
     public const int ATTACK_RANGE = 1;
     public const int DEVELOP_I3_MATERIAL_1 = 1;
     public const int DEVELOP_I3_MATERIAL_2 = 0;
     public const int DEVELOP_I3_MATERIAL_3 = 0;
     public const int DEVELOP_NEED_MP_I3 = 3;
-
+    */
     public const string NAME_I4 = "回復薬（特）";
     public const int HEAL_POINT_I4 = 100;
     public const int DEVELOP_I4_MATERIAL_1 = 0;
-    public const int DEVELOP_I4_MATERIAL_2 = 0;
-    public const int DEVELOP_I4_MATERIAL_3 = 1;
+    public const int DEVELOP_I4_MATERIAL_2 = 1;
+    public const int DEVELOP_I4_MATERIAL_3 = 0;
     public const int DEVELOP_NEED_MP_I4 = 3;
 
     //武器ステータス
@@ -203,11 +208,11 @@ public class map_creat : MonoBehaviour {
     public const int ATTACK_TYPE_W1 = 0;
     public const bool ATTACK_THROUGH_W1 = false;
     public const bool SLANTING_WALL_W1 = false;
-    public const int DEVELOP_W1_MATERIAL_1 = 3;
-    public const int DEVELOP_W1_MATERIAL_2 = 3;
+    public const int DEVELOP_W1_MATERIAL_1 = 2;
+    public const int DEVELOP_W1_MATERIAL_2 = 1;
     public const int DEVELOP_W1_MATERIAL_3 = 0;
     public const int MP_COST_W1 = 1;
-    public const int ENDURANCE_W1 = 23;
+    public const int ENDURANCE_W1 = 31;
     public const int DEVELOP_NEED_MP_W1 = 1;
 
     public const string NAME_W2 = "アメシスト";
@@ -218,12 +223,12 @@ public class map_creat : MonoBehaviour {
     public const int ATTACK_TYPE_W2 = 1;
     public const bool ATTACK_THROUGH_W2 = false;
     public const bool SLANTING_WALL_W2 = true;
-    public const int DEVELOP_W2_MATERIAL_1 = 5;
-    public const int DEVELOP_W2_MATERIAL_2 = 2;
+    public const int DEVELOP_W2_MATERIAL_1 = 3;
+    public const int DEVELOP_W2_MATERIAL_2 = 1;
     public const int DEVELOP_W2_MATERIAL_3 = 0;
     public const int MP_COST_W2 = 4;
-    public const int ENDURANCE_W2 = 20;
-    public const int DEVELOP_NEED_MP_W2 = 8;
+    public const int ENDURANCE_W2 = 25;
+    public const int DEVELOP_NEED_MP_W2 = 20;
 
     public const string NAME_W3 = "エメラルド";
     public const int HP_W3 = 90;
@@ -233,8 +238,8 @@ public class map_creat : MonoBehaviour {
     public const int ATTACK_TYPE_W3 = 0;
     public const bool ATTACK_THROUGH_W3 = true;
     public const bool SLANTING_WALL_W3 = true;
-    public const int DEVELOP_W3_MATERIAL_1 = 5;
-    public const int DEVELOP_W3_MATERIAL_2 = 3;
+    public const int DEVELOP_W3_MATERIAL_1 = 3;
+    public const int DEVELOP_W3_MATERIAL_2 = 2;
     public const int DEVELOP_W3_MATERIAL_3 = 1;
     public const int MP_COST_W3 = 5;
     public const int ENDURANCE_W3 = 13;
@@ -248,11 +253,11 @@ public class map_creat : MonoBehaviour {
     public const int ATTACK_TYPE_W4 = 0;
     public const bool ATTACK_THROUGH_W4 = false;
     public const bool SLANTING_WALL_W4 = false;
-    public const int DEVELOP_W4_MATERIAL_1 = 1;
-    public const int DEVELOP_W4_MATERIAL_2 = 4;
+    public const int DEVELOP_W4_MATERIAL_1 = 0;
+    public const int DEVELOP_W4_MATERIAL_2 = 3;
     public const int DEVELOP_W4_MATERIAL_3 = 1;
-    public const int MP_COST_W4 = 3;
-    public const int ENDURANCE_W4 = 18;
+    public const int MP_COST_W4 = 13;
+    public const int ENDURANCE_W4 = 12;
     public const int DEVELOP_NEED_MP_W4 = 15;
 
     public const string NAME_W5 = "クリスタル";
@@ -263,9 +268,9 @@ public class map_creat : MonoBehaviour {
     public const int ATTACK_TYPE_W5 = 1;
     public const bool ATTACK_THROUGH_W5 = true;
     public const bool SLANTING_WALL_W5 = true;
-    public const int DEVELOP_W5_MATERIAL_1 = 7;
-    public const int DEVELOP_W5_MATERIAL_2 = 7;
-    public const int DEVELOP_W5_MATERIAL_3 = 3;
+    public const int DEVELOP_W5_MATERIAL_1 = 5;
+    public const int DEVELOP_W5_MATERIAL_2 = 5;
+    public const int DEVELOP_W5_MATERIAL_3 = 2;
     public const int MP_COST_W5 = 1;
     public const int ENDURANCE_W5 = 5;
     public const int DEVELOP_NEED_MP_W5 = 15;
@@ -1594,10 +1599,10 @@ public class map_creat : MonoBehaviour {
             }*/else if(a >= 20 && a <= 69)
             {
                 InstantiateInRoom_map_item(Material1);
-            }else if(a >= 70 && a <= 89)
+            }else if(a >= 70 && a <= 91)
             {
                 InstantiateInRoom_map_item(Material2);
-            }else if(a >= 90 && a <= 97)
+            }else if(a >= 92 && a <= 97)
             {
                 InstantiateInRoom_map_item(Material3);
             }else if(a == 98)
@@ -1656,6 +1661,46 @@ public class map_creat : MonoBehaviour {
                 }
             }*/
         }
+
+        
+            /*デバッグ用、部屋の入口を黄色にする
+             * for (int i1 = 0; i1 < GameManager.instance.entrancelist_0.Count; i1++)
+            {
+                Instantiate(TestObject, GameManager.instance.entrancelist_0[i1], Quaternion.identity);
+            }
+        for (int i1 = 0; i1 < GameManager.instance.entrancelist_1.Count; i1++)
+        {
+            Instantiate(TestObject, GameManager.instance.entrancelist_1[i1], Quaternion.identity);
+        }
+        for (int i1 = 0; i1 < GameManager.instance.entrancelist_2.Count; i1++)
+        {
+            Instantiate(TestObject, GameManager.instance.entrancelist_2[i1], Quaternion.identity);
+        }
+        for (int i1 = 0; i1 < GameManager.instance.entrancelist_3.Count; i1++)
+        {
+            Instantiate(TestObject, GameManager.instance.entrancelist_3[i1], Quaternion.identity);
+        }
+        for (int i1 = 0; i1 < GameManager.instance.entrancelist_4.Count; i1++)
+        {
+            Instantiate(TestObject, GameManager.instance.entrancelist_4[i1], Quaternion.identity);
+        }
+        for (int i1 = 0; i1 < GameManager.instance.entrancelist_5.Count; i1++)
+        {
+            Instantiate(TestObject, GameManager.instance.entrancelist_5[i1], Quaternion.identity);
+        }
+        for (int i1 = 0; i1 < GameManager.instance.entrancelist_6.Count; i1++)
+        {
+            Instantiate(TestObject, GameManager.instance.entrancelist_6[i1], Quaternion.identity);
+        }
+        for (int i1 = 0; i1 < GameManager.instance.entrancelist_7.Count; i1++)
+        {
+            Instantiate(TestObject, GameManager.instance.entrancelist_7[i1], Quaternion.identity);
+        }
+        for (int i1 = 0; i1 < GameManager.instance.entrancelist_8.Count; i1++)
+        {
+            Instantiate(TestObject, GameManager.instance.entrancelist_8[i1], Quaternion.identity);
+        }*/
+
         GameManager.instance.Map_All_Active_False();
 
         mapcreat = false;

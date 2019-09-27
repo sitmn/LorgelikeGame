@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour {
     public int hp_heel_need_time = 5;
     public int mp_heel_need_time = 10;
 
+    //回避率
+    public int Avoid_probability = 15;
+
 
     public float floor_enemy_level_coefficient;
     public float floor_level_coefficient;
@@ -78,6 +81,7 @@ public class GameManager : MonoBehaviour {
 
     public List<map_item> possessionitemlist;
     public List<map_item> possessionweaponlist;
+    public List<map_item> possessioncannonlist;
     public List<map_item> developtopiclist;
     public int possession_material_1;
     public int possession_material_2;
@@ -99,6 +103,7 @@ public class GameManager : MonoBehaviour {
     
     public int MAX_ITEM = 20;
     public int MAX_WEAPON = 20;
+    public int MAX_CANNON = 20;
     
     public Text T;
 
@@ -146,6 +151,7 @@ public class GameManager : MonoBehaviour {
         //itemをListで管理
         possessionitemlist = new List<map_item>();
         possessionweaponlist = new List<map_item>();
+        possessioncannonlist = new List<map_item>();
         developtopiclist = new List<map_item>();
 
         roomlist = new List<Vector3>();
@@ -210,8 +216,8 @@ public class GameManager : MonoBehaviour {
     {
         map_item item1 = new item1(map_creat.NAME_I1, map_creat.HEAL_POINT_I1, map_creat.DEVELOP_I1_MATERIAL_1, map_creat.DEVELOP_I1_MATERIAL_2, map_creat.DEVELOP_I1_MATERIAL_3, map_creat.DEVELOP_NEED_MP_I1);
         AddListDevelop(item1);
-        map_item item2 = new item2(map_creat.NAME_I2, map_creat.ATTACK_POINT_I2, map_creat.ATTACK_RANGE, map_creat.ATTACK_TYPE, map_creat.DEVELOP_I2_MATERIAL_1, map_creat.DEVELOP_I2_MATERIAL_2, map_creat.DEVELOP_I2_MATERIAL_3, map_creat.DEVELOP_NEED_MP_I2);
-        AddListDevelop(item2);
+        //map_item item2 = new item2(map_creat.NAME_I2, map_creat.ATTACK_POINT_I2, map_creat.ATTACK_RANGE, map_creat.ATTACK_TYPE, map_creat.DEVELOP_I2_MATERIAL_1, map_creat.DEVELOP_I2_MATERIAL_2, map_creat.DEVELOP_I2_MATERIAL_3, map_creat.DEVELOP_NEED_MP_I2);
+        //AddListDevelop(item2);
         //map_item item3 = new item3(map_creat.NAME_I3, map_creat.DEVELOP_I3_MATERIAL_1, map_creat.DEVELOP_I3_MATERIAL_2, map_creat.DEVELOP_I3_MATERIAL_3, map_creat.DEVELOP_NEED_MP_I3);
         //AddListDevelop(item3);
         map_item item4 = new item4(map_creat.NAME_I4, map_creat.HEAL_POINT_I4, map_creat.DEVELOP_I4_MATERIAL_1, map_creat.DEVELOP_I4_MATERIAL_2, map_creat.DEVELOP_I4_MATERIAL_3, map_creat.DEVELOP_NEED_MP_I4);
@@ -279,7 +285,7 @@ public class GameManager : MonoBehaviour {
                 player.player_mp = player.player_MAX_mp;
             }
             Mp_Bar();
-            HP_Text();
+            MP_Text();
         }
 
 
@@ -298,6 +304,20 @@ public class GameManager : MonoBehaviour {
             coroutine = true;
             StartCoroutine(MoveEnemies());
         }
+
+        if (map_creat.map[(int)Player.transform.position.x, (int)Player.transform.position.z].number == 5)
+        {
+            //階段
+
+            if (GameManager.instance.kaidan == false)
+            {
+                GameManager.instance.kaidan = true;
+                GameManager.instance.kaidan_screen = true;
+                GameManager.instance.Kaidan_Screen.SetActive(true);
+            }
+
+        }
+
     }
     
     //Enemy全体の行動
@@ -563,7 +583,6 @@ public class GameManager : MonoBehaviour {
         player.exist_room_no = map_creat.map[x, z].room_No;
 
         Map_Open_6_All();
-        //SceneManager.LoadScene("Dangyon");
 
         GameManager.instance.Pose = false;
     }
@@ -810,6 +829,8 @@ public class map_camera_object
 public class map_item
 {
     public GameObject Player;
+    public GameObject Menu;
+    public MenuController Menu_Controller;
     public string name;
     public int number;
     public bool exist;
@@ -1247,8 +1268,8 @@ public class player : map_exist
     public static int player_MAX_mp = 100;
     public static int player_origin_mp = 100;
     public static int player_mp = 100;
-    public static int player_origin_attack = 3;
-    public static int player_attack = 3;
+    public static int player_origin_attack = 6;
+    public static int player_attack = 6;
     public static int player_origin_defense = 2;
     public static int player_defense = 2;
 
@@ -1318,9 +1339,16 @@ public class enemystate:map_exist
     }
 }
 
-public class Cannon:map_item
+public class Cannon : map_item
 {
     public string cannon_description;
+
+    public Cannon()
+    {
+        Player = GameObject.Find("Player");
+        Menu = GameObject.Find("Menu");
+        Menu_Controller = Menu.GetComponent<MenuController>();
+    }
 
     public void set_cannon(int listnum)
     {
@@ -1385,12 +1413,12 @@ public class Cannon:map_item
             //map_creat.map_item[pos_x, pos_z].obj = Instantiate(Map_item, new Vector3(pos_x, -0.5f, pos_z), Quaternion.identity);
             map_creat.map_item[pos_x, pos_z].obj.transform.parent = map_creat.Map.transform;
             //map_creat.map_item[pos_x, pos_z].minimap_item =
-             //   Instantiate(MiniMapItem, new Vector3(pos_x + map_creat.minimapdistance, 1, pos_z + map_creat.minimapdistance), Quaternion.identity);
+            //Instantiate(MiniMapItem, new Vector3(pos_x + map_creat.minimapdistance, 1, pos_z + map_creat.minimapdistance), Quaternion.identity);
             map_creat.map_item[pos_x, pos_z].minimap_item.transform.parent =
                 map_creat.map_item[pos_x, pos_z].obj.transform;
 
-            //BackButton();
-            //BackButton();
+            Menu_Controller.BackButton();
+            Menu_Controller.BackButton();
             GameManager.instance.possessionitemlist.RemoveAt(listnum);
         }
         else
@@ -1398,4 +1426,9 @@ public class Cannon:map_item
             GameManager.instance.AddMainText("置けそうにない。");
         }
     }
+}
+
+public class cannon1
+{
+
 }

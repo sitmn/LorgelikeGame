@@ -77,20 +77,9 @@ public class Player_script : MonoBehaviour {
         {
             return;
         }
-
-        if(map_creat.map[(int)transform.position.x , (int)transform.position.z].number == 5)
-        {
-            //階段
-
-                if (GameManager.instance.kaidan == false)
-                {
-                    GameManager.instance.kaidan = true;
-                    GameManager.instance.kaidan_screen = true;
-                    GameManager.instance.Kaidan_Screen.SetActive(true);
-                }
-                
-        }
         
+
+
         //分岐点で停止
         if (map_creat.map[(int)transform.position.x , (int)transform.position.z].number == 2 || map_creat.map[(int)transform.position.x, (int)transform.position.z].number == 3 || map_creat.map[(int)transform.position.x, (int)transform.position.z].number == 4 || map_creat.map[(int)transform.position.x, (int)transform.position.z].number == 5)
         {
@@ -602,6 +591,7 @@ public class Player_script : MonoBehaviour {
                 }
             }
         }
+        else { Debug.Log("A"); }
     }
 
     public int playerdamage(int hp, int attack)
@@ -724,12 +714,12 @@ public class Player_script : MonoBehaviour {
 
         for(int i = 0; i < GameManager.instance.damageenemy.Count; i++)
         {
-            int avoid = Random.Range(0, 10);
+            int avoid = Random.Range(0, 100);
 
             int damage;
             int previous_hp;
 
-            if (avoid >= 3)
+            if (avoid >= GameManager.instance.Avoid_probability)
             {
 
                 previous_hp = GameManager.instance.damageenemy[i].state.HP;

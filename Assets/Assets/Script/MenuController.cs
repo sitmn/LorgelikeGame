@@ -453,11 +453,11 @@ public class MenuController : MonoBehaviour {
                 //テキストも変更
                 new_item.item_description = "見るからに危険そうな見た目をした爆発物。どうやって着火しているのかは不明。正面に" + new_item.attack_point + "ダメージを与える。爆風で自身が食らうことはない、とっても不思議。";
             }
-            else if (develop_item.name == "場所替え")
+            /*else if (develop_item.name == "場所替え")
             {
                 new_item = new item3(map_creat.NAME_I3, map_creat.DEVELOP_I3_MATERIAL_1, map_creat.DEVELOP_I3_MATERIAL_2, map_creat.DEVELOP_I3_MATERIAL_3, map_creat.DEVELOP_NEED_MP_I3);
 
-            }
+            }*/
             else if (develop_item.name == "回復薬（特）")
             {
                 new_item = new item4(map_creat.NAME_I4, map_creat.HEAL_POINT_I4, map_creat.DEVELOP_I4_MATERIAL_1, map_creat.DEVELOP_I4_MATERIAL_2, map_creat.DEVELOP_I4_MATERIAL_3, map_creat.DEVELOP_NEED_MP_I4);
