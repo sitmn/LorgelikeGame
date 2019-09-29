@@ -130,7 +130,7 @@ public class GameManager : MonoBehaviour {
 
     void Awake()
     {
-        //シングルトン
+        //シングルトン(シーン移動なくなったため不要)
         if (instance == null)
         {
             instance = this;
@@ -191,8 +191,7 @@ public class GameManager : MonoBehaviour {
 
         floor_level_coefficient = 1.1f;
         mapscript.Mapcreat();
-
-        //player_animation_event = Player.GetComponent<Player_Animation_Event>();
+        
 
         instance.PlayerMoving = false;
         instance.Playerturn = true;
@@ -214,6 +213,7 @@ public class GameManager : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        //合成一覧を作成
         map_item item1 = new item1(map_creat.NAME_I1, map_creat.HEAL_POINT_I1, map_creat.DEVELOP_I1_MATERIAL_1, map_creat.DEVELOP_I1_MATERIAL_2, map_creat.DEVELOP_I1_MATERIAL_3, map_creat.DEVELOP_NEED_MP_I1);
         AddListDevelop(item1);
         //map_item item2 = new item2(map_creat.NAME_I2, map_creat.ATTACK_POINT_I2, map_creat.ATTACK_RANGE, map_creat.ATTACK_TYPE, map_creat.DEVELOP_I2_MATERIAL_1, map_creat.DEVELOP_I2_MATERIAL_2, map_creat.DEVELOP_I2_MATERIAL_3, map_creat.DEVELOP_NEED_MP_I2);
@@ -233,6 +233,7 @@ public class GameManager : MonoBehaviour {
         map_item weapon5 = new weapon5(map_creat.NAME_W5, map_creat.HP_W5, map_creat.ATTACK_W5, map_creat.DEFENSE_W5, map_creat.ATTACK_RANGE_W5, map_creat.ATTACK_TYPE_W5, map_creat.ATTACK_THROUGH_W5, map_creat.SLANTING_WALL_W5, map_creat.DEVELOP_W5_MATERIAL_1, map_creat.DEVELOP_W5_MATERIAL_2, map_creat.DEVELOP_W5_MATERIAL_3, map_creat.MP_COST_W5, map_creat.ENDURANCE_W5, map_creat.DEVELOP_NEED_MP_W5);
         AddListDevelop(weapon5);
 
+        //初期状態で素材を持たせておく
         possession_material_1 += 5;
         possession_material_2 += 5;
         possession_material_3 += 5;
@@ -251,18 +252,11 @@ public class GameManager : MonoBehaviour {
             return;
         }
 
+        //マップの不要な部分（プレイヤーの周囲6マス）を非表示に
         Map_All_Active_False();
         Map_Open_6_All();
 
-        /*if(one == true)
-        {
-            //Awake、Startの代わり
-            
-            one = false;
-            Player = GameObject.Find("Player");
-            player_script = Player.GetComponent<Player_script>();
-        }*/
-
+        //プレイヤーの自然回復
         hp_heel_time_count++;
         mp_heel_time_count++;
         if(hp_heel_time_count >= hp_heel_need_time)
@@ -288,7 +282,7 @@ public class GameManager : MonoBehaviour {
             MP_Text();
         }
 
-
+        //プレイヤーがどの部屋にいるのか判別
         if (coroutine == false)
         {
             if (map_creat.map[(int)Player.transform.position.x, (int)Player.transform.position.z].number == 2 || map_creat.map[(int)Player.transform.position.x, (int)Player.transform.position.z].number == 10)
@@ -302,12 +296,14 @@ public class GameManager : MonoBehaviour {
 
             
             coroutine = true;
+
+            //敵ターン
             StartCoroutine(MoveEnemies());
         }
 
+        //階段の上にいるとき選択肢を出す
         if (map_creat.map[(int)Player.transform.position.x, (int)Player.transform.position.z].number == 5)
         {
-            //階段
 
             if (GameManager.instance.kaidan == false)
             {
@@ -332,26 +328,28 @@ public class GameManager : MonoBehaviour {
         //敵がいない際、動きが早くなるのを防ぐ
         if(GameManager.instance.enemies.Count == 0)
         {
-            yield return null;
-            yield return null;
-            yield return null;
-            yield return null;
+            for (int i = 0; i < 10; i++)
+            {
+                yield return null;
+            }
         }
 
         //Enemyを1体ずつ移動
         for (int i = 0; i < enemies.Count; i++)
-            {
+        {
             enemies[i].Emove();
+
+            //加速機能
             /*if (Input.GetKey(KeyCode.Space)== false /*&& map_creat.map[(int)Player.transform.position.x , (int)Player.transform.position.z] != 3 )
                 {
                     yield return null;
                     
                 }
         */
-                
-            }
+        }    
+            
 
-        //Playerが動ききってからプレイヤーのターンにする
+        //Playerが動ききってから次の処理へ(プレイヤーの移動が重複しないように)
         while (instance.EnemyMoving != GameManager.instance.enemies.Count)
         {
             yield return null;
@@ -382,16 +380,19 @@ public class GameManager : MonoBehaviour {
         enemies.Add(script);
     }
 
+    //アイテムをリストに追加
     public void AddListItem(map_item item)
     {
             possessionitemlist.Add(item);
     }
 
+    //武器をリストに追加
     public void AddListWeapon(map_item weapon)
     {
         possessionweaponlist.Add(weapon);
     }
 
+    //合成をリストに追加
     public void AddListDevelop(map_item develop)
     {
         developtopiclist.Add(develop);
@@ -450,6 +451,7 @@ public class GameManager : MonoBehaviour {
         MainText[2].text = "";
     }
 
+    //HP,MPテキストとバー表示
     public void HP_Text()
     {
         HPText.text = player.player_hp + "/" + player.player_MAX_hp;
@@ -469,17 +471,21 @@ public class GameManager : MonoBehaviour {
         mp_slider.value = mp_bar;
     }
 
+    //アイテム使用時のシステム処理
     public void itemuse(int listnum)
     {
         if (GameManager.instance.possessionitemlist[listnum].name == "爆弾")
         {
+            //メニュー閉
             GameManager.instance.menuscript.BackButton();
             GameManager.instance.Menu = false;
             MenuScreen.SetActive(false);
+            //使用アイテム所持品から削除
             GameManager.instance.possessionitemlist.RemoveAt(listnum);
         }
         else
         {
+            //メニュー閉・プレイヤーターン終
             GameManager.instance.menuscript.BackButton();
             GameManager.instance.menuscript.BackButton();
             GameManager.instance.possessionitemlist.RemoveAt(listnum);
@@ -487,8 +493,10 @@ public class GameManager : MonoBehaviour {
             GameManager.instance.Playerturn = false;
         }
     }
+    //装備時のシステム処理
     public void weaponuse(int listnum)
     {
+        //メニュー閉・プレイヤーターン終
         GameManager.instance.menuscript.BackButton();
         GameManager.instance.menuscript.BackButton();
 
@@ -542,7 +550,7 @@ public class GameManager : MonoBehaviour {
 
     public void Kaidan_Get_Off_Yes()
     {
-        //シーン移動時、instanceのGamaManagerは残り続けるから、Awake,Startは読み込まない、なのでここでデータを変える
+        //階層移動時、instanceのGamaManagerは残り続けるから、Awake,Startは読み込まない、なのでここでデータを変える
         GameManager.instance.Pose = true;
         GameManager.instance.Playerturn = true;
         GameManager.instance.one = true;

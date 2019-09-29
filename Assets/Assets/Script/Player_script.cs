@@ -602,9 +602,14 @@ public class Player_script : MonoBehaviour {
             damage = 0;
         }
         player.player_hp -= damage;
-
-        GameManager.instance.AddMainText("クエリは" + damage + "のダメージを受けた。");
-
+        if (damage > 0)
+        {
+            GameManager.instance.AddMainText("クエリは" + damage + "のダメージを受けた。");
+        }
+        else
+        {
+            GameManager.instance.AddMainText("クエリはダメージを受けなかった。");
+        }
         GameManager.instance.Hp_Bar();
         GameManager.instance.HP_Text();
         
@@ -756,6 +761,19 @@ public class Player_script : MonoBehaviour {
                     }
 
                     enemyAnimator.SetInteger("AnimIndex", 0);
+
+                    //武器の耐久を減らし、耐久がなくなったら壊れる
+                    if (player.equipment_weapon != null)
+                    {
+                        player.equipment_weapon.ENDURANCE_W--;
+
+                        if (player.equipment_weapon.ENDURANCE_W <= 0)
+                        {
+                            GameManager.instance.Weapon_Destroy();
+
+                            GameManager.instance.AddMainText("装備が壊れてしまった。");
+                        }
+                    }
                 }
             }
             else
@@ -767,18 +785,7 @@ public class Player_script : MonoBehaviour {
 
         yield return new WaitForSeconds(0.1f);
 
-        //武器の耐久を減らし、耐久がなくなったら壊れる
-        if (player.equipment_weapon != null)
-        {
-            player.equipment_weapon.ENDURANCE_W--;
-
-            if (player.equipment_weapon.ENDURANCE_W <= 0)
-            {
-                GameManager.instance.Weapon_Destroy();
-
-                GameManager.instance.AddMainText("装備が壊れてしまった。");
-            }
-        }
+        
 
         GameManager.instance.damageenemy.Clear();
 

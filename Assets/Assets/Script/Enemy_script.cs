@@ -1138,9 +1138,14 @@ public class Enemy_script : MonoBehaviour
     {
         int damage = attack - defense;
         hp -= damage;
-
-        GameManager.instance.AddMainText("クエリは" + name + "に" + damage + "のダメージを与えた。");
-        
+        if (damage > 0)
+        {
+            GameManager.instance.AddMainText("クエリは" + name + "に" + damage + "のダメージを与えた。");
+        }
+        else
+        {
+            GameManager.instance.AddMainText(name + "はダメージを受けていないようだ。");
+        }
         return hp;
     }
 
