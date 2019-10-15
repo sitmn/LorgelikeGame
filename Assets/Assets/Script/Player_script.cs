@@ -591,7 +591,6 @@ public class Player_script : MonoBehaviour {
                 }
             }
         }
-        else { Debug.Log("A"); }
     }
 
     public int playerdamage(int hp, int attack)

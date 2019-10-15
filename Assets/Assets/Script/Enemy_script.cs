@@ -373,8 +373,7 @@ public class Enemy_script : MonoBehaviour
                     ((int)(transform.eulerAngles.y + 0.5) / 45) % 8 == 7)
                 {
                     transform.Rotate(new Vector3(0, 315, 0));
-                }//〇
-                Debug.Log((int)(transform.eulerAngles.y + 0.5) / 45);
+                }
                 ForwardMove();
             }//移動先にプレイヤーと敵がいないならば移動
             if (map_creat.map_ex[(int)transform.position.x + emoveX, (int)transform.position.z + emoveY].number == 5 || map_creat.map_ex[(int)transform.position.x + emoveX, (int)transform.position.z + emoveY].number == 6 || map_creat.map[(int)transform.position.x + emoveX, (int)transform.position.z + emoveY].number == 0)
