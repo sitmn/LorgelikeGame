@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 8
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a266921528de4a4ebe0ddb4bb061c44, type: 3}
+  m_Name: Game_System
+  m_EditorClassIdentifier: 
+  sheets:
+  - name: Sheet1
+    list:
+    - id: system1
+      name: hp_heel_need_time
+      price_int: 5
+      price_float: 0
+    - id: system2
+      name: mp_heel_need_time
+      price_int: 10
+      price_float: 0
+    - id: system3
+      name: Avoid_probability
+      price_int: 15
+      price_float: 0
+    - id: system4
+      name: floor_enemy_level_coefficient
+      price_int: 1
+      price_float: 0
+    - id: system5
+      name: floor_level_coefficient
+      price_int: 0
+      price_float: 1.1
+    - id: system6
+      name: moveTime
+      price_int: 0
+      price_float: 0.1
+    - id: system7
+      name: enemy_probability
+      price_int: 2
+      price_float: 0

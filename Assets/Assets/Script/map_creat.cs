@@ -14,158 +14,158 @@ public class map_creat : MonoBehaviour {
     public GameObject map_object;
 
     //敵ステータス
-    public const string BAT1_NAME = "コウモリ（レベル１）";
-    public const float BAT1_HP = 8;
-    public const float BAT1_MP = 2;
-    public const float BAT1_ATTACK = 7;
-    public const float BAT1_DEFENSE = 0;
-    public const int BAT1_ATTACK_RANGE = 1;
-    public const int BAT1_ATTACK_TYPE = 0;
-    public const bool BAT1_SLANTING_WALL = true;
+    public string BAT1_NAME;
+    public float BAT1_HP;
+    public float BAT1_MP;
+    public float BAT1_ATTACK;
+    public float BAT1_DEFENSE;
+    public int BAT1_ATTACK_RANGE;
+    public int BAT1_ATTACK_TYPE;
+    public bool BAT1_SLANTING_WALL;
 
-    public const string GHOST1_NAME = "ゴースト（レベル１）";
-    public const float GHOST1_HP = 5;
-    public const float GHOST1_MP = 2;
-    public const float GHOST1_ATTACK = 9;
-    public const float GHOST1_DEFENSE = 1;
-    public const int GHOST1_ATTACK_RANGE = 1;
-    public const int GHOST1_ATTACK_TYPE = 0;
-    public const bool GHOST1_SLANTING_WALL = false;
+    public string GHOST1_NAME;
+    public float GHOST1_HP;
+    public float GHOST1_MP;
+    public float GHOST1_ATTACK;
+    public float GHOST1_DEFENSE;
+    public int GHOST1_ATTACK_RANGE;
+    public int GHOST1_ATTACK_TYPE;
+    public bool GHOST1_SLANTING_WALL;
 
-    public const string RABBIT1_NAME = "ラビット（レベル１）";
-    public const float RABBIT1_HP = 4;
-    public const float RABBIT1_MP = 2;
-    public const float RABBIT1_ATTACK = 5;
-    public const float RABBIT1_DEFENSE = 0;
-    public const int RABBIT1_ATTACK_RANGE = 2;
-    public const int RABBIT1_ATTACK_TYPE = 0;
-    public const bool RABBIT1_SLANTING_WALL = true;
+    public string RABBIT1_NAME;
+    public float RABBIT1_HP;
+    public float RABBIT1_MP;
+    public float RABBIT1_ATTACK;
+    public float RABBIT1_DEFENSE;
+    public int RABBIT1_ATTACK_RANGE;
+    public int RABBIT1_ATTACK_TYPE;
+    public bool RABBIT1_SLANTING_WALL;
 
-    public const string SLIME1_NAME = "スライム（レベル１）";
-    public const float SLIME1_HP = 1;
-    public const float SLIME1_MP = 2;
-    public const float SLIME1_ATTACK = 14;
-    public const float SLIME1_DEFENSE = 0; //999
-    public const int SLIME1_ATTACK_RANGE = 1;
-    public const int SLIME1_ATTACK_TYPE = 0;
-    public const bool SLIME1_SLANTING_WALL = true;
+    public string SLIME1_NAME;
+    public float SLIME1_HP;
+    public float SLIME1_MP;
+    public float SLIME1_ATTACK;
+    public float SLIME1_DEFENSE;
+    public int SLIME1_ATTACK_RANGE;
+    public int SLIME1_ATTACK_TYPE;
+    public bool SLIME1_SLANTING_WALL;
 
-    public const string BAT2_NAME = "コウモリ（レベル２）";
-    public const float BAT2_HP = 21;
-    public const float BAT2_MP = 2;
-    public const float BAT2_ATTACK = 17;
-    public const float BAT2_DEFENSE = 0;
-    public const int BAT2_ATTACK_RANGE = 1;
-    public const int BAT2_ATTACK_TYPE = 0;
-    public const bool BAT2_SLANTING_WALL = true;
+    public string BAT2_NAME;
+    public float BAT2_HP;
+    public float BAT2_MP;
+    public float BAT2_ATTACK;
+    public float BAT2_DEFENSE;
+    public int BAT2_ATTACK_RANGE;
+    public int BAT2_ATTACK_TYPE;
+    public bool BAT2_SLANTING_WALL;
 
-    public const string GHOST2_NAME = "ゴースト（レベル２）";
-    public const float GHOST2_HP = 19;
-    public const float GHOST2_MP = 2;
-    public const float GHOST2_ATTACK = 15;
-    public const float GHOST2_DEFENSE = 4;
-    public const int GHOST2_ATTACK_RANGE = 1;
-    public const int GHOST2_ATTACK_TYPE = 0;
-    public const bool GHOST2_SLANTING_WALL = false;
+    public string GHOST2_NAME;
+    public float GHOST2_HP;
+    public float GHOST2_MP;
+    public float GHOST2_ATTACK;
+    public float GHOST2_DEFENSE;
+    public int GHOST2_ATTACK_RANGE;
+    public int GHOST2_ATTACK_TYPE;
+    public bool GHOST2_SLANTING_WALL;
 
-    public const string RABBIT2_NAME = "ラビット（レベル２）";
-    public const float RABBIT2_HP = 15;
-    public const float RABBIT2_MP = 2;
-    public const float RABBIT2_ATTACK = 10;
-    public const float RABBIT2_DEFENSE = 0;
-    public const int RABBIT2_ATTACK_RANGE = 2;
-    public const int RABBIT2_ATTACK_TYPE = 0;
-    public const bool RABBIT2_SLANTING_WALL = true;
+    public string RABBIT2_NAME;
+    public float RABBIT2_HP;
+    public float RABBIT2_MP;
+    public float RABBIT2_ATTACK;
+    public float RABBIT2_DEFENSE;
+    public int RABBIT2_ATTACK_RANGE;
+    public int RABBIT2_ATTACK_TYPE;
+    public bool RABBIT2_SLANTING_WALL;
 
-    public const string SLIME2_NAME = "スライム（レベル２）";
-    public const float SLIME2_HP = 1;
-    public const float SLIME2_MP = 2;
-    public const float SLIME2_ATTACK = 32;
-    public const float SLIME2_DEFENSE = 0; //999
-    public const int SLIME2_ATTACK_RANGE = 1;
-    public const int SLIME2_ATTACK_TYPE = 0;
-    public const bool SLIME2_SLANTING_WALL = true;
+    public string SLIME2_NAME;
+    public float SLIME2_HP;
+    public float SLIME2_MP;
+    public float SLIME2_ATTACK;
+    public float SLIME2_DEFENSE;
+    public int SLIME2_ATTACK_RANGE;
+    public int SLIME2_ATTACK_TYPE;
+    public bool SLIME2_SLANTING_WALL;
 
-    public const string BAT3_NAME = "コウモリ（レベル３）";
-    public const float BAT3_HP = 55;
-    public const float BAT3_MP = 2;
-    public const float BAT3_ATTACK = 36;
-    public const float BAT3_DEFENSE = 0;
-    public const int BAT3_ATTACK_RANGE = 1;
-    public const int BAT3_ATTACK_TYPE = 0;
-    public const bool BAT3_SLANTING_WALL = true;
+    public string BAT3_NAME;
+    public float BAT3_HP;
+    public float BAT3_MP;
+    public float BAT3_ATTACK;
+    public float BAT3_DEFENSE;
+    public int BAT3_ATTACK_RANGE;
+    public int BAT3_ATTACK_TYPE;
+    public bool BAT3_SLANTING_WALL;
 
-    public const string GHOST3_NAME = "ゴースト（レベル３）";
-    public const float GHOST3_HP = 34;
-    public const float GHOST3_MP = 2;
-    public const float GHOST3_ATTACK = 28;
-    public const float GHOST3_DEFENSE = 6;
-    public const int GHOST3_ATTACK_RANGE = 1;
-    public const int GHOST3_ATTACK_TYPE = 0;
-    public const bool GHOST3_SLANTING_WALL = false;
+    public string GHOST3_NAME;
+    public float GHOST3_HP;
+    public float GHOST3_MP;
+    public float GHOST3_ATTACK;
+    public float GHOST3_DEFENSE;
+    public int GHOST3_ATTACK_RANGE;
+    public int GHOST3_ATTACK_TYPE;
+    public bool GHOST3_SLANTING_WALL;
 
-    public const string RABBIT3_NAME = "ラビット（レベル３）";
-    public const float RABBIT3_HP = 28;
-    public const float RABBIT3_MP = 2;
-    public const float RABBIT3_ATTACK = 20;
-    public const float RABBIT3_DEFENSE = 0;
-    public const int RABBIT3_ATTACK_RANGE = 2;
-    public const int RABBIT3_ATTACK_TYPE = 0;
-    public const bool RABBIT3_SLANTING_WALL = true;
+    public string RABBIT3_NAME;
+    public float RABBIT3_HP;
+    public float RABBIT3_MP;
+    public float RABBIT3_ATTACK;
+    public float RABBIT3_DEFENSE;
+    public int RABBIT3_ATTACK_RANGE;
+    public int RABBIT3_ATTACK_TYPE;
+    public bool RABBIT3_SLANTING_WALL;
 
-    public const string SLIME3_NAME = "スライム（レベル３）";
-    public const float SLIME3_HP = 1;
-    public const float SLIME3_MP = 2;
-    public const float SLIME3_ATTACK = 52;
-    public const float SLIME3_DEFENSE = 0; //999
-    public const int SLIME3_ATTACK_RANGE = 1;
-    public const int SLIME3_ATTACK_TYPE = 0;
-    public const bool SLIME3_SLANTING_WALL = true;
+    public string SLIME3_NAME;
+    public float SLIME3_HP;
+    public float SLIME3_MP;
+    public float SLIME3_ATTACK;
+    public float SLIME3_DEFENSE;
+    public int SLIME3_ATTACK_RANGE;
+    public int SLIME3_ATTACK_TYPE;
+    public bool SLIME3_SLANTING_WALL;
 
-    public const string BAT4_NAME = "コウモリ（レベル４）";
-    public const float BAT4_HP = 93;
-    public const float BAT4_MP = 2;
-    public const float BAT4_ATTACK = 59;
-    public const float BAT4_DEFENSE = 0;
-    public const int BAT4_ATTACK_RANGE = 1;
-    public const int BAT4_ATTACK_TYPE = 0;
-    public const bool BAT4_SLANTING_WALL = true;
+    public string BAT4_NAME;
+    public float BAT4_HP;
+    public float BAT4_MP;
+    public float BAT4_ATTACK;
+    public float BAT4_DEFENSE;
+    public int BAT4_ATTACK_RANGE;
+    public int BAT4_ATTACK_TYPE;
+    public bool BAT4_SLANTING_WALL;
 
-    public const string GHOST4_NAME = "ゴースト（レベル４）";
-    public const float GHOST4_HP = 72;
-    public const float GHOST4_MP = 2;
-    public const float GHOST4_ATTACK = 64;
-    public const float GHOST4_DEFENSE = 10;
-    public const int GHOST4_ATTACK_RANGE = 1;
-    public const int GHOST4_ATTACK_TYPE = 0;
-    public const bool GHOST4_SLANTING_WALL = false;
+    public string GHOST4_NAME;
+    public float GHOST4_HP;
+    public float GHOST4_MP;
+    public float GHOST4_ATTACK;
+    public float GHOST4_DEFENSE;
+    public int GHOST4_ATTACK_RANGE;
+    public int GHOST4_ATTACK_TYPE;
+    public bool GHOST4_SLANTING_WALL;
 
-    public const string RABBIT4_NAME = "ラビット（レベル４）";
-    public const float RABBIT4_HP = 52;
-    public const float RABBIT4_MP = 2;
-    public const float RABBIT4_ATTACK = 35;
-    public const float RABBIT4_DEFENSE = 3;
-    public const int RABBIT4_ATTACK_RANGE = 2;
-    public const int RABBIT4_ATTACK_TYPE = 0;
-    public const bool RABBIT4_SLANTING_WALL = true;
+    public string RABBIT4_NAME;
+    public float RABBIT4_HP;
+    public float RABBIT4_MP;
+    public float RABBIT4_ATTACK;
+    public float RABBIT4_DEFENSE;
+    public int RABBIT4_ATTACK_RANGE;
+    public int RABBIT4_ATTACK_TYPE;
+    public bool RABBIT4_SLANTING_WALL;
 
-    public const string SLIME4_NAME = "スライム（レベル４）";
-    public const float SLIME4_HP = 1;
-    public const float SLIME4_MP = 2;
-    public const float SLIME4_ATTACK = 82;
-    public const float SLIME4_DEFENSE = 0; //999
-    public const int SLIME4_ATTACK_RANGE = 1;
-    public const int SLIME4_ATTACK_TYPE = 0;
-    public const bool SLIME4_SLANTING_WALL = true;
+    public string SLIME4_NAME;
+    public float SLIME4_HP;
+    public float SLIME4_MP;
+    public float SLIME4_ATTACK;
+    public float SLIME4_DEFENSE;
+    public int SLIME4_ATTACK_RANGE;
+    public int SLIME4_ATTACK_TYPE;
+    public bool SLIME4_SLANTING_WALL;
 
-    public const string BOSS1_NAME = "ゴーレム";
-    public const float BOSS1_HP = 150;
-    public const float BOSS1_MP = 2;
-    public const float BOSS1_ATTACK = 62;
-    public const float BOSS1_DEFENSE = 25; //999
-    public const int BOSS1_ATTACK_RANGE = 1;
-    public const int BOSS1_ATTACK_TYPE = 0;
-    public const bool BOSS1_SLANTING_WALL = true;
+    public string BOSS1_NAME;
+    public float BOSS1_HP;
+    public float BOSS1_MP;
+    public float BOSS1_ATTACK;
+    public float BOSS1_DEFENSE;
+    public int BOSS1_ATTACK_RANGE;
+    public int BOSS1_ATTACK_TYPE;
+    public bool BOSS1_SLANTING_WALL;
 
     //アイテム
     public const string NAME_I1 = "回復薬";
@@ -354,9 +354,6 @@ public class map_creat : MonoBehaviour {
     public static GameObject[,] mini_map;
     public static Renderer[,] grid_color;
 
-    public static int player_position_x;
-    public static int player_position_z;
-
     public int boss_pos_x;
     public int boss_pos_z;
 
@@ -364,6 +361,163 @@ public class map_creat : MonoBehaviour {
     public bool mapcreat;
 
     public map_creat map_creat_instance;
+
+    private void Awake()
+    {
+        //マスターデータの代入
+        BAT1_NAME = GameManager.instance.enemy_state_data.sheets[0].list[0].price_name_string;
+        BAT1_HP = GameManager.instance.enemy_state_data.sheets[0].list[0].price_hp_int;
+        BAT1_MP = GameManager.instance.enemy_state_data.sheets[0].list[0].price_mp_int;
+        BAT1_ATTACK = GameManager.instance.enemy_state_data.sheets[0].list[0].price_attack_int;
+        BAT1_DEFENSE = GameManager.instance.enemy_state_data.sheets[0].list[0].price_defense_int;
+        BAT1_ATTACK_RANGE = GameManager.instance.enemy_state_data.sheets[0].list[0].price_attack_range_int;
+        BAT1_ATTACK_TYPE = GameManager.instance.enemy_state_data.sheets[0].list[0].price_attack_type_int;
+        BAT1_SLANTING_WALL = GameManager.instance.enemy_state_data.sheets[0].list[0].price_slanting_wall_bool;
+
+        GHOST1_NAME = GameManager.instance.enemy_state_data.sheets[0].list[1].price_name_string;
+        GHOST1_HP = GameManager.instance.enemy_state_data.sheets[0].list[1].price_hp_int;
+        GHOST1_MP = GameManager.instance.enemy_state_data.sheets[0].list[1].price_mp_int;
+        GHOST1_ATTACK = GameManager.instance.enemy_state_data.sheets[0].list[1].price_attack_int;
+        GHOST1_DEFENSE = GameManager.instance.enemy_state_data.sheets[0].list[1].price_defense_int;
+        GHOST1_ATTACK_RANGE = GameManager.instance.enemy_state_data.sheets[0].list[1].price_attack_range_int;
+        GHOST1_ATTACK_TYPE = GameManager.instance.enemy_state_data.sheets[0].list[1].price_attack_type_int;
+        GHOST1_SLANTING_WALL = GameManager.instance.enemy_state_data.sheets[0].list[1].price_slanting_wall_bool;
+
+        RABBIT1_NAME = GameManager.instance.enemy_state_data.sheets[0].list[2].price_name_string;
+        RABBIT1_HP = GameManager.instance.enemy_state_data.sheets[0].list[2].price_hp_int;
+        RABBIT1_MP = GameManager.instance.enemy_state_data.sheets[0].list[2].price_mp_int;
+        RABBIT1_ATTACK = GameManager.instance.enemy_state_data.sheets[0].list[2].price_attack_int;
+        RABBIT1_DEFENSE = GameManager.instance.enemy_state_data.sheets[0].list[2].price_defense_int;
+        RABBIT1_ATTACK_RANGE = GameManager.instance.enemy_state_data.sheets[0].list[2].price_attack_range_int;
+        RABBIT1_ATTACK_TYPE = GameManager.instance.enemy_state_data.sheets[0].list[2].price_attack_type_int;
+        RABBIT1_SLANTING_WALL = GameManager.instance.enemy_state_data.sheets[0].list[2].price_slanting_wall_bool;
+
+        SLIME1_NAME = GameManager.instance.enemy_state_data.sheets[0].list[3].price_name_string;
+        SLIME1_HP = GameManager.instance.enemy_state_data.sheets[0].list[3].price_hp_int;
+        SLIME1_MP = GameManager.instance.enemy_state_data.sheets[0].list[3].price_mp_int;
+        SLIME1_ATTACK = GameManager.instance.enemy_state_data.sheets[0].list[3].price_attack_int;
+        SLIME1_DEFENSE = GameManager.instance.enemy_state_data.sheets[0].list[3].price_defense_int;
+        SLIME1_ATTACK_RANGE = GameManager.instance.enemy_state_data.sheets[0].list[3].price_attack_range_int;
+        SLIME1_ATTACK_TYPE = GameManager.instance.enemy_state_data.sheets[0].list[3].price_attack_type_int;
+        SLIME1_SLANTING_WALL = GameManager.instance.enemy_state_data.sheets[0].list[3].price_slanting_wall_bool;
+
+        BAT2_NAME = GameManager.instance.enemy_state_data.sheets[0].list[4].price_name_string;
+        BAT2_HP = GameManager.instance.enemy_state_data.sheets[0].list[4].price_hp_int;
+        BAT2_MP = GameManager.instance.enemy_state_data.sheets[0].list[4].price_mp_int;
+        BAT2_ATTACK = GameManager.instance.enemy_state_data.sheets[0].list[4].price_attack_int;
+        BAT2_DEFENSE = GameManager.instance.enemy_state_data.sheets[0].list[4].price_defense_int;
+        BAT2_ATTACK_RANGE = GameManager.instance.enemy_state_data.sheets[0].list[4].price_attack_range_int;
+        BAT2_ATTACK_TYPE = GameManager.instance.enemy_state_data.sheets[0].list[4].price_attack_type_int;
+        BAT2_SLANTING_WALL = GameManager.instance.enemy_state_data.sheets[0].list[4].price_slanting_wall_bool;
+
+        GHOST2_NAME = GameManager.instance.enemy_state_data.sheets[0].list[5].price_name_string;
+        GHOST2_HP = GameManager.instance.enemy_state_data.sheets[0].list[5].price_hp_int;
+        GHOST2_MP = GameManager.instance.enemy_state_data.sheets[0].list[5].price_mp_int;
+        GHOST2_ATTACK = GameManager.instance.enemy_state_data.sheets[0].list[5].price_attack_int;
+        GHOST2_DEFENSE = GameManager.instance.enemy_state_data.sheets[0].list[5].price_defense_int;
+        GHOST2_ATTACK_RANGE = GameManager.instance.enemy_state_data.sheets[0].list[5].price_attack_range_int;
+        GHOST2_ATTACK_TYPE = GameManager.instance.enemy_state_data.sheets[0].list[5].price_attack_type_int;
+        GHOST2_SLANTING_WALL = GameManager.instance.enemy_state_data.sheets[0].list[5].price_slanting_wall_bool;
+
+        RABBIT2_NAME = GameManager.instance.enemy_state_data.sheets[0].list[6].price_name_string;
+        RABBIT2_HP = GameManager.instance.enemy_state_data.sheets[0].list[6].price_hp_int;
+        RABBIT2_MP = GameManager.instance.enemy_state_data.sheets[0].list[6].price_mp_int;
+        RABBIT2_ATTACK = GameManager.instance.enemy_state_data.sheets[0].list[6].price_attack_int;
+        RABBIT2_DEFENSE = GameManager.instance.enemy_state_data.sheets[0].list[6].price_defense_int;
+        RABBIT2_ATTACK_RANGE = GameManager.instance.enemy_state_data.sheets[0].list[6].price_attack_range_int;
+        RABBIT2_ATTACK_TYPE = GameManager.instance.enemy_state_data.sheets[0].list[6].price_attack_type_int;
+        RABBIT2_SLANTING_WALL = GameManager.instance.enemy_state_data.sheets[0].list[6].price_slanting_wall_bool;
+
+        SLIME2_NAME = GameManager.instance.enemy_state_data.sheets[0].list[7].price_name_string;
+        SLIME2_HP = GameManager.instance.enemy_state_data.sheets[0].list[7].price_hp_int;
+        SLIME2_MP = GameManager.instance.enemy_state_data.sheets[0].list[7].price_mp_int;
+        SLIME2_ATTACK = GameManager.instance.enemy_state_data.sheets[0].list[7].price_attack_int;
+        SLIME2_DEFENSE = GameManager.instance.enemy_state_data.sheets[0].list[7].price_defense_int;
+        SLIME2_ATTACK_RANGE = GameManager.instance.enemy_state_data.sheets[0].list[7].price_attack_range_int;
+        SLIME2_ATTACK_TYPE = GameManager.instance.enemy_state_data.sheets[0].list[7].price_attack_type_int;
+        SLIME2_SLANTING_WALL = GameManager.instance.enemy_state_data.sheets[0].list[7].price_slanting_wall_bool;
+
+        BAT3_NAME = GameManager.instance.enemy_state_data.sheets[0].list[8].price_name_string;
+        BAT3_HP = GameManager.instance.enemy_state_data.sheets[0].list[8].price_hp_int;
+        BAT3_MP = GameManager.instance.enemy_state_data.sheets[0].list[8].price_mp_int;
+        BAT3_ATTACK = GameManager.instance.enemy_state_data.sheets[0].list[8].price_attack_int;
+        BAT3_DEFENSE = GameManager.instance.enemy_state_data.sheets[0].list[8].price_defense_int;
+        BAT3_ATTACK_RANGE = GameManager.instance.enemy_state_data.sheets[0].list[8].price_attack_range_int;
+        BAT3_ATTACK_TYPE = GameManager.instance.enemy_state_data.sheets[0].list[8].price_attack_type_int;
+        BAT3_SLANTING_WALL = GameManager.instance.enemy_state_data.sheets[0].list[8].price_slanting_wall_bool;
+
+        GHOST3_NAME = GameManager.instance.enemy_state_data.sheets[0].list[9].price_name_string;
+        GHOST3_HP = GameManager.instance.enemy_state_data.sheets[0].list[9].price_hp_int;
+        GHOST3_MP = GameManager.instance.enemy_state_data.sheets[0].list[9].price_mp_int;
+        GHOST3_ATTACK = GameManager.instance.enemy_state_data.sheets[0].list[9].price_attack_int;
+        GHOST3_DEFENSE = GameManager.instance.enemy_state_data.sheets[0].list[9].price_defense_int;
+        GHOST3_ATTACK_RANGE = GameManager.instance.enemy_state_data.sheets[0].list[9].price_attack_range_int;
+        GHOST3_ATTACK_TYPE = GameManager.instance.enemy_state_data.sheets[0].list[9].price_attack_type_int;
+        GHOST3_SLANTING_WALL = GameManager.instance.enemy_state_data.sheets[0].list[9].price_slanting_wall_bool;
+
+        RABBIT3_NAME = GameManager.instance.enemy_state_data.sheets[0].list[10].price_name_string;
+        RABBIT3_HP = GameManager.instance.enemy_state_data.sheets[0].list[10].price_hp_int;
+        RABBIT3_MP = GameManager.instance.enemy_state_data.sheets[0].list[10].price_mp_int;
+        RABBIT3_ATTACK = GameManager.instance.enemy_state_data.sheets[0].list[10].price_attack_int;
+        RABBIT3_DEFENSE = GameManager.instance.enemy_state_data.sheets[0].list[10].price_defense_int;
+        RABBIT3_ATTACK_RANGE = GameManager.instance.enemy_state_data.sheets[0].list[10].price_attack_range_int;
+        RABBIT3_ATTACK_TYPE = GameManager.instance.enemy_state_data.sheets[0].list[10].price_attack_type_int;
+        RABBIT3_SLANTING_WALL = GameManager.instance.enemy_state_data.sheets[0].list[10].price_slanting_wall_bool;
+
+        SLIME3_NAME = GameManager.instance.enemy_state_data.sheets[0].list[11].price_name_string;
+        SLIME3_HP = GameManager.instance.enemy_state_data.sheets[0].list[11].price_hp_int;
+        SLIME3_MP = GameManager.instance.enemy_state_data.sheets[0].list[11].price_mp_int;
+        SLIME3_ATTACK = GameManager.instance.enemy_state_data.sheets[0].list[11].price_attack_int;
+        SLIME3_DEFENSE = GameManager.instance.enemy_state_data.sheets[0].list[11].price_defense_int;
+        SLIME3_ATTACK_RANGE = GameManager.instance.enemy_state_data.sheets[0].list[11].price_attack_range_int;
+        SLIME3_ATTACK_TYPE = GameManager.instance.enemy_state_data.sheets[0].list[11].price_attack_type_int;
+        SLIME3_SLANTING_WALL = GameManager.instance.enemy_state_data.sheets[0].list[11].price_slanting_wall_bool;
+
+        BAT4_NAME = GameManager.instance.enemy_state_data.sheets[0].list[12].price_name_string;
+        BAT4_HP = GameManager.instance.enemy_state_data.sheets[0].list[12].price_hp_int;
+        BAT4_MP = GameManager.instance.enemy_state_data.sheets[0].list[12].price_mp_int;
+        BAT4_ATTACK = GameManager.instance.enemy_state_data.sheets[0].list[12].price_attack_int;
+        BAT4_DEFENSE = GameManager.instance.enemy_state_data.sheets[0].list[12].price_defense_int;
+        BAT4_ATTACK_RANGE = GameManager.instance.enemy_state_data.sheets[0].list[12].price_attack_range_int;
+        BAT4_ATTACK_TYPE = GameManager.instance.enemy_state_data.sheets[0].list[12].price_attack_type_int;
+        BAT4_SLANTING_WALL = GameManager.instance.enemy_state_data.sheets[0].list[12].price_slanting_wall_bool;
+
+        GHOST4_NAME = GameManager.instance.enemy_state_data.sheets[0].list[13].price_name_string;
+        GHOST4_HP = GameManager.instance.enemy_state_data.sheets[0].list[13].price_hp_int;
+        GHOST4_MP = GameManager.instance.enemy_state_data.sheets[0].list[13].price_mp_int;
+        GHOST4_ATTACK = GameManager.instance.enemy_state_data.sheets[0].list[13].price_attack_int;
+        GHOST4_DEFENSE = GameManager.instance.enemy_state_data.sheets[0].list[13].price_defense_int;
+        GHOST4_ATTACK_RANGE = GameManager.instance.enemy_state_data.sheets[0].list[13].price_attack_range_int;
+        GHOST4_ATTACK_TYPE = GameManager.instance.enemy_state_data.sheets[0].list[13].price_attack_type_int;
+        GHOST4_SLANTING_WALL = GameManager.instance.enemy_state_data.sheets[0].list[13].price_slanting_wall_bool;
+
+        RABBIT4_NAME = GameManager.instance.enemy_state_data.sheets[0].list[14].price_name_string;
+        RABBIT4_HP = GameManager.instance.enemy_state_data.sheets[0].list[14].price_hp_int;
+        RABBIT4_MP = GameManager.instance.enemy_state_data.sheets[0].list[14].price_mp_int;
+        RABBIT4_ATTACK = GameManager.instance.enemy_state_data.sheets[0].list[14].price_attack_int;
+        RABBIT4_DEFENSE = GameManager.instance.enemy_state_data.sheets[0].list[14].price_defense_int;
+        RABBIT4_ATTACK_RANGE = GameManager.instance.enemy_state_data.sheets[0].list[14].price_attack_range_int;
+        RABBIT4_ATTACK_TYPE = GameManager.instance.enemy_state_data.sheets[0].list[14].price_attack_type_int;
+        RABBIT4_SLANTING_WALL = GameManager.instance.enemy_state_data.sheets[0].list[14].price_slanting_wall_bool;
+
+        SLIME4_NAME = GameManager.instance.enemy_state_data.sheets[0].list[15].price_name_string;
+        SLIME4_HP = GameManager.instance.enemy_state_data.sheets[0].list[15].price_hp_int;
+        SLIME4_MP = GameManager.instance.enemy_state_data.sheets[0].list[15].price_mp_int;
+        SLIME4_ATTACK = GameManager.instance.enemy_state_data.sheets[0].list[15].price_attack_int;
+        SLIME4_DEFENSE = GameManager.instance.enemy_state_data.sheets[0].list[15].price_defense_int;
+        SLIME4_ATTACK_RANGE = GameManager.instance.enemy_state_data.sheets[0].list[15].price_attack_range_int;
+        SLIME4_ATTACK_TYPE = GameManager.instance.enemy_state_data.sheets[0].list[15].price_attack_type_int;
+        SLIME4_SLANTING_WALL = GameManager.instance.enemy_state_data.sheets[0].list[15].price_slanting_wall_bool;
+
+        BOSS1_NAME = GameManager.instance.enemy_state_data.sheets[0].list[16].price_name_string;
+        BOSS1_HP = GameManager.instance.enemy_state_data.sheets[0].list[16].price_hp_int;
+        BOSS1_MP = GameManager.instance.enemy_state_data.sheets[0].list[16].price_mp_int;
+        BOSS1_ATTACK = GameManager.instance.enemy_state_data.sheets[0].list[16].price_attack_int;
+        BOSS1_DEFENSE = GameManager.instance.enemy_state_data.sheets[0].list[16].price_defense_int;
+        BOSS1_ATTACK_RANGE = GameManager.instance.enemy_state_data.sheets[0].list[16].price_attack_range_int;
+        BOSS1_ATTACK_TYPE = GameManager.instance.enemy_state_data.sheets[0].list[16].price_attack_type_int;
+        BOSS1_SLANTING_WALL = GameManager.instance.enemy_state_data.sheets[0].list[16].price_slanting_wall_bool;
+}
 
     void Start()
     {

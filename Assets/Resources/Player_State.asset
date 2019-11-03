@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 8
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32491b7e62bfb774db861864f0ac834b, type: 3}
+  m_Name: Player_State
+  m_EditorClassIdentifier: 
+  sheets:
+  - name: Sheet1
+    list:
+    - id: player1
+      price_name_string: "\u30AF\u30A8\u30EA"
+      price_player_MAX_hp_int: 100
+      price_player_origin_hp_int: 100
+      price_player_hp_int: 100
+      price_player_MAX_mp_int: 100
+      price_player_origin_mp_int: 100
+      price_player_mp_int: 100
+      price_player_origin_attack_int: 6
+      price_player_attack_int: 6
+      price_player_origin_defense_int: 2
+      price_player_defense_int: 2
+      price_player_attack_through_bool: 0
+      price_player_attack_range_int: 1
+      price_player_attack_type_int: 0
+      price_player_slanting_wall_bool: 0

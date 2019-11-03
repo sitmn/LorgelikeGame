@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 8
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30448c5c6c861ef4db5c0f155d0b2dd8, type: 3}
+  m_Name: Weapon_State
+  m_EditorClassIdentifier: 
+  sheets:
+  - name: Sheet1
+    list:
+    - id: weapon1
+      price_name_string: "\u30A2\u30AF\u30A2\u30DE\u30EA\u30F3"
+      price_hp_int: 120
+      price_attack_int: 21
+      price_defense_int: 5
+      price_attack_range_int: 2
+      price_attack_type_int: 0
+      price_attack_through_bool: 0
+      price_slanting_wall_bool: 0
+      price_develop_material1_int: 2
+      price_develop_material2_int: 1
+      price_develop_material3_int: 0
+      price_mp_cost_int: 1
+      price_endurance_int: 31
+      price_develop_need_mp_int: 1
+    - id: weapon2
+      price_name_string: "\u30A2\u30E1\u30B7\u30B9\u30C8"
+      price_hp_int: 40
+      price_attack_int: 16
+      price_defense_int: 7
+      price_attack_range_int: 4
+      price_attack_type_int: 1
+      price_attack_through_bool: 0
+      price_slanting_wall_bool: 0
+      price_develop_material1_int: 3
+      price_develop_material2_int: 1
+      price_develop_material3_int: 0
+      price_mp_cost_int: 4
+      price_endurance_int: 25
+      price_develop_need_mp_int: 20
+    - id: weapon3
+      price_name_string: "\u30A8\u30E1\u30E9\u30EB\u30C9"
+      price_hp_int: 90
+      price_attack_int: 34
+      price_defense_int: 16
+      price_attack_range_int: 2
+      price_attack_type_int: 0
+      price_attack_through_bool: 1
+      price_slanting_wall_bool: 1
+      price_develop_material1_int: 3
+      price_develop_material2_int: 2
+      price_develop_material3_int: 1
+      price_mp_cost_int: 5
+      price_endurance_int: 13
+      price_develop_need_mp_int: 10
+    - id: weapon4
+      price_name_string: "\u30EB\u30D3\u30FC"
+      price_hp_int: 30
+      price_attack_int: 70
+      price_defense_int: 8
+      price_attack_range_int: 1
+      price_attack_type_int: 0
+      price_attack_through_bool: 0
+      price_slanting_wall_bool: 0
+      price_develop_material1_int: 0
+      price_develop_material2_int: 3
+      price_develop_material3_int: 1
+      price_mp_cost_int: 13
+      price_endurance_int: 12
+      price_develop_need_mp_int: 15
+    - id: weapon5
+      price_name_string: "\u30AF\u30EA\u30B9\u30BF\u30EB"
+      price_hp_int: 150
+      price_attack_int: 57
+      price_defense_int: 27
+      price_attack_range_int: 3
+      price_attack_type_int: 1
+      price_attack_through_bool: 1
+      price_slanting_wall_bool: 1
+      price_develop_material1_int: 5
+      price_develop_material2_int: 5
+      price_develop_material3_int: 2
+      price_mp_cost_int: 1
+      price_endurance_int: 5
+      price_develop_need_mp_int: 15

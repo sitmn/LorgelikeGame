@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 8
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cea7ea46caa4f144a5906ef3536381f, type: 3}
+  m_Name: Item_State
+  m_EditorClassIdentifier: 
+  sheets:
+  - name: Sheet1
+    list:
+    - id: item1
+      price_name_string: "\u56DE\u5FA9\u85AC"
+      price_heal_point_int: 50
+      price_attack_point_int: 0
+      price_attack_type_int: 0
+      price_attack_range_int: 0
+      price_develop_material1_int: 1
+      price_develop_material2_int: 0
+      price_develop_material3_int: 0
+      price_develop_need_mp_int: 3
+    - id: item2
+      price_name_string: "\u7206\u5F3E"
+      price_heal_point_int: 0
+      price_attack_point_int: 30
+      price_attack_type_int: 0
+      price_attack_range_int: 1
+      price_develop_material1_int: 0
+      price_develop_material2_int: 1
+      price_develop_material3_int: 0
+      price_develop_need_mp_int: 3
+    - id: item3
+      price_name_string: "\u5834\u6240\u66FF\u3048"
+      price_heal_point_int: 0
+      price_attack_point_int: 0
+      price_attack_type_int: 0
+      price_attack_range_int: 1
+      price_develop_material1_int: 1
+      price_develop_material2_int: 0
+      price_develop_material3_int: 0
+      price_develop_need_mp_int: 3
+    - id: item4
+      price_name_string: "\u56DE\u5FA9\u85AC\uFF08\u7279\uFF09"
+      price_heal_point_int: 100
+      price_attack_point_int: 0
+      price_attack_type_int: 0
+      price_attack_range_int: 0
+      price_develop_material1_int: 0
+      price_develop_material2_int: 1
+      price_develop_material3_int: 0
+      price_develop_need_mp_int: 3

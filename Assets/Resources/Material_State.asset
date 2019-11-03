@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 8
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a796cc9f16e6314eb1082e24755d1ab, type: 3}
+  m_Name: Material_State
+  m_EditorClassIdentifier: 
+  sheets:
+  - name: Sheet1
+    list:
+    - id: material1
+      price_name_string: "\u9B54\u529B\u306E\u7D50\u6676\uFF08\u6C4E\uFF09"
+    - id: material2
+      price_name_string: "\u9B54\u529B\u306E\u7D50\u6676\uFF08\u7A00\uFF09"
+    - id: material3
+      price_name_string: "\u9B54\u529B\u306E\u7D50\u6676\uFF08\u6975\u7A00\uFF09"

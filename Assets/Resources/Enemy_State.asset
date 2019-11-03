@@ -1,0 +1,170 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 8
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35bfc7eb3ff062941ac7e760b0ce7568, type: 3}
+  m_Name: Enemy_State
+  m_EditorClassIdentifier: 
+  sheets:
+  - name: Sheet1
+    list:
+    - id: enemy1
+      price_name_string: "\u30B3\u30A6\u30E2\u30EA\uFF08\u30EC\u30D9\u30EB\uFF11\uFF09"
+      price_hp_int: 8
+      price_mp_int: 2
+      price_attack_int: 7
+      price_defense_int: 0
+      price_attack_range_int: 1
+      price_attack_type_int: 0
+      price_slanting_wall_bool: 0
+    - id: enemy2
+      price_name_string: "\u30B4\u30FC\u30B9\u30C8\uFF08\u30EC\u30D9\u30EB\uFF11\uFF09"
+      price_hp_int: 5
+      price_mp_int: 2
+      price_attack_int: 9
+      price_defense_int: 1
+      price_attack_range_int: 1
+      price_attack_type_int: 0
+      price_slanting_wall_bool: 0
+    - id: enemy3
+      price_name_string: "\u30E9\u30D3\u30C3\u30C8\uFF08\u30EC\u30D9\u30EB\uFF11\uFF09"
+      price_hp_int: 4
+      price_mp_int: 2
+      price_attack_int: 5
+      price_defense_int: 0
+      price_attack_range_int: 2
+      price_attack_type_int: 0
+      price_slanting_wall_bool: 1
+    - id: enemy4
+      price_name_string: "\u30B9\u30E9\u30A4\u30E0\uFF08\u30EC\u30D9\u30EB\uFF11\uFF09"
+      price_hp_int: 1
+      price_mp_int: 2
+      price_attack_int: 14
+      price_defense_int: 0
+      price_attack_range_int: 1
+      price_attack_type_int: 0
+      price_slanting_wall_bool: 1
+    - id: enemy5
+      price_name_string: "\u30B3\u30A6\u30E2\u30EA\uFF08\u30EC\u30D9\u30EB\uFF12\uFF09"
+      price_hp_int: 21
+      price_mp_int: 2
+      price_attack_int: 17
+      price_defense_int: 0
+      price_attack_range_int: 1
+      price_attack_type_int: 0
+      price_slanting_wall_bool: 1
+    - id: enemy6
+      price_name_string: "\u30B4\u30FC\u30B9\u30C8\uFF08\u30EC\u30D9\u30EB\uFF12\uFF09"
+      price_hp_int: 19
+      price_mp_int: 2
+      price_attack_int: 15
+      price_defense_int: 4
+      price_attack_range_int: 1
+      price_attack_type_int: 0
+      price_slanting_wall_bool: 0
+    - id: enemy7
+      price_name_string: "\u30E9\u30D3\u30C3\u30C8\uFF08\u30EC\u30D9\u30EB\uFF12\uFF09"
+      price_hp_int: 15
+      price_mp_int: 2
+      price_attack_int: 10
+      price_defense_int: 0
+      price_attack_range_int: 2
+      price_attack_type_int: 0
+      price_slanting_wall_bool: 1
+    - id: enemy8
+      price_name_string: "\u30B9\u30E9\u30A4\u30E0\uFF08\u30EC\u30D9\u30EB\uFF12\uFF09"
+      price_hp_int: 1
+      price_mp_int: 2
+      price_attack_int: 32
+      price_defense_int: 0
+      price_attack_range_int: 1
+      price_attack_type_int: 0
+      price_slanting_wall_bool: 1
+    - id: enemy9
+      price_name_string: "\u30B3\u30A6\u30E2\u30EA\uFF08\u30EC\u30D9\u30EB\uFF13\uFF09"
+      price_hp_int: 55
+      price_mp_int: 2
+      price_attack_int: 36
+      price_defense_int: 0
+      price_attack_range_int: 1
+      price_attack_type_int: 0
+      price_slanting_wall_bool: 0
+    - id: enemy10
+      price_name_string: "\u30B4\u30FC\u30B9\u30C8\uFF08\u30EC\u30D9\u30EB\uFF13\uFF09"
+      price_hp_int: 34
+      price_mp_int: 2
+      price_attack_int: 28
+      price_defense_int: 6
+      price_attack_range_int: 1
+      price_attack_type_int: 0
+      price_slanting_wall_bool: 0
+    - id: enemy11
+      price_name_string: "\u30E9\u30D3\u30C3\u30C8\uFF08\u30EC\u30D9\u30EB\uFF13\uFF09"
+      price_hp_int: 28
+      price_mp_int: 2
+      price_attack_int: 20
+      price_defense_int: 0
+      price_attack_range_int: 2
+      price_attack_type_int: 0
+      price_slanting_wall_bool: 1
+    - id: enemy12
+      price_name_string: "\u30B9\u30E9\u30A4\u30E0\uFF08\u30EC\u30D9\u30EB\uFF13\uFF09"
+      price_hp_int: 1
+      price_mp_int: 2
+      price_attack_int: 52
+      price_defense_int: 0
+      price_attack_range_int: 1
+      price_attack_type_int: 0
+      price_slanting_wall_bool: 1
+    - id: enemy13
+      price_name_string: "\u30B3\u30A6\u30E2\u30EA\uFF08\u30EC\u30D9\u30EB\uFF14\uFF09"
+      price_hp_int: 93
+      price_mp_int: 2
+      price_attack_int: 59
+      price_defense_int: 0
+      price_attack_range_int: 1
+      price_attack_type_int: 0
+      price_slanting_wall_bool: 1
+    - id: enemy14
+      price_name_string: "\u30B4\u30FC\u30B9\u30C8\uFF08\u30EC\u30D9\u30EB\uFF14\uFF09"
+      price_hp_int: 72
+      price_mp_int: 2
+      price_attack_int: 64
+      price_defense_int: 10
+      price_attack_range_int: 1
+      price_attack_type_int: 0
+      price_slanting_wall_bool: 0
+    - id: enemy15
+      price_name_string: "\u30E9\u30D3\u30C3\u30C8\uFF08\u30EC\u30D9\u30EB\uFF14\uFF09"
+      price_hp_int: 52
+      price_mp_int: 2
+      price_attack_int: 35
+      price_defense_int: 3
+      price_attack_range_int: 2
+      price_attack_type_int: 0
+      price_slanting_wall_bool: 1
+    - id: enemy16
+      price_name_string: "\u30B9\u30E9\u30A4\u30E0\uFF08\u30EC\u30D9\u30EB\uFF14\uFF09"
+      price_hp_int: 1
+      price_mp_int: 2
+      price_attack_int: 82
+      price_defense_int: 0
+      price_attack_range_int: 1
+      price_attack_type_int: 0
+      price_slanting_wall_bool: 1
+    - id: enemy17
+      price_name_string: "\u30B4\u30FC\u30EC\u30E0"
+      price_hp_int: 150
+      price_mp_int: 2
+      price_attack_int: 62
+      price_defense_int: 25
+      price_attack_range_int: 1
+      price_attack_type_int: 0
+      price_slanting_wall_bool: 1

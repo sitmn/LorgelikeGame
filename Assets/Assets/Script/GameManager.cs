@@ -7,14 +7,22 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
+    public Player_State_Sheet player_state_data;
+    public Enemy_State_Sheet enemy_state_data;
+    public Item_State_Sheet item_state_data;
+    public Material_State_Sheet material_state_data;
+    public Weapon_State_Sheet weapon_state_data;
+    public Game_System_Sheet game_system_data;
+    
+    
     //自動回復用
     public int hp_heel_time_count = 0;
     public int mp_heel_time_count = 0;
-    public int hp_heel_need_time = 5;
-    public int mp_heel_need_time = 10;
+    public int hp_heel_need_time;
+    public int mp_heel_need_time;
 
     //回避率
-    public int Avoid_probability = 15;
+    public int Avoid_probability;
 
 
     public float floor_enemy_level_coefficient;
@@ -24,7 +32,7 @@ public class GameManager : MonoBehaviour {
 
     //移動用の1フレーム分の時間
     public float inverseMoveTime;
-    public float moveTime = 0.1f;
+    public float moveTime;
 
 
     public bool Playerturn;
@@ -130,6 +138,25 @@ public class GameManager : MonoBehaviour {
 
     void Awake()
     {
+        player_state_data = Resources.Load<Player_State_Sheet>("Player_State");
+        enemy_state_data = Resources.Load<Enemy_State_Sheet>("Enemy_State");
+        item_state_data = Resources.Load<Item_State_Sheet>("Item_State");
+        weapon_state_data = Resources.Load<Weapon_State_Sheet>("Weapon_State");
+        material_state_data = Resources.Load<Material_State_Sheet>("Material_State");
+        game_system_data = Resources.Load<Game_System_Sheet>("Game_System");
+
+
+        //game_system
+        hp_heel_need_time = game_system_data.sheets[0].list[0].price_int;
+        mp_heel_need_time = game_system_data.sheets[0].list[1].price_int;
+        Avoid_probability = game_system_data.sheets[0].list[2].price_int;
+        floor_enemy_level_coefficient = game_system_data.sheets[0].list[3].price_int;
+        floor_level_coefficient = game_system_data.sheets[0].list[4].price_float;
+        moveTime = game_system_data.sheets[0].list[5].price_float;
+        enemy_probability = game_system_data.sheets[0].list[6].price_int;
+
+
+
         //シングルトン(シーン移動なくなったため不要)
         if (instance == null)
         {
