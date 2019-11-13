@@ -26,6 +26,7 @@ public class Enemy_State_Sheet : ScriptableObject
 		public int price_attack_range_int;
 		public int price_attack_type_int;
 		public bool price_slanting_wall_bool;
+		public int price_possession_exp_int;
 	}
 }
 

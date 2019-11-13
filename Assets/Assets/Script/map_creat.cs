@@ -22,6 +22,7 @@ public class map_creat : MonoBehaviour {
     public int BAT1_ATTACK_RANGE;
     public int BAT1_ATTACK_TYPE;
     public bool BAT1_SLANTING_WALL;
+    public int BAT1_POSSESSION_EXP;
 
     public string GHOST1_NAME;
     public float GHOST1_HP;
@@ -31,6 +32,7 @@ public class map_creat : MonoBehaviour {
     public int GHOST1_ATTACK_RANGE;
     public int GHOST1_ATTACK_TYPE;
     public bool GHOST1_SLANTING_WALL;
+    public int GHOST1_POSSESSION_EXP;
 
     public string RABBIT1_NAME;
     public float RABBIT1_HP;
@@ -40,6 +42,7 @@ public class map_creat : MonoBehaviour {
     public int RABBIT1_ATTACK_RANGE;
     public int RABBIT1_ATTACK_TYPE;
     public bool RABBIT1_SLANTING_WALL;
+    public int RABBIT1_POSSESSION_EXP;
 
     public string SLIME1_NAME;
     public float SLIME1_HP;
@@ -49,6 +52,7 @@ public class map_creat : MonoBehaviour {
     public int SLIME1_ATTACK_RANGE;
     public int SLIME1_ATTACK_TYPE;
     public bool SLIME1_SLANTING_WALL;
+    public int SLIME1_POSSESSION_EXP;
 
     public string BAT2_NAME;
     public float BAT2_HP;
@@ -58,6 +62,7 @@ public class map_creat : MonoBehaviour {
     public int BAT2_ATTACK_RANGE;
     public int BAT2_ATTACK_TYPE;
     public bool BAT2_SLANTING_WALL;
+    public int BAT2_POSSESSION_EXP;
 
     public string GHOST2_NAME;
     public float GHOST2_HP;
@@ -67,6 +72,7 @@ public class map_creat : MonoBehaviour {
     public int GHOST2_ATTACK_RANGE;
     public int GHOST2_ATTACK_TYPE;
     public bool GHOST2_SLANTING_WALL;
+    public int GHOST2_POSSESSION_EXP;
 
     public string RABBIT2_NAME;
     public float RABBIT2_HP;
@@ -76,6 +82,7 @@ public class map_creat : MonoBehaviour {
     public int RABBIT2_ATTACK_RANGE;
     public int RABBIT2_ATTACK_TYPE;
     public bool RABBIT2_SLANTING_WALL;
+    public int RABBIT2_POSSESSION_EXP;
 
     public string SLIME2_NAME;
     public float SLIME2_HP;
@@ -85,6 +92,7 @@ public class map_creat : MonoBehaviour {
     public int SLIME2_ATTACK_RANGE;
     public int SLIME2_ATTACK_TYPE;
     public bool SLIME2_SLANTING_WALL;
+    public int SLIME2_POSSESSION_EXP;
 
     public string BAT3_NAME;
     public float BAT3_HP;
@@ -94,6 +102,7 @@ public class map_creat : MonoBehaviour {
     public int BAT3_ATTACK_RANGE;
     public int BAT3_ATTACK_TYPE;
     public bool BAT3_SLANTING_WALL;
+    public int BAT3_POSSESSION_EXP;
 
     public string GHOST3_NAME;
     public float GHOST3_HP;
@@ -103,6 +112,7 @@ public class map_creat : MonoBehaviour {
     public int GHOST3_ATTACK_RANGE;
     public int GHOST3_ATTACK_TYPE;
     public bool GHOST3_SLANTING_WALL;
+    public int GHOST3_POSSESSION_EXP;
 
     public string RABBIT3_NAME;
     public float RABBIT3_HP;
@@ -112,6 +122,7 @@ public class map_creat : MonoBehaviour {
     public int RABBIT3_ATTACK_RANGE;
     public int RABBIT3_ATTACK_TYPE;
     public bool RABBIT3_SLANTING_WALL;
+    public int RABBIT3_POSSESSION_EXP;
 
     public string SLIME3_NAME;
     public float SLIME3_HP;
@@ -121,6 +132,7 @@ public class map_creat : MonoBehaviour {
     public int SLIME3_ATTACK_RANGE;
     public int SLIME3_ATTACK_TYPE;
     public bool SLIME3_SLANTING_WALL;
+    public int SLIME3_POSSESSION_EXP;
 
     public string BAT4_NAME;
     public float BAT4_HP;
@@ -130,6 +142,7 @@ public class map_creat : MonoBehaviour {
     public int BAT4_ATTACK_RANGE;
     public int BAT4_ATTACK_TYPE;
     public bool BAT4_SLANTING_WALL;
+    public int BAT4_POSSESSION_EXP;
 
     public string GHOST4_NAME;
     public float GHOST4_HP;
@@ -139,6 +152,7 @@ public class map_creat : MonoBehaviour {
     public int GHOST4_ATTACK_RANGE;
     public int GHOST4_ATTACK_TYPE;
     public bool GHOST4_SLANTING_WALL;
+    public int GHOST4_POSSESSION_EXP;
 
     public string RABBIT4_NAME;
     public float RABBIT4_HP;
@@ -148,6 +162,7 @@ public class map_creat : MonoBehaviour {
     public int RABBIT4_ATTACK_RANGE;
     public int RABBIT4_ATTACK_TYPE;
     public bool RABBIT4_SLANTING_WALL;
+    public int RABBIT4_POSSESSION_EXP;
 
     public string SLIME4_NAME;
     public float SLIME4_HP;
@@ -157,6 +172,7 @@ public class map_creat : MonoBehaviour {
     public int SLIME4_ATTACK_RANGE;
     public int SLIME4_ATTACK_TYPE;
     public bool SLIME4_SLANTING_WALL;
+    public int SLIME4_POSSESSION_EXP;
 
     public string BOSS1_NAME;
     public float BOSS1_HP;
@@ -166,120 +182,122 @@ public class map_creat : MonoBehaviour {
     public int BOSS1_ATTACK_RANGE;
     public int BOSS1_ATTACK_TYPE;
     public bool BOSS1_SLANTING_WALL;
+    public int BOSS1_POSSESSION_EXP;
 
     //アイテム
-    public const string NAME_I1 = "回復薬";
-    public const int HEAL_POINT_I1 = 50;
-    public const int DEVELOP_I1_MATERIAL_1 = 1;
-    public const int DEVELOP_I1_MATERIAL_2 = 0;
-    public const int DEVELOP_I1_MATERIAL_3 = 0;
-    public const int DEVELOP_NEED_MP_I1 = 3;
+    public string NAME_I1;
+    public int HEAL_POINT_I1;
+    public int DEVELOP_I1_MATERIAL_1;
+    public int DEVELOP_I1_MATERIAL_2;
+    public int DEVELOP_I1_MATERIAL_3;
+    public int DEVELOP_NEED_MP_I1;
 
-    public const string NAME_I2 = "爆弾";
-    public const int ATTACK_POINT_I2 = 30;
-    public const int ATTACK_TYPE = 0;
-    public const int ATTACK_RANGE = 1;
-    public const int DEVELOP_I2_MATERIAL_1 = 0;
-    public const int DEVELOP_I2_MATERIAL_2 = 1;
-    public const int DEVELOP_I2_MATERIAL_3 = 0;
-    public const int DEVELOP_NEED_MP_I2 = 3;
+    public string NAME_I2;
+    public int ATTACK_POINT_I2;
+    public int ATTACK_TYPE;
+    public int ATTACK_RANGE;
+    public int DEVELOP_I2_MATERIAL_1;
+    public int DEVELOP_I2_MATERIAL_2;
+    public int DEVELOP_I2_MATERIAL_3;
+    public int DEVELOP_NEED_MP_I2;
 
-    /*public const string NAME_I3 = "場所替え";
-    public const int ATTACK_TYPE = 0;
-    public const int ATTACK_RANGE = 1;
-    public const int DEVELOP_I3_MATERIAL_1 = 1;
-    public const int DEVELOP_I3_MATERIAL_2 = 0;
-    public const int DEVELOP_I3_MATERIAL_3 = 0;
-    public const int DEVELOP_NEED_MP_I3 = 3;
+    /*
+    public string NAME_I3;
+    public int ATTACK_TYPE;
+    public int ATTACK_RANGE;
+    public int DEVELOP_I3_MATERIAL_1;
+    public int DEVELOP_I3_MATERIAL_2;
+    public int DEVELOP_I3_MATERIAL_3;
+    public int DEVELOP_NEED_MP_I3;
     */
-    public const string NAME_I4 = "回復薬（特）";
-    public const int HEAL_POINT_I4 = 100;
-    public const int DEVELOP_I4_MATERIAL_1 = 0;
-    public const int DEVELOP_I4_MATERIAL_2 = 1;
-    public const int DEVELOP_I4_MATERIAL_3 = 0;
-    public const int DEVELOP_NEED_MP_I4 = 3;
+    public string NAME_I4;
+    public int HEAL_POINT_I4;
+    public int DEVELOP_I4_MATERIAL_1;
+    public int DEVELOP_I4_MATERIAL_2;
+    public int DEVELOP_I4_MATERIAL_3;
+    public int DEVELOP_NEED_MP_I4;
 
     //武器ステータス
-    public const string NAME_W1 = "アクアマリン";
-    public const int HP_W1 = 120;
-    public const int ATTACK_W1 = 21;
-    public const int DEFENSE_W1 = 5;
-    public const int ATTACK_RANGE_W1 = 2;
-    public const int ATTACK_TYPE_W1 = 0;
-    public const bool ATTACK_THROUGH_W1 = false;
-    public const bool SLANTING_WALL_W1 = false;
-    public const int DEVELOP_W1_MATERIAL_1 = 2;
-    public const int DEVELOP_W1_MATERIAL_2 = 1;
-    public const int DEVELOP_W1_MATERIAL_3 = 0;
-    public const int MP_COST_W1 = 1;
-    public const int ENDURANCE_W1 = 31;
-    public const int DEVELOP_NEED_MP_W1 = 1;
+    public string NAME_W1;
+    public int HP_W1;
+    public int ATTACK_W1;
+    public int DEFENSE_W1;
+    public int ATTACK_RANGE_W1;
+    public int ATTACK_TYPE_W1;
+    public bool ATTACK_THROUGH_W1;
+    public bool SLANTING_WALL_W1;
+    public int DEVELOP_W1_MATERIAL_1;
+    public int DEVELOP_W1_MATERIAL_2;
+    public int DEVELOP_W1_MATERIAL_3;
+    public int MP_COST_W1;
+    public int ENDURANCE_W1;
+    public int DEVELOP_NEED_MP_W1;
 
-    public const string NAME_W2 = "アメシスト";
-    public const int HP_W2 = 40;
-    public const int ATTACK_W2 = 16;
-    public const int DEFENSE_W2 = 7;
-    public const int ATTACK_RANGE_W2 = 4;
-    public const int ATTACK_TYPE_W2 = 1;
-    public const bool ATTACK_THROUGH_W2 = false;
-    public const bool SLANTING_WALL_W2 = true;
-    public const int DEVELOP_W2_MATERIAL_1 = 3;
-    public const int DEVELOP_W2_MATERIAL_2 = 1;
-    public const int DEVELOP_W2_MATERIAL_3 = 0;
-    public const int MP_COST_W2 = 4;
-    public const int ENDURANCE_W2 = 25;
-    public const int DEVELOP_NEED_MP_W2 = 20;
+    public string NAME_W2;
+    public int HP_W2;
+    public int ATTACK_W2;
+    public int DEFENSE_W2;
+    public int ATTACK_RANGE_W2;
+    public int ATTACK_TYPE_W2;
+    public bool ATTACK_THROUGH_W2;
+    public bool SLANTING_WALL_W2;
+    public int DEVELOP_W2_MATERIAL_1;
+    public int DEVELOP_W2_MATERIAL_2;
+    public int DEVELOP_W2_MATERIAL_3;
+    public int MP_COST_W2;
+    public int ENDURANCE_W2;
+    public int DEVELOP_NEED_MP_W2;
 
-    public const string NAME_W3 = "エメラルド";
-    public const int HP_W3 = 90;
-    public const int ATTACK_W3 = 34;
-    public const int DEFENSE_W3 = 16;
-    public const int ATTACK_RANGE_W3 = 2;
-    public const int ATTACK_TYPE_W3 = 0;
-    public const bool ATTACK_THROUGH_W3 = true;
-    public const bool SLANTING_WALL_W3 = true;
-    public const int DEVELOP_W3_MATERIAL_1 = 3;
-    public const int DEVELOP_W3_MATERIAL_2 = 2;
-    public const int DEVELOP_W3_MATERIAL_3 = 1;
-    public const int MP_COST_W3 = 5;
-    public const int ENDURANCE_W3 = 13;
-    public const int DEVELOP_NEED_MP_W3 = 10;
+    public string NAME_W3;
+    public int HP_W3;
+    public int ATTACK_W3;
+    public int DEFENSE_W3;
+    public int ATTACK_RANGE_W3;
+    public int ATTACK_TYPE_W3;
+    public bool ATTACK_THROUGH_W3;
+    public bool SLANTING_WALL_W3;
+    public int DEVELOP_W3_MATERIAL_1;
+    public int DEVELOP_W3_MATERIAL_2;
+    public int DEVELOP_W3_MATERIAL_3;
+    public int MP_COST_W3;
+    public int ENDURANCE_W3;
+    public int DEVELOP_NEED_MP_W3;
 
-    public const string NAME_W4 = "ルビー";
-    public const int HP_W4 = 30;
-    public const int ATTACK_W4 = 70;
-    public const int DEFENSE_W4 = 8;
-    public const int ATTACK_RANGE_W4 = 1;
-    public const int ATTACK_TYPE_W4 = 0;
-    public const bool ATTACK_THROUGH_W4 = false;
-    public const bool SLANTING_WALL_W4 = false;
-    public const int DEVELOP_W4_MATERIAL_1 = 0;
-    public const int DEVELOP_W4_MATERIAL_2 = 3;
-    public const int DEVELOP_W4_MATERIAL_3 = 1;
-    public const int MP_COST_W4 = 13;
-    public const int ENDURANCE_W4 = 12;
-    public const int DEVELOP_NEED_MP_W4 = 15;
+    public string NAME_W4;
+    public int HP_W4;
+    public int ATTACK_W4;
+    public int DEFENSE_W4;
+    public int ATTACK_RANGE_W4;
+    public int ATTACK_TYPE_W4;
+    public bool ATTACK_THROUGH_W4;
+    public bool SLANTING_WALL_W4;
+    public int DEVELOP_W4_MATERIAL_1;
+    public int DEVELOP_W4_MATERIAL_2;
+    public int DEVELOP_W4_MATERIAL_3;
+    public int MP_COST_W4;
+    public int ENDURANCE_W4;
+    public int DEVELOP_NEED_MP_W4;
 
-    public const string NAME_W5 = "クリスタル";
-    public const int HP_W5 = 150;
-    public const int ATTACK_W5 = 57;
-    public const int DEFENSE_W5 = 27;
-    public const int ATTACK_RANGE_W5 = 3;
-    public const int ATTACK_TYPE_W5 = 1;
-    public const bool ATTACK_THROUGH_W5 = true;
-    public const bool SLANTING_WALL_W5 = true;
-    public const int DEVELOP_W5_MATERIAL_1 = 5;
-    public const int DEVELOP_W5_MATERIAL_2 = 5;
-    public const int DEVELOP_W5_MATERIAL_3 = 2;
-    public const int MP_COST_W5 = 1;
-    public const int ENDURANCE_W5 = 5;
-    public const int DEVELOP_NEED_MP_W5 = 15;
+    public string NAME_W5;
+    public int HP_W5;
+    public int ATTACK_W5;
+    public int DEFENSE_W5;
+    public int ATTACK_RANGE_W5;
+    public int ATTACK_TYPE_W5;
+    public bool ATTACK_THROUGH_W5;
+    public bool SLANTING_WALL_W5;
+    public int DEVELOP_W5_MATERIAL_1;
+    public int DEVELOP_W5_MATERIAL_2;
+    public int DEVELOP_W5_MATERIAL_3;
+    public int MP_COST_W5;
+    public int ENDURANCE_W5;
+    public int DEVELOP_NEED_MP_W5;
 
-    public const string NAME_M1 = "魔力の結晶（汎）";
+    public string NAME_M1;
 
-    public const string NAME_M2 = "魔力の結晶（稀）";
+    public string NAME_M2;
 
-    public const string NAME_M3 = "魔力の結晶（極稀）";
+    public string NAME_M3;
 
     private GameObject FloorText;
 
@@ -361,8 +379,15 @@ public class map_creat : MonoBehaviour {
     public bool mapcreat;
 
     public map_creat map_creat_instance;
+    
 
-    private void Awake()
+    void Start()
+    {
+        map_creat_instance = this;
+}
+
+    // Use this for initialization
+    public void Mapcreat()
     {
         //マスターデータの代入
         BAT1_NAME = GameManager.instance.enemy_state_data.sheets[0].list[0].price_name_string;
@@ -373,6 +398,7 @@ public class map_creat : MonoBehaviour {
         BAT1_ATTACK_RANGE = GameManager.instance.enemy_state_data.sheets[0].list[0].price_attack_range_int;
         BAT1_ATTACK_TYPE = GameManager.instance.enemy_state_data.sheets[0].list[0].price_attack_type_int;
         BAT1_SLANTING_WALL = GameManager.instance.enemy_state_data.sheets[0].list[0].price_slanting_wall_bool;
+        BAT1_POSSESSION_EXP = GameManager.instance.enemy_state_data.sheets[0].list[0].price_possession_exp_int;
 
         GHOST1_NAME = GameManager.instance.enemy_state_data.sheets[0].list[1].price_name_string;
         GHOST1_HP = GameManager.instance.enemy_state_data.sheets[0].list[1].price_hp_int;
@@ -382,6 +408,7 @@ public class map_creat : MonoBehaviour {
         GHOST1_ATTACK_RANGE = GameManager.instance.enemy_state_data.sheets[0].list[1].price_attack_range_int;
         GHOST1_ATTACK_TYPE = GameManager.instance.enemy_state_data.sheets[0].list[1].price_attack_type_int;
         GHOST1_SLANTING_WALL = GameManager.instance.enemy_state_data.sheets[0].list[1].price_slanting_wall_bool;
+        GHOST1_POSSESSION_EXP = GameManager.instance.enemy_state_data.sheets[0].list[0].price_possession_exp_int;
 
         RABBIT1_NAME = GameManager.instance.enemy_state_data.sheets[0].list[2].price_name_string;
         RABBIT1_HP = GameManager.instance.enemy_state_data.sheets[0].list[2].price_hp_int;
@@ -391,6 +418,7 @@ public class map_creat : MonoBehaviour {
         RABBIT1_ATTACK_RANGE = GameManager.instance.enemy_state_data.sheets[0].list[2].price_attack_range_int;
         RABBIT1_ATTACK_TYPE = GameManager.instance.enemy_state_data.sheets[0].list[2].price_attack_type_int;
         RABBIT1_SLANTING_WALL = GameManager.instance.enemy_state_data.sheets[0].list[2].price_slanting_wall_bool;
+        RABBIT1_POSSESSION_EXP = GameManager.instance.enemy_state_data.sheets[0].list[0].price_possession_exp_int;
 
         SLIME1_NAME = GameManager.instance.enemy_state_data.sheets[0].list[3].price_name_string;
         SLIME1_HP = GameManager.instance.enemy_state_data.sheets[0].list[3].price_hp_int;
@@ -400,6 +428,7 @@ public class map_creat : MonoBehaviour {
         SLIME1_ATTACK_RANGE = GameManager.instance.enemy_state_data.sheets[0].list[3].price_attack_range_int;
         SLIME1_ATTACK_TYPE = GameManager.instance.enemy_state_data.sheets[0].list[3].price_attack_type_int;
         SLIME1_SLANTING_WALL = GameManager.instance.enemy_state_data.sheets[0].list[3].price_slanting_wall_bool;
+        SLIME1_POSSESSION_EXP = GameManager.instance.enemy_state_data.sheets[0].list[0].price_possession_exp_int;
 
         BAT2_NAME = GameManager.instance.enemy_state_data.sheets[0].list[4].price_name_string;
         BAT2_HP = GameManager.instance.enemy_state_data.sheets[0].list[4].price_hp_int;
@@ -409,6 +438,7 @@ public class map_creat : MonoBehaviour {
         BAT2_ATTACK_RANGE = GameManager.instance.enemy_state_data.sheets[0].list[4].price_attack_range_int;
         BAT2_ATTACK_TYPE = GameManager.instance.enemy_state_data.sheets[0].list[4].price_attack_type_int;
         BAT2_SLANTING_WALL = GameManager.instance.enemy_state_data.sheets[0].list[4].price_slanting_wall_bool;
+        BAT2_POSSESSION_EXP = GameManager.instance.enemy_state_data.sheets[0].list[0].price_possession_exp_int;
 
         GHOST2_NAME = GameManager.instance.enemy_state_data.sheets[0].list[5].price_name_string;
         GHOST2_HP = GameManager.instance.enemy_state_data.sheets[0].list[5].price_hp_int;
@@ -418,6 +448,7 @@ public class map_creat : MonoBehaviour {
         GHOST2_ATTACK_RANGE = GameManager.instance.enemy_state_data.sheets[0].list[5].price_attack_range_int;
         GHOST2_ATTACK_TYPE = GameManager.instance.enemy_state_data.sheets[0].list[5].price_attack_type_int;
         GHOST2_SLANTING_WALL = GameManager.instance.enemy_state_data.sheets[0].list[5].price_slanting_wall_bool;
+        GHOST2_POSSESSION_EXP = GameManager.instance.enemy_state_data.sheets[0].list[0].price_possession_exp_int;
 
         RABBIT2_NAME = GameManager.instance.enemy_state_data.sheets[0].list[6].price_name_string;
         RABBIT2_HP = GameManager.instance.enemy_state_data.sheets[0].list[6].price_hp_int;
@@ -427,6 +458,7 @@ public class map_creat : MonoBehaviour {
         RABBIT2_ATTACK_RANGE = GameManager.instance.enemy_state_data.sheets[0].list[6].price_attack_range_int;
         RABBIT2_ATTACK_TYPE = GameManager.instance.enemy_state_data.sheets[0].list[6].price_attack_type_int;
         RABBIT2_SLANTING_WALL = GameManager.instance.enemy_state_data.sheets[0].list[6].price_slanting_wall_bool;
+        RABBIT2_POSSESSION_EXP = GameManager.instance.enemy_state_data.sheets[0].list[0].price_possession_exp_int;
 
         SLIME2_NAME = GameManager.instance.enemy_state_data.sheets[0].list[7].price_name_string;
         SLIME2_HP = GameManager.instance.enemy_state_data.sheets[0].list[7].price_hp_int;
@@ -436,6 +468,7 @@ public class map_creat : MonoBehaviour {
         SLIME2_ATTACK_RANGE = GameManager.instance.enemy_state_data.sheets[0].list[7].price_attack_range_int;
         SLIME2_ATTACK_TYPE = GameManager.instance.enemy_state_data.sheets[0].list[7].price_attack_type_int;
         SLIME2_SLANTING_WALL = GameManager.instance.enemy_state_data.sheets[0].list[7].price_slanting_wall_bool;
+        SLIME2_POSSESSION_EXP = GameManager.instance.enemy_state_data.sheets[0].list[0].price_possession_exp_int;
 
         BAT3_NAME = GameManager.instance.enemy_state_data.sheets[0].list[8].price_name_string;
         BAT3_HP = GameManager.instance.enemy_state_data.sheets[0].list[8].price_hp_int;
@@ -445,6 +478,7 @@ public class map_creat : MonoBehaviour {
         BAT3_ATTACK_RANGE = GameManager.instance.enemy_state_data.sheets[0].list[8].price_attack_range_int;
         BAT3_ATTACK_TYPE = GameManager.instance.enemy_state_data.sheets[0].list[8].price_attack_type_int;
         BAT3_SLANTING_WALL = GameManager.instance.enemy_state_data.sheets[0].list[8].price_slanting_wall_bool;
+        BAT3_POSSESSION_EXP = GameManager.instance.enemy_state_data.sheets[0].list[0].price_possession_exp_int;
 
         GHOST3_NAME = GameManager.instance.enemy_state_data.sheets[0].list[9].price_name_string;
         GHOST3_HP = GameManager.instance.enemy_state_data.sheets[0].list[9].price_hp_int;
@@ -454,6 +488,7 @@ public class map_creat : MonoBehaviour {
         GHOST3_ATTACK_RANGE = GameManager.instance.enemy_state_data.sheets[0].list[9].price_attack_range_int;
         GHOST3_ATTACK_TYPE = GameManager.instance.enemy_state_data.sheets[0].list[9].price_attack_type_int;
         GHOST3_SLANTING_WALL = GameManager.instance.enemy_state_data.sheets[0].list[9].price_slanting_wall_bool;
+        GHOST3_POSSESSION_EXP = GameManager.instance.enemy_state_data.sheets[0].list[0].price_possession_exp_int;
 
         RABBIT3_NAME = GameManager.instance.enemy_state_data.sheets[0].list[10].price_name_string;
         RABBIT3_HP = GameManager.instance.enemy_state_data.sheets[0].list[10].price_hp_int;
@@ -463,6 +498,7 @@ public class map_creat : MonoBehaviour {
         RABBIT3_ATTACK_RANGE = GameManager.instance.enemy_state_data.sheets[0].list[10].price_attack_range_int;
         RABBIT3_ATTACK_TYPE = GameManager.instance.enemy_state_data.sheets[0].list[10].price_attack_type_int;
         RABBIT3_SLANTING_WALL = GameManager.instance.enemy_state_data.sheets[0].list[10].price_slanting_wall_bool;
+        RABBIT3_POSSESSION_EXP = GameManager.instance.enemy_state_data.sheets[0].list[0].price_possession_exp_int;
 
         SLIME3_NAME = GameManager.instance.enemy_state_data.sheets[0].list[11].price_name_string;
         SLIME3_HP = GameManager.instance.enemy_state_data.sheets[0].list[11].price_hp_int;
@@ -472,6 +508,7 @@ public class map_creat : MonoBehaviour {
         SLIME3_ATTACK_RANGE = GameManager.instance.enemy_state_data.sheets[0].list[11].price_attack_range_int;
         SLIME3_ATTACK_TYPE = GameManager.instance.enemy_state_data.sheets[0].list[11].price_attack_type_int;
         SLIME3_SLANTING_WALL = GameManager.instance.enemy_state_data.sheets[0].list[11].price_slanting_wall_bool;
+        SLIME3_POSSESSION_EXP = GameManager.instance.enemy_state_data.sheets[0].list[0].price_possession_exp_int;
 
         BAT4_NAME = GameManager.instance.enemy_state_data.sheets[0].list[12].price_name_string;
         BAT4_HP = GameManager.instance.enemy_state_data.sheets[0].list[12].price_hp_int;
@@ -481,6 +518,7 @@ public class map_creat : MonoBehaviour {
         BAT4_ATTACK_RANGE = GameManager.instance.enemy_state_data.sheets[0].list[12].price_attack_range_int;
         BAT4_ATTACK_TYPE = GameManager.instance.enemy_state_data.sheets[0].list[12].price_attack_type_int;
         BAT4_SLANTING_WALL = GameManager.instance.enemy_state_data.sheets[0].list[12].price_slanting_wall_bool;
+        BAT4_POSSESSION_EXP = GameManager.instance.enemy_state_data.sheets[0].list[0].price_possession_exp_int;
 
         GHOST4_NAME = GameManager.instance.enemy_state_data.sheets[0].list[13].price_name_string;
         GHOST4_HP = GameManager.instance.enemy_state_data.sheets[0].list[13].price_hp_int;
@@ -490,6 +528,7 @@ public class map_creat : MonoBehaviour {
         GHOST4_ATTACK_RANGE = GameManager.instance.enemy_state_data.sheets[0].list[13].price_attack_range_int;
         GHOST4_ATTACK_TYPE = GameManager.instance.enemy_state_data.sheets[0].list[13].price_attack_type_int;
         GHOST4_SLANTING_WALL = GameManager.instance.enemy_state_data.sheets[0].list[13].price_slanting_wall_bool;
+        GHOST4_POSSESSION_EXP = GameManager.instance.enemy_state_data.sheets[0].list[0].price_possession_exp_int;
 
         RABBIT4_NAME = GameManager.instance.enemy_state_data.sheets[0].list[14].price_name_string;
         RABBIT4_HP = GameManager.instance.enemy_state_data.sheets[0].list[14].price_hp_int;
@@ -499,6 +538,7 @@ public class map_creat : MonoBehaviour {
         RABBIT4_ATTACK_RANGE = GameManager.instance.enemy_state_data.sheets[0].list[14].price_attack_range_int;
         RABBIT4_ATTACK_TYPE = GameManager.instance.enemy_state_data.sheets[0].list[14].price_attack_type_int;
         RABBIT4_SLANTING_WALL = GameManager.instance.enemy_state_data.sheets[0].list[14].price_slanting_wall_bool;
+        RABBIT4_POSSESSION_EXP = GameManager.instance.enemy_state_data.sheets[0].list[0].price_possession_exp_int;
 
         SLIME4_NAME = GameManager.instance.enemy_state_data.sheets[0].list[15].price_name_string;
         SLIME4_HP = GameManager.instance.enemy_state_data.sheets[0].list[15].price_hp_int;
@@ -508,6 +548,7 @@ public class map_creat : MonoBehaviour {
         SLIME4_ATTACK_RANGE = GameManager.instance.enemy_state_data.sheets[0].list[15].price_attack_range_int;
         SLIME4_ATTACK_TYPE = GameManager.instance.enemy_state_data.sheets[0].list[15].price_attack_type_int;
         SLIME4_SLANTING_WALL = GameManager.instance.enemy_state_data.sheets[0].list[15].price_slanting_wall_bool;
+        SLIME4_POSSESSION_EXP = GameManager.instance.enemy_state_data.sheets[0].list[0].price_possession_exp_int;
 
         BOSS1_NAME = GameManager.instance.enemy_state_data.sheets[0].list[16].price_name_string;
         BOSS1_HP = GameManager.instance.enemy_state_data.sheets[0].list[16].price_hp_int;
@@ -517,16 +558,129 @@ public class map_creat : MonoBehaviour {
         BOSS1_ATTACK_RANGE = GameManager.instance.enemy_state_data.sheets[0].list[16].price_attack_range_int;
         BOSS1_ATTACK_TYPE = GameManager.instance.enemy_state_data.sheets[0].list[16].price_attack_type_int;
         BOSS1_SLANTING_WALL = GameManager.instance.enemy_state_data.sheets[0].list[16].price_slanting_wall_bool;
-}
+        BOSS1_POSSESSION_EXP = GameManager.instance.enemy_state_data.sheets[0].list[0].price_possession_exp_int;
 
-    void Start()
-    {
-        map_creat_instance = this;
-}
+        //アイテム
+        NAME_I1 = GameManager.instance.item_state_data.sheets[0].list[0].price_name_string;
+        HEAL_POINT_I1 = GameManager.instance.item_state_data.sheets[0].list[0].price_heal_point_int;
+        DEVELOP_I1_MATERIAL_1 = GameManager.instance.item_state_data.sheets[0].list[0].price_develop_material1_int;
+        DEVELOP_I1_MATERIAL_2 = GameManager.instance.item_state_data.sheets[0].list[0].price_develop_material2_int;
+        DEVELOP_I1_MATERIAL_3 = GameManager.instance.item_state_data.sheets[0].list[0].price_develop_material3_int;
+        DEVELOP_NEED_MP_I1 = GameManager.instance.item_state_data.sheets[0].list[0].price_develop_need_mp_int;
 
-    // Use this for initialization
-    public void Mapcreat()
-    {
+        NAME_I2 = GameManager.instance.item_state_data.sheets[0].list[1].price_name_string;
+        ATTACK_POINT_I2 = GameManager.instance.item_state_data.sheets[0].list[1].price_attack_point_int;
+        ATTACK_TYPE = GameManager.instance.item_state_data.sheets[0].list[1].price_attack_type_int;
+        ATTACK_RANGE = GameManager.instance.item_state_data.sheets[0].list[1].price_attack_range_int;
+        DEVELOP_I2_MATERIAL_1 = GameManager.instance.item_state_data.sheets[0].list[1].price_develop_material1_int;
+        DEVELOP_I2_MATERIAL_2 = GameManager.instance.item_state_data.sheets[0].list[1].price_develop_material2_int;
+        DEVELOP_I2_MATERIAL_3 = GameManager.instance.item_state_data.sheets[0].list[1].price_develop_material3_int;
+        DEVELOP_NEED_MP_I2 = GameManager.instance.item_state_data.sheets[0].list[1].price_develop_need_mp_int;
+
+        /*
+        NAME_I3 = GameManager.instance.item_state_data.sheets[0].list[2].price_name_string;
+        ATTACK_TYPE = GameManager.instance.item_state_data.sheets[0].list[2].price_attack_type_int;
+        ATTACK_RANGE = GameManager.instance.item_state_data.sheets[0].list[2].price_attack_range_int;
+        DEVELOP_I3_MATERIAL_1 = GameManager.instance.item_state_data.sheets[0].list[2].price_develop_material1_int;
+        DEVELOP_I3_MATERIAL_2 = GameManager.instance.item_state_data.sheets[0].list[2].price_develop_material2_int;
+        DEVELOP_I3_MATERIAL_3 = GameManager.instance.item_state_data.sheets[0].list[2].price_develop_material3_int;
+        DEVELOP_NEED_MP_I3 = GameManager.instance.item_state_data.sheets[0].list[2].price_develop_need_mp_int;
+        */
+        NAME_I4 = GameManager.instance.item_state_data.sheets[0].list[3].price_name_string;
+        HEAL_POINT_I4 = GameManager.instance.item_state_data.sheets[0].list[3].price_heal_point_int;
+        DEVELOP_I4_MATERIAL_1 = GameManager.instance.item_state_data.sheets[0].list[3].price_develop_material1_int;
+        DEVELOP_I4_MATERIAL_2 = GameManager.instance.item_state_data.sheets[0].list[3].price_develop_material2_int;
+        DEVELOP_I4_MATERIAL_3 = GameManager.instance.item_state_data.sheets[0].list[3].price_develop_material3_int;
+        DEVELOP_NEED_MP_I4 = GameManager.instance.item_state_data.sheets[0].list[3].price_develop_need_mp_int;
+
+        //武器ステータス
+        NAME_W1 = GameManager.instance.weapon_state_data.sheets[0].list[0].price_name_string;
+        HP_W1 = GameManager.instance.weapon_state_data.sheets[0].list[0].price_hp_int;
+        ATTACK_W1 = GameManager.instance.weapon_state_data.sheets[0].list[0].price_attack_int;
+        DEFENSE_W1 = GameManager.instance.weapon_state_data.sheets[0].list[0].price_defense_int;
+        ATTACK_RANGE_W1 = GameManager.instance.weapon_state_data.sheets[0].list[0].price_attack_range_int;
+        ATTACK_TYPE_W1 = GameManager.instance.weapon_state_data.sheets[0].list[0].price_attack_type_int;
+        ATTACK_THROUGH_W1 = GameManager.instance.weapon_state_data.sheets[0].list[0].price_attack_through_bool;
+        SLANTING_WALL_W1 = GameManager.instance.weapon_state_data.sheets[0].list[0].price_slanting_wall_bool;
+        DEVELOP_W1_MATERIAL_1 = GameManager.instance.weapon_state_data.sheets[0].list[0].price_develop_material1_int;
+        DEVELOP_W1_MATERIAL_2 = GameManager.instance.weapon_state_data.sheets[0].list[0].price_develop_material2_int;
+        DEVELOP_W1_MATERIAL_3 = GameManager.instance.weapon_state_data.sheets[0].list[0].price_develop_material3_int;
+        MP_COST_W1 = GameManager.instance.weapon_state_data.sheets[0].list[0].price_mp_cost_int;
+        ENDURANCE_W1 = GameManager.instance.weapon_state_data.sheets[0].list[0].price_endurance_int;
+        DEVELOP_NEED_MP_W1 = GameManager.instance.weapon_state_data.sheets[0].list[0].price_develop_need_mp_int;
+
+        NAME_W2 = GameManager.instance.weapon_state_data.sheets[0].list[1].price_name_string;
+        HP_W2 = GameManager.instance.weapon_state_data.sheets[0].list[1].price_hp_int;
+        ATTACK_W2 = GameManager.instance.weapon_state_data.sheets[0].list[1].price_attack_int;
+        DEFENSE_W2 = GameManager.instance.weapon_state_data.sheets[0].list[1].price_defense_int;
+        ATTACK_RANGE_W2 = GameManager.instance.weapon_state_data.sheets[0].list[1].price_attack_range_int;
+        ATTACK_TYPE_W2 = GameManager.instance.weapon_state_data.sheets[0].list[1].price_attack_type_int;
+        ATTACK_THROUGH_W2 = GameManager.instance.weapon_state_data.sheets[0].list[1].price_attack_through_bool;
+        SLANTING_WALL_W2 = GameManager.instance.weapon_state_data.sheets[0].list[1].price_slanting_wall_bool;
+        DEVELOP_W2_MATERIAL_1 = GameManager.instance.weapon_state_data.sheets[0].list[1].price_develop_material1_int;
+        DEVELOP_W2_MATERIAL_2 = GameManager.instance.weapon_state_data.sheets[0].list[1].price_develop_material2_int;
+        DEVELOP_W2_MATERIAL_3 = GameManager.instance.weapon_state_data.sheets[0].list[1].price_develop_material3_int;
+        MP_COST_W2 = GameManager.instance.weapon_state_data.sheets[0].list[1].price_mp_cost_int;
+        ENDURANCE_W2 = GameManager.instance.weapon_state_data.sheets[0].list[1].price_endurance_int;
+        DEVELOP_NEED_MP_W2 = GameManager.instance.weapon_state_data.sheets[0].list[1].price_develop_need_mp_int;
+
+        NAME_W3 = GameManager.instance.weapon_state_data.sheets[0].list[2].price_name_string;
+        HP_W3 = GameManager.instance.weapon_state_data.sheets[0].list[2].price_hp_int;
+        ATTACK_W3 = GameManager.instance.weapon_state_data.sheets[0].list[2].price_attack_int;
+        DEFENSE_W3 = GameManager.instance.weapon_state_data.sheets[0].list[2].price_defense_int;
+        ATTACK_RANGE_W3 = GameManager.instance.weapon_state_data.sheets[0].list[2].price_attack_range_int;
+        ATTACK_TYPE_W3 = GameManager.instance.weapon_state_data.sheets[0].list[2].price_attack_type_int;
+        ATTACK_THROUGH_W3 = GameManager.instance.weapon_state_data.sheets[0].list[2].price_attack_through_bool;
+        SLANTING_WALL_W3 = GameManager.instance.weapon_state_data.sheets[0].list[2].price_slanting_wall_bool;
+        DEVELOP_W3_MATERIAL_1 = GameManager.instance.weapon_state_data.sheets[0].list[2].price_develop_material1_int;
+        DEVELOP_W3_MATERIAL_2 = GameManager.instance.weapon_state_data.sheets[0].list[2].price_develop_material2_int;
+        DEVELOP_W3_MATERIAL_3 = GameManager.instance.weapon_state_data.sheets[0].list[2].price_develop_material3_int;
+        MP_COST_W3 = GameManager.instance.weapon_state_data.sheets[0].list[2].price_mp_cost_int;
+        ENDURANCE_W3 = GameManager.instance.weapon_state_data.sheets[0].list[2].price_endurance_int;
+        DEVELOP_NEED_MP_W3 = GameManager.instance.weapon_state_data.sheets[0].list[2].price_develop_need_mp_int;
+
+        NAME_W4 = GameManager.instance.weapon_state_data.sheets[0].list[3].price_name_string;
+        HP_W4 = GameManager.instance.weapon_state_data.sheets[0].list[3].price_hp_int;
+        ATTACK_W4 = GameManager.instance.weapon_state_data.sheets[0].list[3].price_attack_int;
+        DEFENSE_W4 = GameManager.instance.weapon_state_data.sheets[0].list[3].price_defense_int;
+        ATTACK_RANGE_W4 = GameManager.instance.weapon_state_data.sheets[0].list[3].price_attack_range_int;
+        ATTACK_TYPE_W4 = GameManager.instance.weapon_state_data.sheets[0].list[3].price_attack_type_int;
+        ATTACK_THROUGH_W4 = GameManager.instance.weapon_state_data.sheets[0].list[3].price_attack_through_bool;
+        SLANTING_WALL_W4 = GameManager.instance.weapon_state_data.sheets[0].list[3].price_slanting_wall_bool;
+        DEVELOP_W4_MATERIAL_1 = GameManager.instance.weapon_state_data.sheets[0].list[3].price_develop_material1_int;
+        DEVELOP_W4_MATERIAL_2 = GameManager.instance.weapon_state_data.sheets[0].list[3].price_develop_material2_int;
+        DEVELOP_W4_MATERIAL_3 = GameManager.instance.weapon_state_data.sheets[0].list[3].price_develop_material3_int;
+        MP_COST_W4 = GameManager.instance.weapon_state_data.sheets[0].list[3].price_mp_cost_int;
+        ENDURANCE_W4 = GameManager.instance.weapon_state_data.sheets[0].list[3].price_endurance_int;
+        DEVELOP_NEED_MP_W4 = GameManager.instance.weapon_state_data.sheets[0].list[3].price_develop_need_mp_int;
+
+        NAME_W5 = GameManager.instance.weapon_state_data.sheets[0].list[4].price_name_string;
+        HP_W5 = GameManager.instance.weapon_state_data.sheets[0].list[4].price_hp_int;
+        ATTACK_W5 = GameManager.instance.weapon_state_data.sheets[0].list[4].price_attack_int;
+        DEFENSE_W5 = GameManager.instance.weapon_state_data.sheets[0].list[4].price_defense_int;
+        ATTACK_RANGE_W5 = GameManager.instance.weapon_state_data.sheets[0].list[4].price_attack_range_int;
+        ATTACK_TYPE_W5 = GameManager.instance.weapon_state_data.sheets[0].list[4].price_attack_type_int;
+        ATTACK_THROUGH_W5 = GameManager.instance.weapon_state_data.sheets[0].list[4].price_attack_through_bool;
+        SLANTING_WALL_W5 = GameManager.instance.weapon_state_data.sheets[0].list[4].price_slanting_wall_bool;
+        DEVELOP_W5_MATERIAL_1 = GameManager.instance.weapon_state_data.sheets[0].list[4].price_develop_material1_int;
+        DEVELOP_W5_MATERIAL_2 = GameManager.instance.weapon_state_data.sheets[0].list[4].price_develop_material2_int;
+        DEVELOP_W5_MATERIAL_3 = GameManager.instance.weapon_state_data.sheets[0].list[4].price_develop_material3_int;
+        MP_COST_W5 = GameManager.instance.weapon_state_data.sheets[0].list[4].price_mp_cost_int;
+        ENDURANCE_W5 = GameManager.instance.weapon_state_data.sheets[0].list[4].price_endurance_int;
+        DEVELOP_NEED_MP_W5 = GameManager.instance.weapon_state_data.sheets[0].list[4].price_develop_need_mp_int;
+
+        NAME_M1 = GameManager.instance.material_state_data.sheets[0].list[0].price_name_string;
+
+        NAME_M2 = GameManager.instance.material_state_data.sheets[0].list[1].price_name_string;
+
+        NAME_M3 = GameManager.instance.material_state_data.sheets[0].list[2].price_name_string;
+
+
+
+
+
+
+
         Map = Instantiate(map_object, new Vector3(0, 0, 0), Quaternion.identity);
 
         mapcreat = true;
@@ -2083,24 +2237,24 @@ public class map_creat : MonoBehaviour {
             if (GameManager.instance.floorlevel > 30)
             {
                 map_ex[(int)pos.x, (int)pos.z] = new enemy();
-                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(BAT4_NAME,BAT4_HP,BAT4_MP, BAT4_ATTACK, BAT4_DEFENSE, BAT4_ATTACK_RANGE, BAT4_ATTACK_TYPE, BAT4_SLANTING_WALL , random);
+                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(BAT4_NAME,BAT4_HP,BAT4_MP, BAT4_ATTACK, BAT4_DEFENSE, BAT4_ATTACK_RANGE, BAT4_ATTACK_TYPE, BAT4_SLANTING_WALL , random , BAT4_POSSESSION_EXP);
 
             }
             else if (GameManager.instance.floorlevel > 20)
             {
                 map_ex[(int)pos.x, (int)pos.z] = new enemy();
-                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(BAT3_NAME, BAT3_HP, BAT3_MP, BAT3_ATTACK, BAT3_DEFENSE, BAT3_ATTACK_RANGE, BAT1_ATTACK_TYPE, BAT3_SLANTING_WALL, random);
+                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(BAT3_NAME, BAT3_HP, BAT3_MP, BAT3_ATTACK, BAT3_DEFENSE, BAT3_ATTACK_RANGE, BAT1_ATTACK_TYPE, BAT3_SLANTING_WALL, random, BAT3_POSSESSION_EXP);
 
             }
             else if (GameManager.instance.floorlevel > 10)
             {
                 map_ex[(int)pos.x, (int)pos.z] = new enemy();
-                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(BAT2_NAME, BAT2_HP, BAT2_MP, BAT2_ATTACK, BAT2_DEFENSE, BAT2_ATTACK_RANGE, BAT2_ATTACK_TYPE, BAT2_SLANTING_WALL, random);
+                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(BAT2_NAME, BAT2_HP, BAT2_MP, BAT2_ATTACK, BAT2_DEFENSE, BAT2_ATTACK_RANGE, BAT2_ATTACK_TYPE, BAT2_SLANTING_WALL, random, BAT2_POSSESSION_EXP);
             }
             else
             {//マップ管理のクラスと、敵のステータスを入れる
                 map_ex[(int)pos.x, (int)pos.z] = new enemy();
-                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(BAT1_NAME, BAT1_HP, BAT1_MP, BAT1_ATTACK, BAT1_DEFENSE, BAT1_ATTACK_RANGE, BAT1_ATTACK_TYPE, BAT1_SLANTING_WALL, random);
+                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(BAT1_NAME, BAT1_HP, BAT1_MP, BAT1_ATTACK, BAT1_DEFENSE, BAT1_ATTACK_RANGE, BAT1_ATTACK_TYPE, BAT1_SLANTING_WALL, random, BAT1_POSSESSION_EXP);
             }
             
             }
@@ -2109,22 +2263,22 @@ public class map_creat : MonoBehaviour {
             if (GameManager.instance.floorlevel > 30)
             {
                 map_ex[(int)pos.x, (int)pos.z] = new enemy();
-                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(SLIME4_NAME,SLIME4_HP, SLIME4_MP, SLIME4_ATTACK, SLIME4_DEFENSE, SLIME4_ATTACK_RANGE, SLIME4_ATTACK_TYPE, SLIME4_SLANTING_WALL, random);
+                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(SLIME4_NAME,SLIME4_HP, SLIME4_MP, SLIME4_ATTACK, SLIME4_DEFENSE, SLIME4_ATTACK_RANGE, SLIME4_ATTACK_TYPE, SLIME4_SLANTING_WALL, random , SLIME4_POSSESSION_EXP);
             }
             else if (GameManager.instance.floorlevel > 20)
             {
                 map_ex[(int)pos.x, (int)pos.z] = new enemy();
-                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(SLIME3_NAME, SLIME3_HP, SLIME3_MP, SLIME3_ATTACK, SLIME3_DEFENSE, SLIME3_ATTACK_RANGE, SLIME3_ATTACK_TYPE, SLIME3_SLANTING_WALL, random);
+                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(SLIME3_NAME, SLIME3_HP, SLIME3_MP, SLIME3_ATTACK, SLIME3_DEFENSE, SLIME3_ATTACK_RANGE, SLIME3_ATTACK_TYPE, SLIME3_SLANTING_WALL, random, SLIME3_POSSESSION_EXP);
             }
             else if (GameManager.instance.floorlevel > 10)
             {
                 map_ex[(int)pos.x, (int)pos.z] = new enemy();
-                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(SLIME2_NAME, SLIME2_HP, SLIME2_MP, SLIME2_ATTACK, SLIME2_DEFENSE, SLIME2_ATTACK_RANGE, SLIME2_ATTACK_TYPE, SLIME2_SLANTING_WALL, random);
+                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(SLIME2_NAME, SLIME2_HP, SLIME2_MP, SLIME2_ATTACK, SLIME2_DEFENSE, SLIME2_ATTACK_RANGE, SLIME2_ATTACK_TYPE, SLIME2_SLANTING_WALL, random, SLIME2_POSSESSION_EXP);
             }
             else
             {//マップ管理のクラスと、敵のステータスを入れる
                 map_ex[(int)pos.x, (int)pos.z] = new enemy();
-                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(SLIME1_NAME, SLIME1_HP, SLIME1_MP, SLIME1_ATTACK, SLIME1_DEFENSE, SLIME1_ATTACK_RANGE, SLIME1_ATTACK_TYPE, SLIME1_SLANTING_WALL, random);
+                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(SLIME1_NAME, SLIME1_HP, SLIME1_MP, SLIME1_ATTACK, SLIME1_DEFENSE, SLIME1_ATTACK_RANGE, SLIME1_ATTACK_TYPE, SLIME1_SLANTING_WALL, random, SLIME1_POSSESSION_EXP);
             }
             
         }
@@ -2133,22 +2287,22 @@ public class map_creat : MonoBehaviour {
             if (GameManager.instance.floorlevel > 30)
             {
                 map_ex[(int)pos.x, (int)pos.z] = new enemy();
-                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(RABBIT4_NAME ,RABBIT4_HP, RABBIT4_MP, RABBIT4_ATTACK, RABBIT4_DEFENSE, RABBIT4_ATTACK_RANGE, RABBIT4_ATTACK_TYPE, RABBIT4_SLANTING_WALL, random);
+                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(RABBIT4_NAME ,RABBIT4_HP, RABBIT4_MP, RABBIT4_ATTACK, RABBIT4_DEFENSE, RABBIT4_ATTACK_RANGE, RABBIT4_ATTACK_TYPE, RABBIT4_SLANTING_WALL, random, RABBIT4_POSSESSION_EXP);
             }
             else if (GameManager.instance.floorlevel > 20)
             {
                 map_ex[(int)pos.x, (int)pos.z] = new enemy();
-                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(RABBIT3_NAME, RABBIT3_HP, RABBIT3_MP, RABBIT3_ATTACK, RABBIT3_DEFENSE, RABBIT3_ATTACK_RANGE, RABBIT3_ATTACK_TYPE, RABBIT3_SLANTING_WALL, random);
+                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(RABBIT3_NAME, RABBIT3_HP, RABBIT3_MP, RABBIT3_ATTACK, RABBIT3_DEFENSE, RABBIT3_ATTACK_RANGE, RABBIT3_ATTACK_TYPE, RABBIT3_SLANTING_WALL, random, RABBIT3_POSSESSION_EXP);
             }
             else if (GameManager.instance.floorlevel > 10)
             {
                 map_ex[(int)pos.x, (int)pos.z] = new enemy();
-                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(RABBIT2_NAME, RABBIT2_HP, RABBIT2_MP, RABBIT2_ATTACK, RABBIT2_DEFENSE, RABBIT2_ATTACK_RANGE, RABBIT2_ATTACK_TYPE, RABBIT2_SLANTING_WALL, random);
+                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(RABBIT2_NAME, RABBIT2_HP, RABBIT2_MP, RABBIT2_ATTACK, RABBIT2_DEFENSE, RABBIT2_ATTACK_RANGE, RABBIT2_ATTACK_TYPE, RABBIT2_SLANTING_WALL, random, RABBIT2_POSSESSION_EXP);
             }
             else
             {//マップ管理のクラスと、敵のステータスを入れる
                 map_ex[(int)pos.x, (int)pos.z] = new enemy();
-                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(RABBIT1_NAME, RABBIT1_HP, RABBIT1_MP, RABBIT1_ATTACK, RABBIT1_DEFENSE, RABBIT1_ATTACK_RANGE, RABBIT1_ATTACK_TYPE, RABBIT1_SLANTING_WALL, random);
+                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(RABBIT1_NAME, RABBIT1_HP, RABBIT1_MP, RABBIT1_ATTACK, RABBIT1_DEFENSE, RABBIT1_ATTACK_RANGE, RABBIT1_ATTACK_TYPE, RABBIT1_SLANTING_WALL, random, RABBIT1_POSSESSION_EXP);
             }
             
         }
@@ -2157,22 +2311,22 @@ public class map_creat : MonoBehaviour {
             if (GameManager.instance.floorlevel > 30)
             {
                 map_ex[(int)pos.x, (int)pos.z] = new enemy();
-                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(GHOST4_NAME ,GHOST4_HP, GHOST4_MP, GHOST4_ATTACK, GHOST4_DEFENSE, GHOST4_ATTACK_RANGE, GHOST4_ATTACK_TYPE, GHOST4_SLANTING_WALL, random);
+                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(GHOST4_NAME ,GHOST4_HP, GHOST4_MP, GHOST4_ATTACK, GHOST4_DEFENSE, GHOST4_ATTACK_RANGE, GHOST4_ATTACK_TYPE, GHOST4_SLANTING_WALL, random, GHOST4_POSSESSION_EXP);
             }
             else if (GameManager.instance.floorlevel > 20)
             {
                 map_ex[(int)pos.x, (int)pos.z] = new enemy();
-                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(GHOST3_NAME, GHOST3_HP, GHOST3_MP, GHOST3_ATTACK, GHOST3_DEFENSE, GHOST3_ATTACK_RANGE, GHOST3_ATTACK_TYPE, GHOST3_SLANTING_WALL, random);
+                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(GHOST3_NAME, GHOST3_HP, GHOST3_MP, GHOST3_ATTACK, GHOST3_DEFENSE, GHOST3_ATTACK_RANGE, GHOST3_ATTACK_TYPE, GHOST3_SLANTING_WALL, random,GHOST3_POSSESSION_EXP);
             }
             else if (GameManager.instance.floorlevel > 10)
             {
                 map_ex[(int)pos.x, (int)pos.z] = new enemy();
-                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(GHOST2_NAME, GHOST2_HP, GHOST2_MP, GHOST2_ATTACK, GHOST2_DEFENSE, GHOST2_ATTACK_RANGE, GHOST2_ATTACK_TYPE, GHOST2_SLANTING_WALL, random);
+                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(GHOST2_NAME, GHOST2_HP, GHOST2_MP, GHOST2_ATTACK, GHOST2_DEFENSE, GHOST2_ATTACK_RANGE, GHOST2_ATTACK_TYPE, GHOST2_SLANTING_WALL, random,GHOST2_POSSESSION_EXP);
             }
             else
             {//マップ管理のクラスと、敵のステータスを入れる
                 map_ex[(int)pos.x, (int)pos.z] = new enemy();
-                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(GHOST1_NAME, GHOST1_HP, GHOST1_MP, GHOST1_ATTACK, GHOST1_DEFENSE, GHOST1_ATTACK_RANGE, GHOST1_ATTACK_TYPE, GHOST1_SLANTING_WALL, random);
+                map_ex[(int)pos.x, (int)pos.z].state = new enemystate(GHOST1_NAME, GHOST1_HP, GHOST1_MP, GHOST1_ATTACK, GHOST1_DEFENSE, GHOST1_ATTACK_RANGE, GHOST1_ATTACK_TYPE, GHOST1_SLANTING_WALL, random,GHOST1_POSSESSION_EXP);
             }
             
         }
@@ -2186,7 +2340,7 @@ public class map_creat : MonoBehaviour {
     private void InstantiateBossInRoom(GameObject obj)
     {
         map_ex[boss_pos_x, boss_pos_z] = new enemy();
-        map_ex[boss_pos_x, boss_pos_z].state = new enemystate(BOSS1_NAME ,BOSS1_HP, BOSS1_MP, BOSS1_ATTACK, BOSS1_DEFENSE, BOSS1_ATTACK_RANGE, BOSS1_ATTACK_TYPE, BOSS1_SLANTING_WALL, 1);
+        map_ex[boss_pos_x, boss_pos_z].state = new enemystate(BOSS1_NAME ,BOSS1_HP, BOSS1_MP, BOSS1_ATTACK, BOSS1_DEFENSE, BOSS1_ATTACK_RANGE, BOSS1_ATTACK_TYPE, BOSS1_SLANTING_WALL, 1 , BOSS1_POSSESSION_EXP);
 
         GameObject obj2 = Instantiate(obj, new Vector3(boss_pos_x, -0.5f, boss_pos_z), Quaternion.identity);
 

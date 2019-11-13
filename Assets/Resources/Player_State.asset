@@ -31,3 +31,8 @@ MonoBehaviour:
       price_player_attack_range_int: 1
       price_player_attack_type_int: 0
       price_player_slanting_wall_bool: 0
+      price_player_level_up_need_coefficient: 5
+      price_player_hp_up_coefficient: 10
+      price_player_mp_up_coefficient: 1
+      price_player_attack_up_coefficient: 2
+      price_player_defense_up_coefficient: 1

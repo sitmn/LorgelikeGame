@@ -66,6 +66,11 @@ public class Player_State_importer : AssetPostprocessor {
 					cell = row.GetCell(13); p.price_player_attack_range_int = (int)(cell == null ? 0 : cell.NumericCellValue);
 					cell = row.GetCell(14); p.price_player_attack_type_int = (int)(cell == null ? 0 : cell.NumericCellValue);
 					cell = row.GetCell(15); p.price_player_slanting_wall_bool = (cell == null ? false : cell.BooleanCellValue);
+					cell = row.GetCell(16); p.price_player_level_up_need_coefficient = (int)(cell == null ? 0 : cell.NumericCellValue);
+					cell = row.GetCell(17); p.price_player_hp_up_coefficient = (int)(cell == null ? 0 : cell.NumericCellValue);
+					cell = row.GetCell(18); p.price_player_mp_up_coefficient = (int)(cell == null ? 0 : cell.NumericCellValue);
+					cell = row.GetCell(19); p.price_player_attack_up_coefficient = (int)(cell == null ? 0 : cell.NumericCellValue);
+					cell = row.GetCell(20); p.price_player_defense_up_coefficient = (int)(cell == null ? 0 : cell.NumericCellValue);
 						s.list.Add (p);
 					}
 					data.sheets.Add(s);

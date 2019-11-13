@@ -78,24 +78,24 @@ public class ScrollItemButton : MonoBehaviour
 
             int argument = i + 0;   //AddListenerで呼び出す関数の引数は、ガウスを使用しているため（？）一度0をプラスして正常な数字に
 
-            if (GameManager.instance.possessionitemlist[i].name == "回復薬")
+            if (GameManager.instance.possessionitemlist[i].name == GameManager.instance.item_state_data.sheets[0].list[0].price_name_string)
             {
                 item item1 = GameManager.instance.possessionitemlist[i] as item1;
                 
                 scrollitembuttons[i].transform.GetComponent<Button>().onClick.AddListener(() => MenuController_script.Item_Description(item1, argument)); //item1.healuse(argument));
             }
-            else if (GameManager.instance.possessionitemlist[i].name == "爆弾")
+            else if (GameManager.instance.possessionitemlist[i].name == GameManager.instance.item_state_data.sheets[0].list[1].price_name_string)
             {
                 item item2 = GameManager.instance.possessionitemlist[i] as item2;
                 
                 scrollitembuttons[i].transform.GetComponent<Button>().onClick.AddListener(() => MenuController_script.Item_Description(item2, argument)); //item2.attackuse(argument));
             }
-            else if (GameManager.instance.possessionitemlist[i].name == "場所替え")
+            else if (GameManager.instance.possessionitemlist[i].name == GameManager.instance.item_state_data.sheets[0].list[2].price_name_string)
             {
                 item item3 = GameManager.instance.possessionitemlist[i] as item3;
                 
                 scrollitembuttons[i].transform.GetComponent<Button>().onClick.AddListener(() => MenuController_script.Item_Description(item3, argument)); //item3.changeuse(argument));
-            }else if (GameManager.instance.possessionitemlist[i].name == "回復薬（特）")
+            }else if (GameManager.instance.possessionitemlist[i].name == GameManager.instance.item_state_data.sheets[0].list[3].price_name_string)
             {
                 item item4 = GameManager.instance.possessionitemlist[i] as item4;
 
@@ -128,31 +128,31 @@ public class ScrollItemButton : MonoBehaviour
 
             int argument = i + 0;   //AddListenerで呼び出す関数の引数は、ガウスを使用しているため（？）一度0をプラスして正常な数字に
 
-            if (GameManager.instance.possessionweaponlist[i].name.Contains("アクアマリン") == true)
+            if (GameManager.instance.possessionweaponlist[i].name.Contains(GameManager.instance.weapon_state_data.sheets[0].list[0].price_name_string) == true)
             {
                 weapon weapon1 = GameManager.instance.possessionweaponlist[i] as weapon;
 
                 scrollweaponbuttons[i].transform.GetComponent<Button>().onClick.AddListener(() => MenuController_script.Weapon_Description(weapon1, argument)); //weapon1.installing(argument));
             }
-            else if (GameManager.instance.possessionweaponlist[i].name.Contains("アメシスト") == true)
+            else if (GameManager.instance.possessionweaponlist[i].name.Contains(GameManager.instance.weapon_state_data.sheets[0].list[1].price_name_string) == true)
             {
                 weapon weapon2 = GameManager.instance.possessionweaponlist[i] as weapon;
 
                 scrollweaponbuttons[i].transform.GetComponent<Button>().onClick.AddListener(() => MenuController_script.Weapon_Description(weapon2, argument)); //weapon2.installing(argument));
             }
-            else if (GameManager.instance.possessionweaponlist[i].name.Contains("エメラルド") == true)
+            else if (GameManager.instance.possessionweaponlist[i].name.Contains(GameManager.instance.weapon_state_data.sheets[0].list[2].price_name_string) == true)
             {
                 weapon weapon3 = GameManager.instance.possessionweaponlist[i] as weapon;
 
                 scrollweaponbuttons[i].transform.GetComponent<Button>().onClick.AddListener(() => MenuController_script.Weapon_Description(weapon3, argument)); //weapon3.installing(argument));
             }
-            else if (GameManager.instance.possessionweaponlist[i].name.Contains("ルビー") == true)
+            else if (GameManager.instance.possessionweaponlist[i].name.Contains(GameManager.instance.weapon_state_data.sheets[0].list[3].price_name_string) == true)
             {
                 weapon weapon4 = GameManager.instance.possessionweaponlist[i] as weapon;
 
                 scrollweaponbuttons[i].transform.GetComponent<Button>().onClick.AddListener(() => MenuController_script.Weapon_Description(weapon4, argument)); //weapon3.installing(argument));
             }
-            else if (GameManager.instance.possessionweaponlist[i].name.Contains("クリスタル") == true)
+            else if (GameManager.instance.possessionweaponlist[i].name.Contains(GameManager.instance.weapon_state_data.sheets[0].list[4].price_name_string) == true)
             {
                 weapon weapon5 = GameManager.instance.possessionweaponlist[i] as weapon;
 
@@ -194,54 +194,54 @@ public class ScrollItemButton : MonoBehaviour
                 int argument = i + 0;   //AddListenerで呼び出す関数の引数は、ガウスを使用しているため（？）一度0をプラスして正常な数字に
 
 
-                if (GameManager.instance.developtopiclist[i].name == "回復薬")
+                if (GameManager.instance.developtopiclist[i].name == GameManager.instance.item_state_data.sheets[0].list[0].price_name_string)
                 {
                     item item = GameManager.instance.developtopiclist[i] as item1;
                     
                     scrolldevelopbuttons[i].transform.GetComponent<Button>().onClick.AddListener(() => MenuController_script.Develop_Item_Description(item)); //item1.healuse(argument));
                 }
-                else if (GameManager.instance.developtopiclist[i].name == "爆弾")
+                else if (GameManager.instance.developtopiclist[i].name == GameManager.instance.item_state_data.sheets[0].list[1].price_name_string)
                 {
                     item item2 = GameManager.instance.developtopiclist[i] as item2;
 
                     scrolldevelopbuttons[i].transform.GetComponent<Button>().onClick.AddListener(() => MenuController_script.Develop_Item_Description(item2)); //item2.attackuse(argument));
                 }
-                else if (GameManager.instance.developtopiclist[i].name == "場所替え")
+                else if (GameManager.instance.developtopiclist[i].name == GameManager.instance.item_state_data.sheets[0].list[2].price_name_string)
                 {
                     item item3 = GameManager.instance.developtopiclist[i] as item3;
 
                     scrolldevelopbuttons[i].transform.GetComponent<Button>().onClick.AddListener(() => MenuController_script.Develop_Item_Description(item3)); //item3.changeuse(argument));
-                }else if (GameManager.instance.developtopiclist[i].name == "回復薬（特）")
+                }else if (GameManager.instance.developtopiclist[i].name == GameManager.instance.item_state_data.sheets[0].list[3].price_name_string)
                 {
                     item item4 = GameManager.instance.developtopiclist[i] as item4;
 
                     scrolldevelopbuttons[i].transform.GetComponent<Button>().onClick.AddListener(() => MenuController_script.Develop_Item_Description(item4)); //item1.healuse(argument));
                 }
-                else if (GameManager.instance.developtopiclist[i].name.Contains("アクアマリン") == true)
+                else if (GameManager.instance.developtopiclist[i].name.Contains(GameManager.instance.weapon_state_data.sheets[0].list[0].price_name_string) == true)
                 {
                 weapon weapon1 = GameManager.instance.developtopiclist[i] as weapon;
 
                     scrolldevelopbuttons[i].transform.GetComponent<Button>().onClick.AddListener(() => MenuController_script.Develop_Weapon_Description(weapon1)); //weapon1.installing(argument));
                 }
-                else if (GameManager.instance.developtopiclist[i].name.Contains("アメシスト") == true)
+                else if (GameManager.instance.developtopiclist[i].name.Contains(GameManager.instance.weapon_state_data.sheets[0].list[1].price_name_string) == true)
                 {
                 weapon weapon2 = GameManager.instance.developtopiclist[i] as weapon;
 
                     scrolldevelopbuttons[i].transform.GetComponent<Button>().onClick.AddListener(() => MenuController_script.Develop_Weapon_Description(weapon2)); //weapon2.installing(argument));
                 }
-                else if (GameManager.instance.developtopiclist[i].name.Contains("エメラルド") == true)
+                else if (GameManager.instance.developtopiclist[i].name.Contains(GameManager.instance.weapon_state_data.sheets[0].list[2].price_name_string) == true)
                 {
                 weapon weapon3 = GameManager.instance.developtopiclist[i] as weapon;
 
                     scrolldevelopbuttons[i].transform.GetComponent<Button>().onClick.AddListener(() => MenuController_script.Develop_Weapon_Description(weapon3)); //weapon3.installing(argument));
                 }
-                else if (GameManager.instance.developtopiclist[i].name.Contains("ルビー") == true)
+                else if (GameManager.instance.developtopiclist[i].name.Contains(GameManager.instance.weapon_state_data.sheets[0].list[3].price_name_string) == true)
                 {
                     weapon weapon4 = GameManager.instance.developtopiclist[i] as weapon;
 
                     scrolldevelopbuttons[i].transform.GetComponent<Button>().onClick.AddListener(() => MenuController_script.Develop_Weapon_Description(weapon4)); //weapon3.installing(argument));
                 }
-                else if (GameManager.instance.developtopiclist[i].name.Contains("クリスタル") == true)
+                else if (GameManager.instance.developtopiclist[i].name.Contains(GameManager.instance.weapon_state_data.sheets[0].list[4].price_name_string) == true)
                 {
                     weapon weapon5 = GameManager.instance.developtopiclist[i] as weapon;
 

@@ -31,10 +31,13 @@ public class MenuController : MonoBehaviour {
     public GameObject WeaponView;
     public GameObject DevelopView;
 
+    public GameObject GameManager_obj;
+
     private GameObject Player;
 
     private Player_script player_script;
     private ScrollItemButton item_button_script;
+    private map_creat mapscript;
 
     public Text ItemDescription;
     public Text WeaponDescription;
@@ -96,6 +99,7 @@ public class MenuController : MonoBehaviour {
         Player = GameObject.Find("Player");
         player_script = Player.GetComponent<Player_script>();
         item_button_script = ItemView.GetComponent<ScrollItemButton>();
+        mapscript = GameManager_obj.GetComponent<map_creat>();
 	}
 	
 	// Update is called once per frame
@@ -242,19 +246,19 @@ public class MenuController : MonoBehaviour {
         {
             GameObject Map_item;
 
-            if (GameManager.instance.possessionitemlist[argument].name == "回復薬")
+            if (GameManager.instance.possessionitemlist[argument].name == GameManager.instance.item_state_data.sheets[0].list[0].price_name_string)
             {
                 Map_item = Item1;
             }
-            else if (GameManager.instance.possessionitemlist[argument].name == "爆弾")
+            else if (GameManager.instance.possessionitemlist[argument].name == GameManager.instance.item_state_data.sheets[0].list[1].price_name_string)
             {
                 Map_item = Item2;
             }
-            else if (GameManager.instance.possessionitemlist[argument].name == "場所替え")
+            else if (GameManager.instance.possessionitemlist[argument].name == GameManager.instance.item_state_data.sheets[0].list[2].price_name_string)
             {
                 Map_item = Item3;
             }
-            else if (GameManager.instance.possessionitemlist[argument].name == "回復薬（特）")
+            else if (GameManager.instance.possessionitemlist[argument].name == GameManager.instance.item_state_data.sheets[0].list[3].price_name_string)
             {
                 Map_item = Item4;
             }
@@ -280,7 +284,7 @@ public class MenuController : MonoBehaviour {
             BackButton();
             GameManager.instance.possessionitemlist.RemoveAt(argument);
 
-            GameManager.instance.AddMainText("クエリは足元に" + map_creat.map_item[pos_x, pos_z].name + "を置いた。");
+            GameManager.instance.AddMainText(GameManager.instance.player_state_data.sheets[0].list[0].price_name_string + "は足元に" + map_creat.map_item[pos_x, pos_z].name + "を置いた。");
         }
     }
 
@@ -331,23 +335,23 @@ public class MenuController : MonoBehaviour {
         {
             GameObject Map_item;
 
-            if (GameManager.instance.possessionweaponlist[argument].name.Contains("アクアマリン") == true)
+            if (GameManager.instance.possessionweaponlist[argument].name.Contains(GameManager.instance.weapon_state_data.sheets[0].list[0].price_name_string) == true)
             {
                 Map_item = Weapon1;
             }
-            else if (GameManager.instance.possessionweaponlist[argument].name.Contains("アメシスト") == true)
+            else if (GameManager.instance.possessionweaponlist[argument].name.Contains(GameManager.instance.weapon_state_data.sheets[0].list[1].price_name_string) == true)
             {
                 Map_item = Weapon2;
             }
-            else if (GameManager.instance.possessionweaponlist[argument].name.Contains("エメラルド") == true)
+            else if (GameManager.instance.possessionweaponlist[argument].name.Contains(GameManager.instance.weapon_state_data.sheets[0].list[2].price_name_string) == true)
             {
                 Map_item = Weapon3;
             }
-            else if (GameManager.instance.possessionweaponlist[argument].name.Contains("ルビー") == true)
+            else if (GameManager.instance.possessionweaponlist[argument].name.Contains(GameManager.instance.weapon_state_data.sheets[0].list[3].price_name_string) == true)
             {
                 Map_item = Weapon4;
             }
-            else if (GameManager.instance.possessionweaponlist[argument].name.Contains("クリスタル") == true)
+            else if (GameManager.instance.possessionweaponlist[argument].name.Contains(GameManager.instance.weapon_state_data.sheets[0].list[4].price_name_string) == true)
             {
                 Map_item = Weapon5;
             }
@@ -377,7 +381,7 @@ public class MenuController : MonoBehaviour {
             BackButton();
             GameManager.instance.possessionweaponlist.RemoveAt(argument);
 
-            GameManager.instance.AddMainText("クエリは足元に" + map_creat.map_item[pos_x, pos_z].name + "を置いた。");
+            GameManager.instance.AddMainText(GameManager.instance.player_state_data.sheets[0].list[0].price_name_string + "は足元に" + map_creat.map_item[pos_x, pos_z].name + "を置いた。");
         }
     }
 
@@ -429,9 +433,9 @@ public class MenuController : MonoBehaviour {
             GameManager.instance.possession_material_2 -= develop_item.develop_need_material2;
             GameManager.instance.possession_material_3 -= develop_item.develop_need_material3;
 
-            if (develop_item.name == "回復薬")
+            if (develop_item.name == GameManager.instance.item_state_data.sheets[0].list[0].price_name_string)
             {
-                new_item = new item1(map_creat.NAME_I1, map_creat.HEAL_POINT_I1, map_creat.DEVELOP_I1_MATERIAL_1, map_creat.DEVELOP_I1_MATERIAL_2, map_creat.DEVELOP_I1_MATERIAL_3, map_creat.DEVELOP_NEED_MP_I1);
+                new_item = new item1(mapscript.NAME_I1, mapscript.HEAL_POINT_I1, mapscript.DEVELOP_I1_MATERIAL_1, mapscript.DEVELOP_I1_MATERIAL_2, mapscript.DEVELOP_I1_MATERIAL_3, mapscript.DEVELOP_NEED_MP_I1);
 
                 //作成した薬草の回復量にばらつき
                 float float_heal_point = new_item.heal_point;
@@ -442,9 +446,9 @@ public class MenuController : MonoBehaviour {
                 new_item.item_description = "青みがかった液体。人体に影響があるどころか、体力を" + new_item.heal_point + "回復する。ちょっと苦い。";
                 
             }
-            else if (develop_item.name == "爆弾")
+            else if (develop_item.name == GameManager.instance.weapon_state_data.sheets[0].list[1].price_name_string)
             {
-                new_item = new item2(map_creat.NAME_I2, map_creat.ATTACK_POINT_I2, map_creat.ATTACK_RANGE, map_creat.ATTACK_TYPE, map_creat.DEVELOP_I2_MATERIAL_1, map_creat.DEVELOP_I2_MATERIAL_2, map_creat.DEVELOP_I2_MATERIAL_3, map_creat.DEVELOP_NEED_MP_I2);
+                new_item = new item2(mapscript.NAME_I2, mapscript.ATTACK_POINT_I2, mapscript.ATTACK_RANGE, mapscript.ATTACK_TYPE, mapscript.DEVELOP_I2_MATERIAL_1, mapscript.DEVELOP_I2_MATERIAL_2, mapscript.DEVELOP_I2_MATERIAL_3, mapscript.DEVELOP_NEED_MP_I2);
 
                 float float_attack_point = new_item.attack_point;
                 float_attack_point = float_attack_point + float_attack_point * (float)Develop_Random_State(new_item.attack_point) / 100f;
@@ -453,14 +457,14 @@ public class MenuController : MonoBehaviour {
                 //テキストも変更
                 new_item.item_description = "見るからに危険そうな見た目をした爆発物。どうやって着火しているのかは不明。正面に" + new_item.attack_point + "ダメージを与える。爆風で自身が食らうことはない、とっても不思議。";
             }
-            /*else if (develop_item.name == "場所替え")
+            /*else if (develop_item.name == GameManager.instance.weapon_state_data.sheets[0].list[2].price_name_string)
             {
                 new_item = new item3(map_creat.NAME_I3, map_creat.DEVELOP_I3_MATERIAL_1, map_creat.DEVELOP_I3_MATERIAL_2, map_creat.DEVELOP_I3_MATERIAL_3, map_creat.DEVELOP_NEED_MP_I3);
 
             }*/
-            else if (develop_item.name == "回復薬（特）")
+            else if (develop_item.name == GameManager.instance.weapon_state_data.sheets[0].list[3].price_name_string)
             {
-                new_item = new item4(map_creat.NAME_I4, map_creat.HEAL_POINT_I4, map_creat.DEVELOP_I4_MATERIAL_1, map_creat.DEVELOP_I4_MATERIAL_2, map_creat.DEVELOP_I4_MATERIAL_3, map_creat.DEVELOP_NEED_MP_I4);
+                new_item = new item4(mapscript.NAME_I4, mapscript.HEAL_POINT_I4, mapscript.DEVELOP_I4_MATERIAL_1, mapscript.DEVELOP_I4_MATERIAL_2, mapscript.DEVELOP_I4_MATERIAL_3, mapscript.DEVELOP_NEED_MP_I4);
 
                 //作成した薬草の回復量にばらつき
                 float float_heal_point = new_item.heal_point;
@@ -478,7 +482,7 @@ public class MenuController : MonoBehaviour {
 
             player_script.Success_Develop();
 
-            GameManager.instance.AddMainText("クエリは" + develop_item.name + "を合成した。");
+            GameManager.instance.AddMainText(GameManager.instance.player_state_data.sheets[0].list[0].price_name_string + "は" + develop_item.name + "を合成した。");
 
             player.player_mp -= develop_item.develop_need_MP;
 
@@ -557,25 +561,25 @@ public class MenuController : MonoBehaviour {
             GameManager.instance.possession_material_2 -= develop_item.develop_need_material2;
             GameManager.instance.possession_material_3 -= develop_item.develop_need_material3;
             
-            if (develop_item.name == map_creat.NAME_W1)
+            if (develop_item.name == mapscript.NAME_W1)
             {
-                new_weapon = new weapon1(map_creat.NAME_W1, map_creat.HP_W1, map_creat.ATTACK_W1, map_creat.DEFENSE_W1, map_creat.ATTACK_RANGE_W1, map_creat.ATTACK_TYPE_W1, map_creat.ATTACK_THROUGH_W1, map_creat.SLANTING_WALL_W1, map_creat.DEVELOP_W1_MATERIAL_1, map_creat.DEVELOP_W1_MATERIAL_2, map_creat.DEVELOP_W1_MATERIAL_3 , map_creat.MP_COST_W1 , map_creat.ENDURANCE_W1, map_creat.DEVELOP_NEED_MP_W1);
+                new_weapon = new weapon1(mapscript.NAME_W1, mapscript.HP_W1, mapscript.ATTACK_W1, mapscript.DEFENSE_W1, mapscript.ATTACK_RANGE_W1, mapscript.ATTACK_TYPE_W1, mapscript.ATTACK_THROUGH_W1, mapscript.SLANTING_WALL_W1, mapscript.DEVELOP_W1_MATERIAL_1, mapscript.DEVELOP_W1_MATERIAL_2, mapscript.DEVELOP_W1_MATERIAL_3, mapscript.MP_COST_W1 , mapscript.ENDURANCE_W1, mapscript.DEVELOP_NEED_MP_W1);
             }
-            else if (develop_item.name == map_creat.NAME_W2)
+            else if (develop_item.name == mapscript.NAME_W2)
             {
-                new_weapon = new weapon2(map_creat.NAME_W2, map_creat.HP_W2, map_creat.ATTACK_W2, map_creat.DEFENSE_W2, map_creat.ATTACK_RANGE_W2, map_creat.ATTACK_TYPE_W2, map_creat.ATTACK_THROUGH_W2, map_creat.SLANTING_WALL_W2, map_creat.DEVELOP_W2_MATERIAL_1, map_creat.DEVELOP_W2_MATERIAL_2, map_creat.DEVELOP_W2_MATERIAL_3, map_creat.MP_COST_W2, map_creat.ENDURANCE_W2, map_creat.DEVELOP_NEED_MP_W2);
+                new_weapon = new weapon2(mapscript.NAME_W2, mapscript.HP_W2, mapscript.ATTACK_W2, mapscript.DEFENSE_W2, mapscript.ATTACK_RANGE_W2, mapscript.ATTACK_TYPE_W2, mapscript.ATTACK_THROUGH_W2, mapscript.SLANTING_WALL_W2, mapscript.DEVELOP_W2_MATERIAL_1, mapscript.DEVELOP_W2_MATERIAL_2, mapscript.DEVELOP_W2_MATERIAL_3, mapscript.MP_COST_W2, mapscript.ENDURANCE_W2, mapscript.DEVELOP_NEED_MP_W2);
             }
-            else if (develop_item.name == map_creat.NAME_W3)
+            else if (develop_item.name == mapscript.NAME_W3)
             {
-                new_weapon = new weapon3(map_creat.NAME_W3, map_creat.HP_W3, map_creat.ATTACK_W3, map_creat.DEFENSE_W3, map_creat.ATTACK_RANGE_W3, map_creat.ATTACK_TYPE_W3, map_creat.ATTACK_THROUGH_W3, map_creat.SLANTING_WALL_W3, map_creat.DEVELOP_W3_MATERIAL_1, map_creat.DEVELOP_W3_MATERIAL_2, map_creat.DEVELOP_W3_MATERIAL_3, map_creat.MP_COST_W3, map_creat.ENDURANCE_W3, map_creat.DEVELOP_NEED_MP_W3);
+                new_weapon = new weapon3(mapscript.NAME_W3, mapscript.HP_W3, mapscript.ATTACK_W3, mapscript.DEFENSE_W3, mapscript.ATTACK_RANGE_W3, mapscript.ATTACK_TYPE_W3, mapscript.ATTACK_THROUGH_W3, mapscript.SLANTING_WALL_W3, mapscript.DEVELOP_W3_MATERIAL_1, mapscript.DEVELOP_W3_MATERIAL_2, mapscript.DEVELOP_W3_MATERIAL_3, mapscript.MP_COST_W3, mapscript.ENDURANCE_W3, mapscript.DEVELOP_NEED_MP_W3);
             }
-            else if (develop_item.name == map_creat.NAME_W4)
+            else if (develop_item.name == mapscript.NAME_W4)
             {
-                new_weapon = new weapon4(map_creat.NAME_W4, map_creat.HP_W4, map_creat.ATTACK_W4, map_creat.DEFENSE_W4, map_creat.ATTACK_RANGE_W4, map_creat.ATTACK_TYPE_W4, map_creat.ATTACK_THROUGH_W4, map_creat.SLANTING_WALL_W4, map_creat.DEVELOP_W4_MATERIAL_1, map_creat.DEVELOP_W4_MATERIAL_2, map_creat.DEVELOP_W4_MATERIAL_3, map_creat.MP_COST_W4, map_creat.ENDURANCE_W4, map_creat.DEVELOP_NEED_MP_W4);
+                new_weapon = new weapon4(mapscript.NAME_W4, mapscript.HP_W4, mapscript.ATTACK_W4, mapscript.DEFENSE_W4, mapscript.ATTACK_RANGE_W4, mapscript.ATTACK_TYPE_W4, mapscript.ATTACK_THROUGH_W4, mapscript.SLANTING_WALL_W4, mapscript.DEVELOP_W4_MATERIAL_1, mapscript.DEVELOP_W4_MATERIAL_2, mapscript.DEVELOP_W4_MATERIAL_3, mapscript.MP_COST_W4, mapscript.ENDURANCE_W4, mapscript.DEVELOP_NEED_MP_W4);
             }
-            else if (develop_item.name == map_creat.NAME_W5)
+            else if (develop_item.name == mapscript.NAME_W5)
             {
-                new_weapon = new weapon5(map_creat.NAME_W5, map_creat.HP_W5, map_creat.ATTACK_W5, map_creat.DEFENSE_W5, map_creat.ATTACK_RANGE_W5, map_creat.ATTACK_TYPE_W5, map_creat.ATTACK_THROUGH_W5, map_creat.SLANTING_WALL_W5, map_creat.DEVELOP_W5_MATERIAL_1, map_creat.DEVELOP_W5_MATERIAL_2, map_creat.DEVELOP_W5_MATERIAL_3, map_creat.MP_COST_W5, map_creat.ENDURANCE_W5, map_creat.DEVELOP_NEED_MP_W5);
+                new_weapon = new weapon5(mapscript.NAME_W5, mapscript.HP_W5, mapscript.ATTACK_W5, mapscript.DEFENSE_W5, mapscript.ATTACK_RANGE_W5, mapscript.ATTACK_TYPE_W5, mapscript.ATTACK_THROUGH_W5, mapscript.SLANTING_WALL_W5, mapscript.DEVELOP_W5_MATERIAL_1, mapscript.DEVELOP_W5_MATERIAL_2, mapscript.DEVELOP_W5_MATERIAL_3, mapscript.MP_COST_W5, mapscript.ENDURANCE_W5, mapscript.DEVELOP_NEED_MP_W5);
             }
             else  //ここには入らない
             {
@@ -600,7 +604,7 @@ public class MenuController : MonoBehaviour {
 
             player_script.Success_Develop();
 
-            GameManager.instance.AddMainText("クエリは" + develop_item.name +"を合成した。");
+            GameManager.instance.AddMainText(GameManager.instance.player_state_data.sheets[0].list[0].price_name_string + "は" + develop_item.name +"を合成した。");
 
             player.player_mp -= develop_item.develop_need_MP;
 

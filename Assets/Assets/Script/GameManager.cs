@@ -241,23 +241,23 @@ public class GameManager : MonoBehaviour {
     void Start()
     {
         //合成一覧を作成
-        map_item item1 = new item1(map_creat.NAME_I1, map_creat.HEAL_POINT_I1, map_creat.DEVELOP_I1_MATERIAL_1, map_creat.DEVELOP_I1_MATERIAL_2, map_creat.DEVELOP_I1_MATERIAL_3, map_creat.DEVELOP_NEED_MP_I1);
+        map_item item1 = new item1(mapscript.NAME_I1, mapscript.HEAL_POINT_I1, mapscript.DEVELOP_I1_MATERIAL_1, mapscript.DEVELOP_I1_MATERIAL_2, mapscript.DEVELOP_I1_MATERIAL_3, mapscript.DEVELOP_NEED_MP_I1);
         AddListDevelop(item1);
         //map_item item2 = new item2(map_creat.NAME_I2, map_creat.ATTACK_POINT_I2, map_creat.ATTACK_RANGE, map_creat.ATTACK_TYPE, map_creat.DEVELOP_I2_MATERIAL_1, map_creat.DEVELOP_I2_MATERIAL_2, map_creat.DEVELOP_I2_MATERIAL_3, map_creat.DEVELOP_NEED_MP_I2);
         //AddListDevelop(item2);
         //map_item item3 = new item3(map_creat.NAME_I3, map_creat.DEVELOP_I3_MATERIAL_1, map_creat.DEVELOP_I3_MATERIAL_2, map_creat.DEVELOP_I3_MATERIAL_3, map_creat.DEVELOP_NEED_MP_I3);
         //AddListDevelop(item3);
-        map_item item4 = new item4(map_creat.NAME_I4, map_creat.HEAL_POINT_I4, map_creat.DEVELOP_I4_MATERIAL_1, map_creat.DEVELOP_I4_MATERIAL_2, map_creat.DEVELOP_I4_MATERIAL_3, map_creat.DEVELOP_NEED_MP_I4);
+        map_item item4 = new item4(mapscript.NAME_I4, mapscript.HEAL_POINT_I4, mapscript.DEVELOP_I4_MATERIAL_1, mapscript.DEVELOP_I4_MATERIAL_2, mapscript.DEVELOP_I4_MATERIAL_3, mapscript.DEVELOP_NEED_MP_I4);
         AddListDevelop(item4);
-        map_item weapon1 = new weapon1(map_creat.NAME_W1, map_creat.HP_W1, map_creat.ATTACK_W1, map_creat.DEFENSE_W1, map_creat.ATTACK_RANGE_W1, map_creat.ATTACK_TYPE_W1, map_creat.ATTACK_THROUGH_W1, map_creat.SLANTING_WALL_W1, map_creat.DEVELOP_W1_MATERIAL_1, map_creat.DEVELOP_W1_MATERIAL_2, map_creat.DEVELOP_W1_MATERIAL_3, map_creat.MP_COST_W1, map_creat.ENDURANCE_W1, map_creat.DEVELOP_NEED_MP_W1);
+        map_item weapon1 = new weapon1(mapscript.NAME_W1, mapscript.HP_W1, mapscript.ATTACK_W1, mapscript.DEFENSE_W1, mapscript.ATTACK_RANGE_W1, mapscript.ATTACK_TYPE_W1, mapscript.ATTACK_THROUGH_W1, mapscript.SLANTING_WALL_W1, mapscript.DEVELOP_W1_MATERIAL_1, mapscript.DEVELOP_W1_MATERIAL_2, mapscript.DEVELOP_W1_MATERIAL_3, mapscript.MP_COST_W1, mapscript.ENDURANCE_W1, mapscript.DEVELOP_NEED_MP_W1);
         AddListDevelop(weapon1);
-        map_item weapon2 = new weapon2(map_creat.NAME_W2, map_creat.HP_W2, map_creat.ATTACK_W2, map_creat.DEFENSE_W2, map_creat.ATTACK_RANGE_W2, map_creat.ATTACK_TYPE_W2, map_creat.ATTACK_THROUGH_W2, map_creat.SLANTING_WALL_W2, map_creat.DEVELOP_W2_MATERIAL_1, map_creat.DEVELOP_W2_MATERIAL_2, map_creat.DEVELOP_W2_MATERIAL_3, map_creat.MP_COST_W2, map_creat.ENDURANCE_W2, map_creat.DEVELOP_NEED_MP_W2);
+        map_item weapon2 = new weapon2(mapscript.NAME_W2, mapscript.HP_W2, mapscript.ATTACK_W2, mapscript.DEFENSE_W2, mapscript.ATTACK_RANGE_W2, mapscript.ATTACK_TYPE_W2, mapscript.ATTACK_THROUGH_W2, mapscript.SLANTING_WALL_W2, mapscript.DEVELOP_W2_MATERIAL_1, mapscript.DEVELOP_W2_MATERIAL_2, mapscript.DEVELOP_W2_MATERIAL_3, mapscript.MP_COST_W2, mapscript.ENDURANCE_W2, mapscript.DEVELOP_NEED_MP_W2);
         AddListDevelop(weapon2);
-        map_item weapon3 = new weapon3(map_creat.NAME_W3, map_creat.HP_W3, map_creat.ATTACK_W3, map_creat.DEFENSE_W3, map_creat.ATTACK_RANGE_W3, map_creat.ATTACK_TYPE_W3, map_creat.ATTACK_THROUGH_W3, map_creat.SLANTING_WALL_W3, map_creat.DEVELOP_W3_MATERIAL_1, map_creat.DEVELOP_W3_MATERIAL_2, map_creat.DEVELOP_W3_MATERIAL_3, map_creat.MP_COST_W3, map_creat.ENDURANCE_W3, map_creat.DEVELOP_NEED_MP_W3);
+        map_item weapon3 = new weapon3(mapscript.NAME_W3, mapscript.HP_W3, mapscript.ATTACK_W3, mapscript.DEFENSE_W3, mapscript.ATTACK_RANGE_W3, mapscript.ATTACK_TYPE_W3, mapscript.ATTACK_THROUGH_W3, mapscript.SLANTING_WALL_W3, mapscript.DEVELOP_W3_MATERIAL_1, mapscript.DEVELOP_W3_MATERIAL_2, mapscript.DEVELOP_W3_MATERIAL_3, mapscript.MP_COST_W3, mapscript.ENDURANCE_W3, mapscript.DEVELOP_NEED_MP_W3);
         AddListDevelop(weapon3);
-        map_item weapon4 = new weapon4(map_creat.NAME_W4, map_creat.HP_W4, map_creat.ATTACK_W4, map_creat.DEFENSE_W4, map_creat.ATTACK_RANGE_W4, map_creat.ATTACK_TYPE_W4, map_creat.ATTACK_THROUGH_W4, map_creat.SLANTING_WALL_W4, map_creat.DEVELOP_W4_MATERIAL_1, map_creat.DEVELOP_W4_MATERIAL_2, map_creat.DEVELOP_W4_MATERIAL_3, map_creat.MP_COST_W4, map_creat.ENDURANCE_W4, map_creat.DEVELOP_NEED_MP_W4);
+        map_item weapon4 = new weapon4(mapscript.NAME_W4, mapscript.HP_W4, mapscript.ATTACK_W4, mapscript.DEFENSE_W4, mapscript.ATTACK_RANGE_W4, mapscript.ATTACK_TYPE_W4, mapscript.ATTACK_THROUGH_W4, mapscript.SLANTING_WALL_W4, mapscript.DEVELOP_W4_MATERIAL_1, mapscript.DEVELOP_W4_MATERIAL_2, mapscript.DEVELOP_W4_MATERIAL_3, mapscript.MP_COST_W4, mapscript.ENDURANCE_W4, mapscript.DEVELOP_NEED_MP_W4);
         AddListDevelop(weapon4);
-        map_item weapon5 = new weapon5(map_creat.NAME_W5, map_creat.HP_W5, map_creat.ATTACK_W5, map_creat.DEFENSE_W5, map_creat.ATTACK_RANGE_W5, map_creat.ATTACK_TYPE_W5, map_creat.ATTACK_THROUGH_W5, map_creat.SLANTING_WALL_W5, map_creat.DEVELOP_W5_MATERIAL_1, map_creat.DEVELOP_W5_MATERIAL_2, map_creat.DEVELOP_W5_MATERIAL_3, map_creat.MP_COST_W5, map_creat.ENDURANCE_W5, map_creat.DEVELOP_NEED_MP_W5);
+        map_item weapon5 = new weapon5(mapscript.NAME_W5, mapscript.HP_W5, mapscript.ATTACK_W5, mapscript.DEFENSE_W5, mapscript.ATTACK_RANGE_W5, mapscript.ATTACK_TYPE_W5, mapscript.ATTACK_THROUGH_W5, mapscript.SLANTING_WALL_W5, mapscript.DEVELOP_W5_MATERIAL_1, mapscript.DEVELOP_W5_MATERIAL_2, mapscript.DEVELOP_W5_MATERIAL_3, mapscript.MP_COST_W5, mapscript.ENDURANCE_W5, mapscript.DEVELOP_NEED_MP_W5);
         AddListDevelop(weapon5);
 
         //初期状態で素材を持たせておく
@@ -1356,8 +1356,9 @@ public class enemystate:map_exist
     public int RANGE_ATTACK;
     public int ATTACK_TYPE;
     public bool SLANTING_WALL;
+    public int POSSESSION_EXP;
     
-    public enemystate(string NAME ,float max_hp,float max_mp, float max_attack, float max_defense,int range_attack, int attack_type , bool slanting_wall ,float Random)
+    public enemystate(string NAME ,float max_hp,float max_mp, float max_attack, float max_defense,int range_attack, int attack_type , bool slanting_wall ,float Random , int possession_exp)
     {
         name = NAME;
         MAX_HP = (int)(max_hp * GameManager.instance.floor_enemy_level_coefficient * Random);
@@ -1371,6 +1372,7 @@ public class enemystate:map_exist
         RANGE_ATTACK = range_attack;
         ATTACK_TYPE = attack_type;
         SLANTING_WALL = slanting_wall;
+        POSSESSION_EXP = possession_exp;
     }
 }
 

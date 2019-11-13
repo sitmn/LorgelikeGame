@@ -59,6 +59,7 @@ public class Enemy_State_importer : AssetPostprocessor {
 					cell = row.GetCell(6); p.price_attack_range_int = (int)(cell == null ? 0 : cell.NumericCellValue);
 					cell = row.GetCell(7); p.price_attack_type_int = (int)(cell == null ? 0 : cell.NumericCellValue);
 					cell = row.GetCell(8); p.price_slanting_wall_bool = (cell == null ? false : cell.BooleanCellValue);
+					cell = row.GetCell(9); p.price_possession_exp_int = (int)(cell == null ? 0 : cell.NumericCellValue);
 						s.list.Add (p);
 					}
 					data.sheets.Add(s);

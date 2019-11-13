@@ -33,6 +33,11 @@ public class Player_State_Sheet : ScriptableObject
 		public int price_player_attack_range_int;
 		public int price_player_attack_type_int;
 		public bool price_player_slanting_wall_bool;
+		public int price_player_level_up_need_coefficient;
+		public int price_player_hp_up_coefficient;
+		public int price_player_mp_up_coefficient;
+		public int price_player_attack_up_coefficient;
+		public int price_player_defense_up_coefficient;
 	}
 }
 

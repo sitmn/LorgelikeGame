@@ -11,8 +11,6 @@ public class Player_script : MonoBehaviour {
     private int attack_x, attack_y,x,z;
     public static int asset_rotate;
 
-    
-
     public bool notmove, vectorchange;
     
     
@@ -44,6 +42,7 @@ public class Player_script : MonoBehaviour {
         HPBar = HPBAR.GetComponent<HpBar>();
         //HPText = HPTEXT.GetComponent<HPText_script>();
         
+
         GameManager.instance.Hp_Bar();
         GameManager.instance.Mp_Bar();
         GameManager.instance.HP_Text();
@@ -558,32 +557,33 @@ public class Player_script : MonoBehaviour {
             }
             else if (map_creat.map_item[(int)transform.position.x, (int)transform.position.z].number == 1)
             {
-                GameManager.instance.AddMainText("クエリは" + map_creat.map_item[(int)transform.position.x, (int)transform.position.z].name + "を拾った。");
+                GameManager.instance.AddMainText(GameManager.instance.player_state_data.sheets[0].list[0].price_name_string + "は" + map_creat.map_item[(int)transform.position.x, (int)transform.position.z].name + "を拾った。");
 
-                if (map_creat.map_item[(int)transform.position.x, (int)transform.position.z].name == "魔力の結晶（汎）")
+                if (map_creat.map_item[(int)transform.position.x, (int)transform.position.z].name == GameManager.instance.material_state_data.sheets[0].list[0].price_name_string)
                 {
                     GameManager.instance.possession_material_1++;
                     Destroy(map_creat.map_item[(int)transform.position.x, (int)transform.position.z].obj);
                     map_creat.map_item[(int)transform.position.x, (int)transform.position.z] = new clean();
                 }
-                else if (map_creat.map_item[(int)transform.position.x, (int)transform.position.z].name == "魔力の結晶（稀）")
+                else if (map_creat.map_item[(int)transform.position.x, (int)transform.position.z].name == GameManager.instance.material_state_data.sheets[0].list[1].price_name_string)
                 {
                     GameManager.instance.possession_material_2++;
                     Destroy(map_creat.map_item[(int)transform.position.x, (int)transform.position.z].obj);
                     map_creat.map_item[(int)transform.position.x, (int)transform.position.z] = new clean();
                 }
-                else if (map_creat.map_item[(int)transform.position.x, (int)transform.position.z].name == "魔力の結晶（極稀）")
+                else if (map_creat.map_item[(int)transform.position.x, (int)transform.position.z].name == GameManager.instance.material_state_data.sheets[0].list[2].price_name_string)
                 {
                     GameManager.instance.possession_material_3++;
                     Destroy(map_creat.map_item[(int)transform.position.x, (int)transform.position.z].obj);
                     map_creat.map_item[(int)transform.position.x, (int)transform.position.z] = new clean();
                 }
+                else { Debug.Log(map_creat.map_item[(int)transform.position.x, (int)transform.position.z].name); }
             }
             else if (map_creat.map_item[(int)transform.position.x, (int)transform.position.z].number == 2)
             {
                 if (GameManager.instance.possessionweaponlist.Count < GameManager.instance.MAX_WEAPON)
                 {
-                    GameManager.instance.AddMainText("クエリは" + map_creat.map_item[(int)transform.position.x, (int)transform.position.z].name + "を拾った。");
+                    GameManager.instance.AddMainText(GameManager.instance.player_state_data.sheets[0].list[0].price_name_string + "は" + map_creat.map_item[(int)transform.position.x, (int)transform.position.z].name + "を拾った。");
 
                     GameManager.instance.AddListWeapon(map_creat.map_item[(int)transform.position.x, (int)transform.position.z]);
                     Destroy(map_creat.map_item[(int)transform.position.x, (int)transform.position.z].obj);
@@ -603,11 +603,11 @@ public class Player_script : MonoBehaviour {
         player.player_hp -= damage;
         if (damage > 0)
         {
-            GameManager.instance.AddMainText("クエリは" + damage + "のダメージを受けた。");
+            GameManager.instance.AddMainText(GameManager.instance.player_state_data.sheets[0].list[0].price_name_string + "は" + damage + "のダメージを受けた。");
         }
         else
         {
-            GameManager.instance.AddMainText("クエリはダメージを受けなかった。");
+            GameManager.instance.AddMainText(GameManager.instance.player_state_data.sheets[0].list[0].price_name_string + "はダメージを受けなかった。");
         }
         GameManager.instance.Hp_Bar();
         GameManager.instance.HP_Text();
@@ -689,7 +689,7 @@ public class Player_script : MonoBehaviour {
         //攻撃方法によってアニメーション変更
         if (Player_Animation == 0)
         {
-            GameManager.instance.AddMainText("クエリの攻撃。");
+            GameManager.instance.AddMainText(GameManager.instance.player_state_data.sheets[0].list[0].price_name_string + "の攻撃。");
             myAnimator.SetInteger("AnimIndex", 2);
 
             yield return null;
@@ -751,12 +751,17 @@ public class Player_script : MonoBehaviour {
                     }
                     else if (GameManager.instance.damageenemy[i].state.HP <= 0)
                     {
+                        int get_exp = GameManager.instance.damageenemy[i].state.POSSESSION_EXP;
+                        
                         enemyAnimator.SetInteger("AnimIndex", 4);
 
                         yield return null;
                         yield return new AnimationWait(enemyAnimator, 0);
                         yield return null;
                         GameManager.instance.damageenemy[i].enemy_script.enemydie(GameManager.instance.damageenemy[i].state.name);
+                        GameManager.instance.AddMainText(GameManager.instance.player_state_data.sheets[0].list[0].price_name_string + "は" + get_exp + "の経験値を手に入れた");
+
+                        Player_Experience_Get(get_exp);
                     }
 
                     enemyAnimator.SetInteger("AnimIndex", 0);
@@ -1199,8 +1204,61 @@ public class Player_script : MonoBehaviour {
     {
         StartCoroutine(SmoothAttack(attack_range, attack_type, slanting_wall, attack_through, attack, Color.white, attack_animation /*通常攻撃*/));
     }
-    
 
+    private void Player_Experience_Get(int get_exp)
+    {
+        player.player_experience += get_exp;
+
+        Player_Level_Up();
+    }
+
+    public void Player_Level_Up()
+    {
+        if(player.player_level * player.player_level * GameManager.instance.player_state_data.sheets[0].list[0].price_player_level_up_need_coefficient <= player.player_experience)
+        {
+            player.player_level++;
+
+            Player_New_State_Update();
+        }
+        
+    }
+
+    private void Player_New_State_Update()
+    {
+        int HP_W = 0;
+        int ATTACK_W = 0;
+        int DEFENSE_W = 0;
+
+        if (player.equipment_weapon != null)
+        {
+            HP_W = player.equipment_weapon.HP_W;
+            ATTACK_W = player.equipment_weapon.ATTACK_W;
+            DEFENSE_W = player.equipment_weapon.DEFENSE_W;
+        }
+
+        player.player_origin_hp = player.player_origin_hp + GameManager.instance.player_state_data.sheets[0].list[0].price_player_hp_up_coefficient;
+        player.player_MAX_hp = player.player_origin_hp + HP_W;
+        player.player_hp = player.player_MAX_hp;
+
+        player.player_origin_mp = player.player_origin_mp + GameManager.instance.player_state_data.sheets[0].list[0].price_player_mp_up_coefficient;
+        player.player_MAX_mp = player.player_origin_mp;
+        player.player_mp = player.player_MAX_mp;
+
+        player.player_origin_attack = player.player_origin_attack + GameManager.instance.player_state_data.sheets[0].list[0].price_player_attack_up_coefficient;
+        player.player_attack = player.player_origin_attack + ATTACK_W;
+
+        player.player_origin_defense = player.player_origin_defense + GameManager.instance.player_state_data.sheets[0].list[0].price_player_defense_up_coefficient;
+        player.player_defense = player.player_origin_defense + DEFENSE_W;
+
+        GameManager.instance.Hp_Bar();
+        GameManager.instance.HP_Text();
+        GameManager.instance.Mp_Bar();
+        GameManager.instance.MP_Text();
+
+        GameManager.instance.AddMainText("レベルアップ");
+        GameManager.instance.AddMainText(GameManager.instance.player_state_data.sheets[0].list[0].price_name_string + "はレベルが" + player.player_level + "になった。");
+    }
+    
 
 }
 
