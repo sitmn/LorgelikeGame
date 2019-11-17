@@ -118,6 +118,10 @@ public class GameManager : MonoBehaviour {
     public GameObject MenuScreen;
 
     public bool map_active;
+    public bool main_text_scroll;
+    private int text_scroll_frame;
+
+    RectTransform[] Main_Text_Transform;
 
     //スマホ用移動ボタン
     public bool up_left_button;
@@ -154,6 +158,7 @@ public class GameManager : MonoBehaviour {
         floor_level_coefficient = game_system_data.sheets[0].list[4].price_float;
         moveTime = game_system_data.sheets[0].list[5].price_float;
         enemy_probability = game_system_data.sheets[0].list[6].price_int;
+        text_scroll_frame = game_system_data.sheets[0].list[7].price_int;
 
 
 
@@ -204,6 +209,8 @@ public class GameManager : MonoBehaviour {
 
         damageenemy = new List<map_exist>();
 
+        Main_Text_Transform = new RectTransform[3];
+
         //コンポーネントを取得
 
         mapscript = GetComponent<map_creat>();
@@ -214,6 +221,11 @@ public class GameManager : MonoBehaviour {
         mp_slider = MP_SLIDER.GetComponent<Slider>();
 
         heel = GetComponent<AudioSource>();
+
+        Main_Text_Transform[0] = MainText[0].GetComponent<RectTransform>();
+        Main_Text_Transform[1] = MainText[1].GetComponent<RectTransform>();
+        Main_Text_Transform[2] = MainText[2].GetComponent<RectTransform>();
+
         //マップ生成
 
         floor_level_coefficient = 1.1f;
@@ -434,41 +446,39 @@ public class GameManager : MonoBehaviour {
         TEXT.text = sentence;
 
         MainTexts.Add(TEXT);
-        
 
-        if(MainText[0].text == "")
-        {
-            MainText[0].text = MainTexts[MainTexts.Count - 1].text;
-        }else if(MainText[1].text == ""){
-
-            MainText[0].text = MainTexts[MainTexts.Count - 2].text;
-            MainText[1].text = MainTexts[MainTexts.Count - 1].text;
-        }
-        else
-        {
-            if (MainTexts.Count > 2)
-            {
-                MainText[0].text = MainTexts[MainTexts.Count - 3].text;
-                MainText[1].text = MainTexts[MainTexts.Count - 2].text;
-                MainText[2].text = MainTexts[MainTexts.Count - 1].text;
-            }
-            else if (MainTexts.Count == 2)
-            {
-                MainText[0].text = MainTexts[MainTexts.Count - 2].text;
-                MainText[1].text = MainTexts[MainTexts.Count - 1].text;
-            }
-            else if (MainTexts.Count == 1)
-            {
-                MainText[0].text = MainTexts[MainTexts.Count - 1].text;
-            }
-        }
         //保存した文章を古いものから削除
         if (MainTexts.Count > MAX_TEXT)
         {
             MainTexts.RemoveAt(0);
         }
 
-        Invoke("Text_Chancel", 3);
+        //既にテキストが3行表示されている場合、テクストをスクロール
+        if (MainText[2].text != "")
+        {
+            main_text_scroll = true;
+            StartCoroutine(Main_Text_Scroll());
+            
+        }
+        else
+        {
+            if (MainText[0].text == "")
+            {
+                MainText[0].text = MainTexts[MainTexts.Count - 1].text;
+            }
+            else if (MainText[1].text == "")
+            {
+
+                MainText[1].text = MainTexts[MainTexts.Count - 1].text;
+            }
+            else if (MainText[2].text == "")
+            {
+
+                MainText[2].text = MainTexts[MainTexts.Count - 1].text;
+            }
+            
+            Invoke("Text_Chancel", 3);
+        }
     }
     //文章の表示を削除
     void Text_Chancel()
@@ -476,6 +486,30 @@ public class GameManager : MonoBehaviour {
         MainText[0].text = "";
         MainText[1].text = "";
         MainText[2].text = "";
+    }
+
+    IEnumerator Main_Text_Scroll()
+    {
+        MainText[0].gameObject.SetActive(false);
+
+        for (int yield_count = 0; yield_count < text_scroll_frame; yield_count++)
+        {
+            for (int i = 1; i < 3; i++)
+            {
+                Main_Text_Transform[i].localPosition += new Vector3(0, 120 / text_scroll_frame, 0);
+            }
+            yield return null;
+        }
+
+        MainText[0].gameObject.SetActive(true);
+        MainText[0].text = MainTexts[MainTexts.Count - 3].text;
+        MainText[1].text = MainTexts[MainTexts.Count - 2].text;
+        MainText[2].text = MainTexts[MainTexts.Count - 1].text;
+        
+        Main_Text_Transform[1].localPosition = new Vector3(0, 0, 0);
+        Main_Text_Transform[2].localPosition = new Vector3(0, -120, 0);
+
+        main_text_scroll = false;
     }
 
     //HP,MPテキストとバー表示

@@ -43,3 +43,7 @@ MonoBehaviour:
       name: enemy_probability
       price_int: 2
       price_float: 0
+    - id: system8
+      name: text_scroll_frame
+      price_int: 4
+      price_float: 0
